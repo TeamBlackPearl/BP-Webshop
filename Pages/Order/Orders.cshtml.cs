@@ -11,8 +11,8 @@ namespace BP_Webshop.Pages.Order
 {
     public class OrdersModel : PageModel
     {
-        public UserService UserService { get; set;  }
-
+        public UserService UserService { get;  }
+        
         //IEnumrable
         public IEnumerable<Models.Order> Orders { get; set; }
 
