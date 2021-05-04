@@ -31,5 +31,6 @@ namespace BP_Webshop.Models
             AverageRating = averageRating;
             ImageLink = imageLink;
         }
+
     }
 }
