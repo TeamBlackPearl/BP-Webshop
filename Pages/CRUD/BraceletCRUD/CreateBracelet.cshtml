@@ -1,0 +1,68 @@
+﻿@page
+@model BP_Webshop.Pages.CRUD.BraceletCRUD.CreateBraceletModel
+@{
+}
+<h1>Create a new Bracelet</h1>
+
+<br />
+<form method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    @*<div class="form-group">
+            <label asp-for="@Model.Pizza.Id" class="control-label">Id</label>
+            <input asp-for="@Model.Pizza.Id" class="form-control" />
+            <span asp-validation-for="@Model.Pizza.Id" class="text-danger"></span>
+        </div>*@
+    <div class="form-group">
+        <label asp-for="@Model.Bracelet.JewelryTitle" class="control-label">Title</label>
+        <input asp-for="@Model.Bracelet.JewelryTitle" class="form-control" />
+        <span asp-validation-for="@Model.Bracelet.JewelryTitle" class="text-danger"></span>
+
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.Bracelet.Description" class="control-label">Description</label>
+        <input asp-for="@Model.Bracelet.Description" class="form-control" />
+        <span asp-validation-for="@Model.Bracelet.Description" class="text-danger"></span>
+
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.Bracelet.Color" class="control-label">Color</label>
+        <input asp-for="@Model.Bracelet.Color" class="form-control" />
+        <span asp-validation-for="@Model.Bracelet.Color" class="text-danger"></span>
+
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.Bracelet.Price" class="control-label">Price</label>
+        <input asp-for="@Model.Bracelet.Price" class="form-control" />
+        <span asp-validation-for="@Model.Bracelet.Price" class="text-danger"></span>
+
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.Bracelet.AverageRating" class="control-label">Avg Rating</label>
+        <input asp-for="@Model.Bracelet.AverageRating" class="form-control" />
+        <span asp-validation-for="@Model.Bracelet.AverageRating" class="text-danger"></span>
+
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.Bracelet.ImageLink" class="control-label">Image Name</label>
+        <input asp-for="@Model.Bracelet.ImageLink" class="form-control" />
+        <span asp-validation-for="@Model.Bracelet.ImageLink" class="text-danger"></span>
+
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.Bracelet.BraceletLength" class="control-label">Length</label>
+        <input asp-for="@Model.Bracelet.BraceletLength" class="form-control" />
+        <span asp-validation-for="@Model.Bracelet.BraceletLength" class="text-danger"></span>
+
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.Bracelet.BraceletWidth" class="control-label">Width</label>
+        <input asp-for="@Model.Bracelet.BraceletWidth" class="form-control" />
+        <span asp-validation-for="@Model.Bracelet.BraceletWidth" class="text-danger"></span>
+
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Create" class="btn btn-primary" />
+        <a asp-page="/index" class="btn btn-danger">Cancel</a>
+    </div>
+</form>
