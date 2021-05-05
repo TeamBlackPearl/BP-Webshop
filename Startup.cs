@@ -35,6 +35,8 @@ namespace BP_Webshop
             services.AddSingleton<AdminService, AdminService>();
             services.AddSingleton<BraceletService, BraceletService>();
             services.AddSingleton<NecklaceService, NecklaceService>();
+            services.AddSingleton<EarringService, EarringService>();
+
 
 
             //services.AddTransient<GenericCRUDMethods<Jewelry>, GenericCRUDMethods<Jewelry>>();
