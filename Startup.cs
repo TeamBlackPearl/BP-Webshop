@@ -27,10 +27,6 @@ namespace BP_Webshop
         {
             services.AddRazorPages();
 
-            //services.AddTransient<NecklaceService, NecklaceService>();
-            services.AddTransient<DbGenericService<Necklace>, DbGenericService<Necklace>>();
-
-
             services.AddDbContext<BlackPDbContext>();
 
             //Add Userservice
@@ -38,7 +34,9 @@ namespace BP_Webshop
             services.AddSingleton<OrderService, OrderService>();
             services.AddSingleton<AdminService, AdminService>();
             services.AddSingleton<BraceletService, BraceletService>();
+            services.AddSingleton<NecklaceService, NecklaceService>();
             services.AddSingleton<EarringService, EarringService>();
+
 
 
             //services.AddTransient<GenericCRUDMethods<Jewelry>, GenericCRUDMethods<Jewelry>>();
