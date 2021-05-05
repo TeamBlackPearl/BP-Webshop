@@ -7,10 +7,6 @@
 
 <br/>
 <form>
-    @*<p>
-        Search: <input type="text" asp-for="FilterCriteria"/>
-        <input type="submit" value="Filter"/>
-    </p>*@
     <p>
         <a asp-page="CreateBracelet" class="btn btn-light">Create a new Bracelet</a>
     </p>
@@ -46,8 +42,8 @@
                 <td>@bracelet.BraceletWidth</td>
                 <td>
                     @*Call to action buttons*@
-                    <a class="btn" asp-page="EditPizza" asp-route-id="@bracelet.JewelryID"><i class="fa fa-pencil"></i></a>
-                    <a class="btn" asp-page="DeletePizza" asp-route-id="@bracelet.JewelryID"><i class="fa fa-trash"></i></a>
+                    <a class="btn" asp-page="EditBracelet" asp-route-id="@bracelet.JewelryID"><i class="fa fa-pencil"></i></a>
+                    <a class="btn" asp-page="DeleteBracelet" asp-route-id="@bracelet.JewelryID"><i class="fa fa-trash"></i></a>
                 </td>
             </tr>
         }
