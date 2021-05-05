@@ -9,31 +9,33 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace BP_Webshop.Pages.CRUD.BraceletCRUD
 {
-    public class CreateBraceletModel : PageModel
+    public class EditBraceletModel : PageModel
     {
         private BraceletService braceletService;
-        private List<Bracelet> bracelets;
 
         [BindProperty]
         public Bracelet Bracelet { get; set; }
 
-        public CreateBraceletModel(BraceletService braceletService)
+        public EditBraceletModel(BraceletService braceService)
         {
-            this.braceletService = braceletService;
+            braceletService = braceService;
         }
 
-        public IActionResult OnGet()
+        public IActionResult OnGet(int id)
         {
+            Bracelet = braceletService.GetBracelet(id);
+            if (Bracelet == null)
+            {
+                RedirectToPage("/NotFound");
+            }
+
             return Page();
         }
 
-        public async Task<IActionResult> OnPostAsync()
+        public async Task<IActionResult> OnPostAsync(int id)
         {
-            if (!ModelState.IsValid)
-            {
-                return Page();  
-            }
-            await braceletService.AddBraceletAsync(Bracelet);
+            Bracelet = braceletService.GetBracelet(id);
+            await braceletService.UpdateBraceletAsync(Bracelet);
             return RedirectToPage("AllBracelets");
         }
 
