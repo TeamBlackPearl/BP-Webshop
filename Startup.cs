@@ -32,6 +32,20 @@ namespace BP_Webshop
 
             //Add Userservice
             services.AddSingleton<UserService, UserService>();
+            services.AddSingleton<OrderService, OrderService>();
+            services.AddSingleton<AdminService, AdminService>();
+
+            services.AddTransient<GenericCRUDMethods<Jewelry>, GenericCRUDMethods<Jewelry>>();
+            services.AddTransient<GenericCRUDMethods<Earring>, GenericCRUDMethods<Earring>>();
+            services.AddTransient<GenericCRUDMethods<Necklace>, GenericCRUDMethods<Necklace>>();
+            services.AddTransient<GenericCRUDMethods<Bracelet>, GenericCRUDMethods<Bracelet>>();
+            services.AddTransient<GenericCRUDMethods<HeadJewelry>, GenericCRUDMethods<HeadJewelry>>();
+            services.AddTransient<GenericCRUDMethods<Ring>, GenericCRUDMethods<Ring>>();
+            services.AddTransient<GenericCRUDMethods<Order>, GenericCRUDMethods<Order>>();
+            services.AddTransient<GenericCRUDMethods<OrderLine>, GenericCRUDMethods<OrderLine>>();
+            services.AddTransient<GenericCRUDMethods<User>, GenericCRUDMethods<User>>();
+            services.AddTransient<GenericCRUDMethods<AdminUser>, GenericCRUDMethods<AdminUser>>();
+
 
         }
 
@@ -54,6 +68,7 @@ namespace BP_Webshop
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
