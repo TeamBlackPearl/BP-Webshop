@@ -7,5 +7,6 @@ namespace BP_Webshop.Services
 {
     public class AdminService
     {
+        
     }
 }
