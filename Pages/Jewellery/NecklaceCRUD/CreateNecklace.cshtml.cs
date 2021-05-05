@@ -7,9 +7,9 @@ using BP_Webshop.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace BP_Webshop.Pages.CRUD
+namespace BP_Webshop.Pages.Jewellery.NecklaceCRUD
 {
-    public class AddNecklaceModel : PageModel
+    public class CreateNecklaceModel : PageModel
     {
         private NecklaceService necklaceService;
         private List<Necklace> necklaces;
@@ -17,10 +17,10 @@ namespace BP_Webshop.Pages.CRUD
         [BindProperty]
         public Necklace Necklace { get; set; }
 
-        public AddNecklaceModel(NecklaceService ns)
+        public CreateNecklaceModel(NecklaceService necklaceService)
         {
-            necklaceService = ns;
-            necklaces = necklaceService.GetNecklaces().ToList();
+            this.necklaceService = necklaceService;
+            
         }
         public IActionResult OnGet()
         {
@@ -33,8 +33,9 @@ namespace BP_Webshop.Pages.CRUD
             {
                 return Page();
             }
+
             await necklaceService.AddNecklace(Necklace);
-            return RedirectToPage("/Index");
+            return RedirectToPage("Index");
         }
     }
 }

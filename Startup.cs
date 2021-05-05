@@ -26,7 +26,7 @@ namespace BP_Webshop
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
-            
+
             services.AddDbContext<BlackPDbContext>();
 
             //Add Userservice
@@ -34,6 +34,7 @@ namespace BP_Webshop
             services.AddSingleton<OrderService, OrderService>();
             services.AddSingleton<AdminService, AdminService>();
             services.AddSingleton<BraceletService, BraceletService>();
+            services.AddSingleton<NecklaceService, NecklaceService>();
 
 
             //services.AddTransient<GenericCRUDMethods<Jewelry>, GenericCRUDMethods<Jewelry>>();

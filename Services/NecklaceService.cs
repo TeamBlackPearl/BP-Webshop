@@ -28,5 +28,51 @@ namespace BP_Webshop.Services
         {
             return necklaces;
         }
+
+        public Necklace GetNecklace(int id)
+        {
+            foreach (var necklace in necklaces)
+            {
+                if (necklace.JewelryID == id)
+                {
+                    return necklace;
+                }
+            }
+
+            return null;
+        }
+
+        public async Task DeleteNecklaceAsync(int id)
+        {
+            Necklace necklaceToDelete = necklaces.Find(necklace => necklace.JewelryID == id);
+            if (necklaceToDelete != null)
+            {
+                necklaces.Remove(necklaceToDelete);
+                await DbCrudMethods.DeleteObjectAsync(necklaceToDelete);
+            }
+        }
+
+        public async Task UpdateNecklaceAsync(Necklace Necklace)
+        {
+            if (Necklace != null)
+            {
+                foreach (var necklace in necklaces)
+                {
+                    if (necklace.JewelryID == necklace.JewelryID)
+                    {
+                        necklace.JewelryTitle = Necklace.JewelryTitle;
+                        necklace.Description = Necklace.Description;
+                        necklace.Color = Necklace.Color;
+                        necklace.Price = Necklace.Price;
+                        necklace.AverageRating = Necklace.AverageRating;
+                        necklace.ImageLink = Necklace.ImageLink;
+                        necklace.NecklaceLength = Necklace.NecklaceLength;
+                        necklace.NecklaceWidth = Necklace.NecklaceWidth;
+                    }
+                }
+
+                await DbCrudMethods.UpdateObjectAsync(Necklace);
+            }
+        }
     }
 }
