@@ -1,0 +1,56 @@
+﻿@page
+@model BP_Webshop.Pages.CRUD.AllBraceletsModel
+@{
+}
+
+<h1>Pizza Catalog</h1>
+
+<br/>
+@*<form>
+    <p>
+        Search: <input type="text" asp-for="FilterCriteria"/>
+        <input type="submit" value="Filter"/>
+    </p>
+    <p>
+        <a asp-page="CreatePizza" class="btn btn-light">Create a new Pizza</a>
+    </p>
+</form>*@
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Color</th>
+        <th>Price</th>
+        <th>Average Rating</th>
+        <th>Image Name</th>
+        <th>Tools</th>
+    </tr>
+    </thead>
+    <tbody>
+    @if (@Model.Bracelet != null)
+    {
+        @foreach (var bracelet in Model.bracelets)
+        {
+            <tr>
+                <td>@bracelet.JewelryID</td>
+                <td>@bracelet.JewelryTitle</td>
+                <td>@bracelet.Description</td>
+                <td>@bracelet.Color</td>
+                <td>@bracelet.Price</td>
+                <td>@bracelet.AverageRating</td>
+                <td><img src="/Images/@bracelet.ImageLink" width="80" height="auto"/></td>
+                <td>@bracelet.BraceletLength</td>
+                <td>@bracelet.BraceletWidth</td>
+                <td>
+                    @*Call to action buttons*@
+                    <a class="btn" asp-page="EditPizza" asp-route-id="@bracelet.JewelryID"><i class="fa fa-pencil"></i></a>
+                    <a class="btn" asp-page="DeletePizza" asp-route-id="@bracelet.JewelryID"><i class="fa fa-trash"></i></a>
+                </td>
+            </tr>
+        }
+    }
+    </tbody>
+</table>
