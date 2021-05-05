@@ -16,11 +16,37 @@ namespace BP_Webshop.Services
             
         }
 
-        public void AddUser(User user)
+        public void AddUser(User users)
         {
-            UsersList.Add(user);
+            UsersList.Add(users);
             //Jsonfileservice
             //DBService.AddObjectAsync
+        }
+        
+        //den tjekker om email allerede er i brug. retuner true hvis den er.
+        // <param name="email">Email af den user der forsøger at registere sig.</param>
+        public bool IsEmailInUse(string email)
+        {
+            // tjekker om alle users i userslist, om nye email matcher en af de allerede eksisterende.
+            return UsersList.Any(u => u.Email == email); 
+        }
+
+        //Validere om user taster correct password og sit username.
+        //Returner User object hvis det eksistere.
+        //bool - true false
+        //Lampda syntax
+        public bool ValidateLogin( string email, string password)
+        {
+            if (IsEmailInUse(email))
+            {
+                //tjekker om pass matcher pass
+                if (UsersList.Any(u=>u.Password == password)) 
+                {
+                    return true;
+                }
+            }
+            //else retuner false
+            return false;
         }
     }
 }
