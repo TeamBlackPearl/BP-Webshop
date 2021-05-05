@@ -37,7 +37,7 @@ namespace BP_Webshop.Pages.Jewellery.EarringCrud
             }
 
             await _earringService.AddEarringAsync(Earring);
-            return RedirectToPage("/Index");
+            return RedirectToPage("AllEarrings");
         }
     }
 }

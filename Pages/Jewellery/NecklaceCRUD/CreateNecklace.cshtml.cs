@@ -35,7 +35,7 @@ namespace BP_Webshop.Pages.Jewellery.NecklaceCRUD
             }
 
             await necklaceService.AddNecklace(Necklace);
-            return RedirectToPage("Index");
+            return RedirectToPage("AllNecklaces");
         }
     }
 }

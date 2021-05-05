@@ -27,14 +27,18 @@
             <div class="form-group">
                 <label class="control-lable">Pris:</label>
                 <input asp-for="@Model.Earring.Price" class="form-control" />
-            </div> 
+            </div>
             <div class="form-group">
-                <label class="control-lable">Tlf.</label>
-                <input asp-for="@Model.Earring.EarringLength" class="form-control" />
+                <label class="control-lable">Gennemsitlig Rating:</label>
+                <input asp-for="@Model.Earring.AverageRating" class="form-control" />
             </div>
             <div class="form-group">
                 <label class="control-lable">Billede af produkt:</label>
-                <img src="@Model.Earring.ImageLink" width="100px" height="100px">
+                <input asp-for="@Model.Earring.ImageLink" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label class="control-lable">Længde:</label>
+                <input asp-for="@Model.Earring.EarringLength" class="form-control" />
             </div>
             <div class="form-group">
                 <input type="submit" value="Opret" class="btn btn-dark" />
