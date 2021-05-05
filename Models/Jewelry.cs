@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Runtime;
 using System.Threading.Tasks;
@@ -8,6 +10,8 @@ namespace BP_Webshop.Models
 {
     public class Jewelry
     {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int JewelryID { get; set; }
         public string JewelryTitle { get; set; }
         public string Description { get; set; }
