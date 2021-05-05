@@ -1,0 +1,49 @@
+﻿@page
+@model BP_Webshop.Pages.Jewellery.NecklaceCRUD.AllNecklacesModel
+@{
+
+    <form>
+            
+            <p>
+                <a asp-page="CreateNecklace" class="btn btn-light">Add Necklace</a>
+            </p>
+        </form>
+}
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Color</th>
+            <th>Price</th>
+            <th>Average Rating</th>
+            <th>Image Name</th>
+            <th>Tools</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (@Model.Necklace != null)
+        {
+            @foreach (var necklace in Model.necklaces)
+            {
+                <tr>
+                    <td>@necklace.JewelryID</td>
+                    <td>@necklace.JewelryTitle</td>
+                    <td>@necklace.Description</td>
+                    <td>@necklace.Color</td>
+                    <td>@necklace.Price</td>
+                    <td>@necklace.AverageRating</td>
+                    <td><img src="/Images/@necklace.ImageLink" width="80" height="auto" /></td>
+                    <td>@necklace.NecklaceLength</td>
+                    <td>@necklace.NecklaceWidth</td>
+                    <td>
+                        @*Call to action buttons*@
+                        <a class="btn" asp-page="EditNecklace" asp-route-id="@necklace.JewelryID"><i class="fa fa-pencil"></i></a>
+                        <a class="btn" asp-page="DeleteNecklace" asp-route-id="@necklace.JewelryID"><i class="fa fa-trash"></i></a>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
