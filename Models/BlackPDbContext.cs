@@ -22,7 +22,7 @@ namespace BP_Webshop.Models
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderLine> OrderLines { get; set; }
         public DbSet<Ring> Rings { get; set; }
-        public DbSet<Jewelry> Jewelries { get; set; }
+        //public DbSet<Jewelry> Jewelries { get; set; }
 
     }
 }
