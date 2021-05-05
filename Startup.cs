@@ -9,6 +9,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using BP_Webshop.Models;
+using BP_Webshop.Services;
+
 
 namespace BP_Webshop
 {
@@ -25,8 +27,11 @@ namespace BP_Webshop
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
+
             services.AddDbContext<BlackPDbContext>();
 
+            //Add Userservice
+            services.AddSingleton<UserService, UserService>();
 
         }
 
