@@ -12,12 +12,12 @@ namespace BP_Webshop.Pages.Jewellery.NecklaceCRUD
     public class AllNecklacesModel : PageModel
     {
         private NecklaceService necklaceService;
-        public List<Necklace> necklaces;
+        public List<Necklace> necklaces { get; set; }
 
         [BindProperty]
         public Necklace Necklace { get; set; }
 
-        public AllNecklacesModel(NecklaceService necklaceService, List<Necklace> necklaces)
+        public AllNecklacesModel(NecklaceService necklaceService)
         {
             this.necklaceService = necklaceService;
             

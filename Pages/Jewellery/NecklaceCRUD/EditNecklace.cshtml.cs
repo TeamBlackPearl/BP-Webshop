@@ -18,7 +18,7 @@ namespace BP_Webshop.Pages.Jewellery.NecklaceCRUD
 
         public EditNecklaceModel(NecklaceService necklaceService)
         {
-            necklaceService = necklaceService;
+            this.necklaceService = necklaceService;
         }
         public IActionResult OnGet(int id)
         {

@@ -10,10 +10,9 @@ namespace BP_Webshop.Models
     {
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
-            //options.UseSqlServer(@"Data Source=;Initial Catalog=BlackPearl-DB; Integrated Security=True; Connect Timeout=30; Encrypt=False");
+            options.UseSqlServer(@"Data Source=(LocalDB)\MSSQLLocalDB;Initial Catalog=BlackPearl-DB; Integrated Security=True; Connect Timeout=30; Encrypt=False");
 
-            //options.UseSqlServer(@"Data Source = ebrusqlserver.database.windows.net; Initial Catalog = BlackPearl-DBV1; User ID = ebru0152; Password=ZeaKMGFC!2; Connect Timeout = 30; Encrypt=True;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
-            options.UseSqlServer(@"Data Source=ebrusqlserver.database.windows.net;Initial Catalog=BlackPearl-DBV2;User ID=ebru0152;Password=ZeaKMGFC!2;Connect Timeout=30;Encrypt=True;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+            //options.UseSqlServer(@"Data Source=ebrusqlserver.database.windows.net;Initial Catalog=BlackPearl-DBV2;User ID=ebru0152;Password=ZeaKMGFC!2;Connect Timeout=30;Encrypt=True;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
 
         }
 
