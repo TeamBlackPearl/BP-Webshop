@@ -11,7 +11,6 @@ using System.Threading.Tasks;
 using BP_Webshop.Models;
 using BP_Webshop.Services;
 
-
 namespace BP_Webshop
 {
     public class Startup
@@ -27,6 +26,10 @@ namespace BP_Webshop
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
+
+            services.AddTransient<NecklaceService, NecklaceService>();
+            services.AddTransient<DbGenericService<Necklace>, DbGenericService<Necklace>>();
+
 
             services.AddDbContext<BlackPDbContext>();
 
@@ -46,6 +49,7 @@ namespace BP_Webshop
             services.AddTransient<GenericCRUDMethods<OrderLine>, GenericCRUDMethods<OrderLine>>();
             services.AddTransient<GenericCRUDMethods<User>, GenericCRUDMethods<User>>();
             services.AddTransient<GenericCRUDMethods<AdminUser>, GenericCRUDMethods<AdminUser>>();
+
 
 
         }
