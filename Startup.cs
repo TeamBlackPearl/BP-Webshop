@@ -26,11 +26,7 @@ namespace BP_Webshop
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
-
-            //services.AddTransient<NecklaceService, NecklaceService>();
-            services.AddTransient<DbGenericService<Necklace>, DbGenericService<Necklace>>();
-
-
+            
             services.AddDbContext<BlackPDbContext>();
 
             //Add Userservice
