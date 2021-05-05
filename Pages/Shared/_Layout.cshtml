@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - BP_Webshop</title>
+    <title>@ViewData["Title"] - Black Pearl Webshop</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
@@ -13,14 +13,14 @@
         <div class="navbar">
             <a href="#home">earring</a>
         </div>
-        
+
         <div class="SubMenu">
 
         </div>
 
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-page="/Index">BP_Webshop</a>
+                <a class="navbar-brand" asp-area="" asp-page="/Index">Black Pearl Webshop</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -36,12 +36,25 @@
                         <li class="nav-item">
                             <a class="nav-link" asp-area="" asp-page="/Account/CreateUser">Create User</a>
                         </li>
+
                         <li class="nav-item">
                             <a class="nav-link" asp-area="" asp-page="/Account/LogIn">Login</a>
                         </li>
                         <li class="nav-item">
+
+                            <a class="nav-link" asp-area="" asp-page="/Jewellery/EarringCrud/CreateEarring">Create earring</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-page="/Jewellery/EarringCrud/DeleteEarring">delete earring</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-page="/Jewellery/EarringCrud/UpdateEarring">update earring</a>
+                        </li>
+
+
                             <a class="nav-link" asp-area="" asp-page="/CRUD/BraceletCRUD/CreateBracelet">Create Bracelet</a>
                         </li>
+
                     </ul>
                 </div>
             </div>

@@ -9,20 +9,24 @@ namespace BP_Webshop.Services
     public class NecklaceService
     {
         private List<Necklace> necklaces;
-        
-        public DbGenericService<Necklace> DbService { get; set; }
 
-        public NecklaceService(DbGenericService<Necklace> dbService)
+        public GenericCRUDMethods<Necklace> DbCrudMethods { get; set; }
+
+        public NecklaceService(GenericCRUDMethods<Necklace> dbCrudMethods)
         {
-            DbService = dbService;
-
-            //necklaces = dbService.GetObjectsAsync().Result.ToList();
+            DbCrudMethods = dbCrudMethods;
+            necklaces = dbCrudMethods.GetObjectsAsync().Result.ToList();
 
         }
-        public void AddNecklace(Necklace necklace)
+        public async Task AddNecklace(Necklace necklace)
         {
             necklaces.Add(necklace);
-            DbService.AddObjectAsync(necklace);
+            await DbCrudMethods.AddObjectAsync(necklace);
+        }
+
+        public IEnumerable<Necklace> GetNecklaces()
+        {
+            return necklaces;
         }
     }
 }

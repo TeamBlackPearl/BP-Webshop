@@ -1,0 +1,51 @@
+﻿@page
+@model BP_Webshop.Pages.Jewellery.EarringCrud.UpdateEaringModel
+@{
+}
+
+<h2>Update a earring</h2>
+
+
+<div class="row">
+
+    <div class="col-4"></div>
+
+    <div class="col-4 align-content-center">
+        @* Post method *@
+        <form method="post">
+            <div class="form-group">
+                <label class="control-lable">Titel:</label>
+                <input asp-for="@Model.Earring.JewelryTitle" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label class="control-lable">Beskrivelse</label>
+                <input asp-for="@Model.Earring.Description" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label class="control-lable">Color:</label>
+                <input asp-for="@Model.Earring.Color" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label class="control-lable">Pris:</label>
+                <input asp-for="@Model.Earring.Price" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label class="control-lable">Tlf.</label>
+                <input asp-for="@Model.Earring.EarringLength" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label class="control-lable">Billede af produkt:</label>
+                <img src="@Model.Earring.ImageLink" width="100px" height="100px">
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Opret" class="btn btn-dark" />
+            </div>
+        </form>
+
+        <div class="col-4"></div>
+
+    </div>
+</div>
+<div>
+    <a asp-page="/Index">Tilbage</a>
+</div>

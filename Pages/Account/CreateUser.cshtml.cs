@@ -19,7 +19,8 @@ namespace BP_Webshop.Pages.Account
         /// DataType as password, means that we will see the password field in non readable format.
         /// </summary>
         private UserService _userService;
-        //PasswordHasher
+
+        //PasswordHasher- kryptering
         private PasswordHasher<string> passwordHasher;
 
         [BindProperty]
@@ -49,15 +50,15 @@ namespace BP_Webshop.Pages.Account
         {
         }
 
-        public IActionResult OnPost()
-        {
-            if (!ModelState.IsValid)
-            {
-                return Page();
-            }
+        //public IActionResult OnPost()
+        //{
+        //    if (!ModelState.IsValid)
+        //    {
+        //        return Page();
+        //    }
 
-            _userService.AddUser(new User(Id, FirstName, LastName, Address, PhoneNumber, Email, passwordHasher.HashPassword(null, Password)));
-            return RedirectToPage("/Index");
-        }
+        //    _userService.AddUser(new User(Id, FirstName, LastName, Address, PhoneNumber, Email, passwordHasher.HashPassword(null, Password)));
+        //    return RedirectToPage("/Index");
+        //}
     }
 }

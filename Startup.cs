@@ -27,7 +27,7 @@ namespace BP_Webshop
         {
             services.AddRazorPages();
 
-            services.AddTransient<NecklaceService, NecklaceService>();
+            //services.AddTransient<NecklaceService, NecklaceService>();
             services.AddTransient<DbGenericService<Necklace>, DbGenericService<Necklace>>();
 
 
