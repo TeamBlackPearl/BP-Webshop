@@ -10,7 +10,7 @@ namespace BP_Webshop.Services
     public class BraceletService
     {
         public List<Bracelet> Bracelets { get; set; }
-        private GenericCRUDMethods<Bracelet> CrudMethods;
+        private GenericCRUDMethods<Bracelet> CrudMethods { get; set; }
 
         public BraceletService(GenericCRUDMethods<Bracelet> crudMethods)
         {

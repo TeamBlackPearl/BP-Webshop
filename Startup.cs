@@ -27,7 +27,6 @@ namespace BP_Webshop
         {
             services.AddRazorPages();
 
-
             services.AddDbContext<BlackPDbContext>();
 
             //Add Userservice

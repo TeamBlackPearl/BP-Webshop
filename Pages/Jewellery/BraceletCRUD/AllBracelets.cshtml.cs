@@ -12,7 +12,7 @@ namespace BP_Webshop.Pages.CRUD
     public class AllBraceletsModel : PageModel
     {
         private BraceletService braceletService;
-        public List<Bracelet> bracelets;
+        public List<Bracelet> bracelets { get; set; }
 
         [BindProperty]
         public Bracelet Bracelet { get; set; }
@@ -29,7 +29,7 @@ namespace BP_Webshop.Pages.CRUD
             bracelets = braceletService.GetBracelets().ToList();
             return Page();
         }
-
+        
 
     }
 }
