@@ -20,21 +20,21 @@ namespace BP_Webshop.Pages.CRUD
         public AddNecklaceModel(NecklaceService ns)
         {
             necklaceService = ns;
-            //necklaces = NecklaceService.GetItems().ToList();
+            necklaces = necklaceService.GetNecklaces().ToList();
         }
         public IActionResult OnGet()
         {
             return Page();
         }
 
-        public IActionResult OnPost()
+        public async Task<IActionResult> OnPostAsync()
         {
             if (!ModelState.IsValid)
             {
                 return Page();
             }
-            necklaceService.AddNecklace(Necklace);
-            return RedirectToPage("Index");
+            await necklaceService.AddNecklace(Necklace);
+            return RedirectToPage("/Index");
         }
     }
 }
