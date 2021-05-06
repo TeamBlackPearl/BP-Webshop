@@ -43,8 +43,10 @@
                     <td>@earring.EarringLength</td>
                     <td>
                         @*Call to action buttons*@
-                        <a class="btn" asp-page="EditEarring" asp-route-id="@earring.JewelryID"><i class="fa fa-pencil"></i></a>
+                        @*<a class="btn" asp-page="CreateEarring" asp-route-id="@earring.JewelryID">Create an earring</a>*@
                         <a class="btn" asp-page="DeleteEarring" asp-route-id="@earring.JewelryID"><i class="fa fa-trash"></i></a>
+                        <a class="btn" asp-page="EditEarring" asp-route-id="@earring.JewelryID"><i class="fa fa-pencil"></i></a>
+
                     </td>
                 </tr>
             }
