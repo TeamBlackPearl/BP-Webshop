@@ -1,0 +1,45 @@
+﻿@page
+@model BP_Webshop.Pages.Jewellery.HeadJewelleryCRUD.AllHeadJewelleryModel
+@{
+}
+
+<h2>All Head Jewelleries</h2>
+
+<br />
+<table class="table">
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Color</th>
+        <th>Price</th>
+        <th>Average Rating</th>
+        <th>Image Name</th>
+        <th>Size</th>
+    </tr>
+    </thead>
+    <tbody>
+    @if (@Model.HeadJewelry != null)
+    {
+        @foreach (var h in Model.headJewelleryList)
+        {
+            <tr>
+                <td>@h.JewelryID</td>
+                <td>@h.JewelryTitle</td>
+                <td>@h.Description</td>
+                <td>@h.Color</td>
+                <td>@h.Price</td>
+                <td>@h.AverageRating</td>
+                <td><img src="/Images/@h.ImageLink" width="80" height="auto" /></td>
+                <td>@h.HeadJewelrySize</td>
+                <td>
+                    @*Call to action buttons*@
+                    <a class="btn" asp-page="EditPizza" asp-route-id="@h.JewelryID"><i class="fa fa-pencil"></i></a>
+                    <a class="btn" asp-page="DeletePizza" asp-route-id="@h.JewelryID"><i class="fa fa-trash"></i></a>
+                </td>
+            </tr>
+        }
+    }
+    </tbody>
+</table>
