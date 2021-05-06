@@ -40,6 +40,7 @@ namespace BP_Webshop
 
 
 
+
             //services.AddTransient<GenericCRUDMethods<Jewelry>, GenericCRUDMethods<Jewelry>>();
             services.AddTransient<GenericCRUDMethods<Earring>, GenericCRUDMethods<Earring>>();
             services.AddTransient<GenericCRUDMethods<Necklace>, GenericCRUDMethods<Necklace>>();
