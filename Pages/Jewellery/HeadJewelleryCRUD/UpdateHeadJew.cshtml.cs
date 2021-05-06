@@ -13,37 +13,36 @@ namespace BP_Webshop.Pages.Jewellery.HeadJewelleryCRUD
     {
         private HeadJewService _headJewService;
 
-            public List<Models.HeadJewelry> headJewList;
+        //models navigation
+        [BindProperty] 
+        public Models.HeadJewelry HeadJew { get; set; }
 
-            //models navigation
-            [BindProperty] public Models.HeadJewelry HeadJew { get; set; }
 
+        public UpdateHeadJewModel(HeadJewService headJewService)
+        {
+            _headJewService = headJewService;
+        }
 
-            public UpdateHeadJewModel(HeadJewService headJewService)
+        public IActionResult OnGet(int id)
+        {
+            HeadJew = _headJewService.GetHeadJew(id);
+            if (HeadJew == null)
             {
-                _headJewService = headJewService;
+                RedirectToPage("/NotFound");
             }
 
-            public IActionResult OnGet(int id)
-            {
-                HeadJew = _headJewService.GetHeadJew(id);
-                if (HeadJew == null)
-                {
-                    RedirectToPage("/NotFound");
-                }
+            return Page();
+        }
 
+        public async Task<IActionResult> OnPostAsync()
+        {
+            if (!ModelState.IsValid)
+            {
                 return Page();
             }
 
-            public async Task<IActionResult> OnPostAsync()
-            {
-                if (!ModelState.IsValid)
-                {
-                    return Page();
-                }
-                await _headJewService.UpdateHeadJewAsync(HeadJew);
-                return RedirectToPage("AllHeadJew");
-            }
-
+            await _headJewService.UpdateHeadJewAsync(HeadJew);
+            return RedirectToPage("AllHeadJew");
         }
     }
+}

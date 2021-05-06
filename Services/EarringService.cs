@@ -56,7 +56,6 @@ namespace BP_Webshop.Services
             if (EarringToBeDeleted != null)
             {
                 _earringsList.Remove(EarringToBeDeleted);
-                //JsonFileService.SaveJsonObjects(items);
                 await DbServiceMethods.DeleteObjectAsync(EarringToBeDeleted);
             }
 
@@ -67,12 +66,17 @@ namespace BP_Webshop.Services
         {
             if (earring != null)
             {
-                foreach (Earring e in _earringsList)
+                foreach (var e in _earringsList)
                 {
                     if (e.JewelryID == earring.JewelryID)
                     {
                         e.JewelryTitle = earring.JewelryTitle;
+                        e.Description = earring.Description;
+                        e.Color = earring.Color;
                         e.Price = earring.Price;
+                        e.AverageRating = earring.AverageRating;
+                        e.ImageLink = earring.ImageLink;
+                        e.EarringLength = earring.EarringLength;
                     }
                 }
                 await DbServiceMethods.UpdateObjectAsync(earring);

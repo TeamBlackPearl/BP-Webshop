@@ -12,22 +12,26 @@ namespace BP_Webshop.Services
         private BraceletService braceletService;
         private NecklaceService necklaceService;
         private EarringService earringService;
+        private HeadJewService headJewService;
 
-        public JewelryService(BraceletService braceletService, NecklaceService necklaceService, EarringService earringService)
+        public JewelryService(BraceletService braceletService, NecklaceService necklaceService, EarringService earringService, HeadJewService headJewService)
         {
             this.braceletService = braceletService;
             this.necklaceService = necklaceService;
             this.earringService = earringService;
+            this.headJewService = headJewService;
         }
 
         public List<Jewelry> GetAllJewelries()
         {
             Jewelries = new List<Jewelry>(necklaceService.GetNecklaces().Count() +
                                           braceletService.GetBracelets().Count() +
-                                          earringService.GetEarrings().Count());
+                                          earringService.GetEarrings().Count() + 
+                                          headJewService.GetAllHeadJew().Count());
             Jewelries.AddRange(necklaceService.GetNecklaces());
             Jewelries.AddRange(braceletService.GetBracelets());
             Jewelries.AddRange(earringService.GetEarrings());
+            Jewelries.AddRange(headJewService.GetAllHeadJew());
             return Jewelries;
         }
 
