@@ -34,7 +34,11 @@ namespace BP_Webshop.Pages.CRUD.BraceletCRUD
 
         public async Task<IActionResult> OnPostAsync(int id)
         {
-            Bracelet = braceletService.GetBracelet(id);
+            //Bracelet = braceletService.GetBracelet(id);
+            if (!ModelState.IsValid)
+            {
+                return Page();
+            }
             await braceletService.UpdateBraceletAsync(Bracelet);
             return RedirectToPage("AllBracelets");
         }

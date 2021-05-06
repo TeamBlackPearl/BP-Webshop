@@ -33,7 +33,10 @@ namespace BP_Webshop.Pages.Jewellery.NecklaceCRUD
 
         public async Task<IActionResult> OnPostAsync(int id)
         {
-            Necklace= necklaceService.GetNecklace(id);
+            if (!ModelState.IsValid)
+            {
+                return Page();
+            }
             await necklaceService.UpdateNecklaceAsync(Necklace);
             return RedirectToPage("AllNecklaces");
         }
