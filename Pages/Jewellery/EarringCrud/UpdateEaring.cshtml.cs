@@ -12,8 +12,7 @@ namespace BP_Webshop.Pages.Jewellery.EarringCrud
     public class UpdateEaringModel : PageModel
     {
         private EarringService _earringService;
-        private List<Models.Earring> earringList;
-
+        
         //models navigation
         [BindProperty]
         public Models.Earring Earring { get; set; }
@@ -21,10 +20,7 @@ namespace BP_Webshop.Pages.Jewellery.EarringCrud
         public UpdateEaringModel(EarringService earringService)
         {
             _earringService = earringService;
-            this.earringList = _earringService.GetEarrings().ToList();
         }
-        private BraceletService braceletService;
-
 
         public IActionResult OnGet(int id)
         {
@@ -37,9 +33,8 @@ namespace BP_Webshop.Pages.Jewellery.EarringCrud
             return Page();
         }
 
-        public async Task<IActionResult> OnPostAsync(int id)
+        public async Task<IActionResult> OnPostAsync()
         {
-            //Earring = _earringService.GetEarring(id);
             if (!ModelState.IsValid)
             {
                 return Page();

@@ -35,8 +35,12 @@ namespace BP_Webshop.Pages.Jewellery.HeadJewelleryCRUD
                 return Page();
             }
 
-            public async Task<IActionResult> OnPostAsync(int id)
+            public async Task<IActionResult> OnPostAsync()
             {
+                if (!ModelState.IsValid)
+                {
+                    return Page();
+                }
                 await _headJewService.UpdateHeadJewAsync(HeadJew);
                 return RedirectToPage("AllHeadJew");
             }

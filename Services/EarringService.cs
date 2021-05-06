@@ -75,7 +75,6 @@ namespace BP_Webshop.Services
                         e.Price = earring.Price;
                     }
                 }
-                //JsonFileService.SaveJsonObjects(items);
                 await DbServiceMethods.UpdateObjectAsync(earring);
             }
         }
