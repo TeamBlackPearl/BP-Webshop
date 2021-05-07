@@ -13,6 +13,7 @@ namespace BP_Webshop.Services
         private NecklaceService necklaceService;
         private EarringService earringService;
         private HeadJewService headJewService;
+        private RingService ringService;
 
         public JewelryService(BraceletService braceletService, NecklaceService necklaceService, EarringService earringService, HeadJewService headJewService)
         {
@@ -26,7 +27,7 @@ namespace BP_Webshop.Services
         {
             Jewelries = new List<Jewelry>(necklaceService.GetNecklaces().Count() +
                                           braceletService.GetBracelets().Count() +
-                                          earringService.GetEarrings().Count() + 
+                                          earringService.GetEarrings().Count() +
                                           headJewService.GetAllHeadJew().Count());
             Jewelries.AddRange(necklaceService.GetNecklaces());
             Jewelries.AddRange(braceletService.GetBracelets());
