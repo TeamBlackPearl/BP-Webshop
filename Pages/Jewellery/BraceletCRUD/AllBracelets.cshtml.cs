@@ -14,16 +14,18 @@ namespace BP_Webshop.Pages.CRUD
         private BraceletService braceletService;
         public List<Bracelet> bracelets { get; set; }
 
+        //Forbindelse til klassen Bracelet (Navigation)
         [BindProperty]
         public Bracelet Bracelet { get; set; }
 
         public AllBraceletsModel(BraceletService braceService)
         {
+            //Dependency (Initialisering)
             braceletService = braceService;
             //bracelets = braceService.GetBracelets().ToList();
         }
         
-
+        //Iaction henter og viser den ved at hente dem til en lokal liste
         public IActionResult OnGet()
         {
             bracelets = braceletService.GetBracelets().ToList();

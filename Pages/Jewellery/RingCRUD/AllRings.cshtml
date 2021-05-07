@@ -1,0 +1,50 @@
+﻿@page
+@model BP_Webshop.Pages.Jewellery.RingCRUD.AllRingsModel
+@{
+}
+<h2>All Rings</h2>
+<form>
+    <p>
+        <a asp-page="CreateRing" class="btn btn-light">Add Ring</a>
+    </p>
+</form>
+<table class="table">
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Color</th>
+        <th>Price</th>
+        <th>Average Rating</th>
+        <th>Image Name</th>
+        <th>Ring Size</th>
+        <th>Ring Width</th>
+        <th>Tools</th>
+    </tr>
+    </thead>
+    <tbody>
+    @if (@Model.rings != null)
+    {
+        @foreach (var ring in Model.rings)
+        {
+            <tr>
+                <td>@ring.JewelryID</td>
+                <td>@ring.JewelryTitle</td>
+                <td>@ring.Description</td>
+                <td>@ring.Color</td>
+                <td>@ring.Price</td>
+                <td>@ring.AverageRating</td>
+                <td><img src="/Images/@ring.ImageLink" width="80" height="auto" /></td>
+                <td>@ring.RingSize</td>
+                <td>@ring.RingWidth</td>
+                <td>
+                    @*Call to action buttons*@
+                    <a class="btn" asp-page="EditRing" asp-route-id="@ring.JewelryID"><i class="fa fa-pencil"></i></a>
+                    <a class="btn" asp-page="DeleteRing" asp-route-id="@ring.JewelryID"><i class="fa fa-trash"></i></a>
+                </td>
+            </tr>
+        }
+    }
+    </tbody>
+</table>
