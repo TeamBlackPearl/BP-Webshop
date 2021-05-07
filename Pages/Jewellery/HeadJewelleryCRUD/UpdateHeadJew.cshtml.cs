@@ -7,24 +7,26 @@ using BP_Webshop.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace BP_Webshop.Pages.CRUD.BraceletCRUD
+namespace BP_Webshop.Pages.Jewellery.HeadJewelleryCRUD
 {
-    public class EditBraceletModel : PageModel
+    public class UpdateHeadJewModel : PageModel
     {
-        private BraceletService braceletService;
+        private HeadJewService _headJewService;
 
-        [BindProperty]
-        public Bracelet Bracelet { get; set; }
+        //models navigation
+        [BindProperty] 
+        public Models.HeadJewelry HeadJew { get; set; }
 
-        public EditBraceletModel(BraceletService braceService)
+
+        public UpdateHeadJewModel(HeadJewService headJewService)
         {
-            braceletService = braceService;
+            _headJewService = headJewService;
         }
 
         public IActionResult OnGet(int id)
         {
-            Bracelet = braceletService.GetBracelet(id);
-            if (Bracelet == null)
+            HeadJew = _headJewService.GetHeadJew(id);
+            if (HeadJew == null)
             {
                 RedirectToPage("/NotFound");
             }
@@ -38,10 +40,9 @@ namespace BP_Webshop.Pages.CRUD.BraceletCRUD
             {
                 return Page();
             }
-            await braceletService.UpdateBraceletAsync(Bracelet);
-            return RedirectToPage("AllBracelets");
+
+            await _headJewService.UpdateHeadJewAsync(HeadJew);
+            return RedirectToPage("AllHeadJew");
         }
-
-
     }
 }

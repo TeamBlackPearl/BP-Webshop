@@ -1,0 +1,54 @@
+﻿@page
+@model BP_Webshop.Pages.Jewellery.HeadJewelleryCRUD.AllHeadJewModel
+@{
+}
+
+<h2>All head jewelleries</h2>
+
+<br />
+<br />
+<form>
+    <p>
+        <a asp-page="CreateHeadJew" class="btn btn-light">Create a new head jewellery</a>
+    </p>
+</form>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Color</th>
+        <th>Price</th>
+        <th>Average Rating</th>
+        <th>Image Name</th>
+        <th>Size</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    @if (@Model.headJewList != null)
+    {
+        @foreach (var h in Model.headJewList)
+        {
+            <tr>
+                <td>@h.JewelryID</td>
+                <td>@h.JewelryTitle</td>
+                <td>@h.Description</td>
+                <td>@h.Color</td>
+                <td>@h.Price</td>
+                <td>@h.AverageRating</td>
+                <td><img src="/Images/@h.ImageLink" width="80" height="auto" /></td>
+                <td>@h.HeadJewelrySize</td>
+                <td>
+                    @*Call to action buttons*@
+                    <a class="btn" asp-page="UpdateHeadJew" asp-route-id="@h.JewelryID"><i class="fa fa-pencil"></i></a>
+                    <a class="btn" asp-page="DeleteHeadJew" asp-route-id="@h.JewelryID"><i class="fa fa-trash"></i></a>
+
+                </td>
+            </tr>
+        }
+    }
+    </tbody>
+</table>

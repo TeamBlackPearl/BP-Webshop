@@ -1,0 +1,45 @@
+﻿@page
+@model BP_Webshop.Pages.Jewellery.AllJewelriesModel
+@{
+}
+<h2>All Jewelleries</h2>
+<br />
+
+<form method="post" class="form-inline">
+    <div class="form-group mb-3">
+    <label for="titleSearch">Search:</label>
+        <input type="text" class="form-control" id="searchCriteria" name="searchCriteria" placeholder="Title to search">
+    </div>
+    <button type="submit" class="btn btn-primary mb-2">Search</button>
+</form>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Color</th>
+        <th>Price</th>
+        <th>Average Rating</th>
+        <th>Image Name</th>
+    </tr>
+    </thead>
+    <tbody>
+    @if (@Model.Jewelries != null)
+    {
+        @foreach (var jewelry in Model.Jewelries)
+        {
+            <tr>
+                <td>@jewelry.JewelryID</td>
+                <td>@jewelry.JewelryTitle</td>
+                <td>@jewelry.Description</td>
+                <td>@jewelry.Color</td>
+                <td>@jewelry.Price</td>
+                <td>@jewelry.AverageRating</td>
+                <td><img src="/Images/@jewelry.ImageLink" width="80" height="auto" /></td>
+            </tr>
+        }
+    }
+    </tbody>
+</table>

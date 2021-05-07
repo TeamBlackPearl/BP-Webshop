@@ -21,7 +21,7 @@ namespace BP_Webshop.Pages.Jewellery.EarringCrud
         public CreateEarringModel(EarringService earringService)
         {
             _earringService = earringService;
-            this.earringList = _earringService.GetEarrings().ToList();
+            //this.earringList = _earringService.GetEarrings().ToList();
         }
 
         public IActionResult OnGet()
@@ -35,7 +35,6 @@ namespace BP_Webshop.Pages.Jewellery.EarringCrud
             {
                 return Page();
             }
-
             await _earringService.AddEarringAsync(Earring);
             return RedirectToPage("AllEarrings");
         }
