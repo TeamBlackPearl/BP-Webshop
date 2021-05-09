@@ -13,12 +13,9 @@ namespace BP_Webshop.Pages.Account
 {
     public class CreateUserModel : PageModel
     {
-        /// <summary>
-        /// [DataType(DataType.Password)]
-        /// What is the role of [DataType(DataType.Password)] ?
-        /// DataType as password, means that we will see the password field in non readable format.
-        /// </summary>
         private UserService _userService;
+
+        private List<User> users;
 
         //PasswordHasher- kryptering
         private PasswordHasher<string> passwordHasher;
@@ -42,23 +39,22 @@ namespace BP_Webshop.Pages.Account
 
         public CreateUserModel(UserService userService)
         {
-            _userService = userService;
+            this._userService = userService;
             passwordHasher = new PasswordHasher<string>();
         }
 
-        public void OnGet()
+
+
+        public async Task<IActionResult> OnPostAsync()
         {
+            if (!ModelState.IsValid)
+            {
+                return Page();
+            }
+
+            _userService.AddUser(new User(Id, FirstName, LastName, Address, PhoneNumber, Email, passwordHasher.HashPassword(null, Password)));
+            return RedirectToPage("/Index");
         }
 
-        //public IActionResult OnPost()
-        //{
-        //    if (!ModelState.IsValid)
-        //    {
-        //        return Page();
-        //    }
-
-        //    _userService.AddUser(new User(Id, FirstName, LastName, Address, PhoneNumber, Email, passwordHasher.HashPassword(null, Password)));
-        //    return RedirectToPage("/Index");
-        //}
     }
 }
