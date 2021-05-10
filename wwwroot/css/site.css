@@ -1,29 +1,96 @@
 ﻿body {
     margin: 0;
+    background-image: url("/Images/back.png");
+    /*background-size: cover;*/
+   /* background-size: cover;
+    width: 768;
+    height: 1024;*/
+
 }
 
 .navbar {
     overflow: hidden;
-    background-color: black;
-    position: fixed;
-    top: 0;
+/*    background-color: rgba(0,0,0,1) position: fixed;
+*/    top: 0;
     width: 100%;
+/*    background-color: aliceblue;
+*/}
+
+nav.navbar {
+    background-color: rgba(0, 0, 0, 0.6);
 }
 
 .navbar a {
     float: left;
     display: block;
-    color: goldenrod;
+    color: whitesmoke;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
     font-size: 17px;
 }
 
-.navbar a:hover {
-    background: #ddd;
-    color: goldenrod;
+/*HAMBURGER MENU*/
+nav.navbar {
+    -webkit-box-shadow: 0px 1px 1px;
+    -moz-box-shadow: 0px 1px 1px;
+    box-shadow: 0px 1px 1px;
 }
+
+/*Categories*/
+div.col.Bracelet_category {
+    padding-bottom: 100px;
+    /*padding-left: 50px;*/
+}
+
+img.Bracelet_img {
+    /*min-width: 200px;
+    min-height: auto;*/
+}
+
+div.col.Earring_category {
+    padding-top: 100px;
+    padding-left: 50px;
+}
+
+img.Earring_img {
+   /* min-width: 200px;
+    min-height: auto;*/
+}
+
+div.col.Head_category {
+    padding: 50px;
+    padding-left: 100px;
+}
+
+img.Head_img {
+    min-width: 150px;
+    min-height: auto;
+}
+
+div.col.Ring_category {
+    padding: 50px;
+    padding-left: 100px;
+}
+
+img.Ring_img {
+    min-width: 150px;
+    min-height: auto;
+}
+
+div.col.Necklace_category {
+    padding: 0px;
+    padding-left: 0px;
+}
+
+img.Necklace_img {
+    max-width: 200px;
+    min-height: auto;
+}
+
+
+
+
 
 .main {
     padding: 16px;
