@@ -85,44 +85,49 @@
             <span class="navbar-toggler-icon"></span>
         </button>
 
+        </header>
+        <div class="container">
+            <main role="main" class="pb-3">
 
-
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item active">
-
-                    @*<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>*@
-                    <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" asp-area="" asp-page="/Jewellery/AllJewelries">All Jewelries</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" asp-area="" asp-page="/Jewellery/BraceletCRUD/AllBracelets">Bracelets</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" asp-area="" asp-page="/Jewellery/NecklaceCRUD/AllNecklaces">Necklaces</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" asp-area="" asp-page="/Jewellery/EarringCrud/AllEarrings">Earrings</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" asp-area="" asp-page="/Jewellery/RingCRUD/AllRings">Rings</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" asp-area="" asp-page="/Jewellery/HeadJewelleryCRUD/AllHeadJew">Head Jewellery</a>
-
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Pricing</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link disabled" href="#">Disabled</a>
-                </li>
-            </ul>
+                @RenderBody()
+            </main>
         </div>
+          <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav">
+                  <li class="nav-item active">
+
+                      @*<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>*@
+                      <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" asp-area="" asp-page="/Jewellery/AllJewelries">All Jewelries</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" asp-area="" asp-page="/Jewellery/BraceletCRUD/AllBracelets">Bracelets</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" asp-area="" asp-page="/Jewellery/NecklaceCRUD/AllNecklaces">Necklaces</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" asp-area="" asp-page="/Jewellery/EarringCrud/AllEarrings">Earrings</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" asp-area="" asp-page="/Jewellery/RingCRUD/AllRings">Rings</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" asp-area="" asp-page="/Jewellery/HeadJewelleryCRUD/AllHeadJew">Head Jewellery</a>
+
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="#">Pricing</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link disabled" href="#">Disabled</a>
+                  </li>
+              </ul>
+          </div>
+      </header>
     </nav>
-    </header>
 
     <div class="container">
         <main role="main" class="pb-3">
