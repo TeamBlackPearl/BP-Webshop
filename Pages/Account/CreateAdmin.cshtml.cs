@@ -5,18 +5,19 @@ using System.Linq;
 using System.Threading.Tasks;
 using BP_Webshop.Models;
 using BP_Webshop.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace BP_Webshop.Pages.Account
 {
-    public class CreateUserModel : PageModel
+    [Authorize(Roles = "admin")]
+    public class CreateAdminModel : PageModel
     {
-        private UserService _userService;
+        private AdminService _adminService;
 
-        private List<User> users;
-
+        private List<AdminUser> _adminUserList;
         //PasswordHasher- kryptering
         private PasswordHasher<string> passwordHasher;
 
@@ -27,25 +28,21 @@ namespace BP_Webshop.Pages.Account
         [BindProperty]
         public string LastName { get; set; }
         [BindProperty]
-        public string Address { get; set; }
+        public string Username { get; set; }
         [BindProperty]
-        public string PhoneNumber { get; set; }
-        [BindProperty] 
         public string Role { get; set; }
-        //UserName
-        [BindProperty]
-        public string Email { get; set; }
 
         [BindProperty, DataType(DataType.Password)]
         public string Password { get; set; }
 
-        public CreateUserModel(UserService userService)
+        public CreateAdminModel(AdminService adminService)
         {
-            this._userService = userService;
+            this._adminService = adminService;
             passwordHasher = new PasswordHasher<string>();
         }
-
-
+        public void OnGet()
+        {
+        }
 
         public async Task<IActionResult> OnPostAsync()
         {
@@ -54,7 +51,7 @@ namespace BP_Webshop.Pages.Account
                 return Page();
             }
 
-            _userService.AddUser(new User(Id, FirstName, LastName, Address, PhoneNumber, "user", Email, passwordHasher.HashPassword(null, Password)));
+            await _adminService.AddAdminUserAsync(new AdminUser(Id, FirstName, LastName, "admin", Username, passwordHasher.HashPassword(null, Password)));
             return RedirectToPage("/Index");
         }
 

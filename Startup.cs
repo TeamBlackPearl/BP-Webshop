@@ -7,9 +7,12 @@ using Microsoft.Extensions.Hosting;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using BP_Webshop.Models;
 using BP_Webshop.Services;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Http;
 
 namespace BP_Webshop
 {
@@ -42,8 +45,6 @@ namespace BP_Webshop
 
 
 
-
-
             //services.AddTransient<GenericCRUDMethods<Jewelry>, GenericCRUDMethods<Jewelry>>();
             services.AddTransient<GenericCRUDMethods<Earring>, GenericCRUDMethods<Earring>>();
             services.AddTransient<GenericCRUDMethods<Necklace>, GenericCRUDMethods<Necklace>>();
@@ -55,6 +56,23 @@ namespace BP_Webshop
             services.AddTransient<GenericCRUDMethods<User>, GenericCRUDMethods<User>>();
             services.AddTransient<GenericCRUDMethods<AdminUser>, GenericCRUDMethods<AdminUser>>();
 
+            services.Configure<CookiePolicyOptions>(options =>
+            {
+                // This lambda determines whether user consent for non-essential cookies is needed for a given request. 
+                options.CheckConsentNeeded = context => true;
+                options.MinimumSameSitePolicy = SameSiteMode.None;
+            });
+
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(cookieOptions =>
+            {
+                cookieOptions.LoginPath = "/Account/LogIn";
+            });
+
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy("Administrator", policy =>
+                    policy.RequireClaim(ClaimTypes.Role, "admin"));
+            });
 
 
         }

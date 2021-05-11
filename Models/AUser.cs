@@ -17,8 +17,8 @@ namespace BP_Webshop.Models
         public int Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        //Username
-        //public string Email { get; set; }
+        public string Role { get; set; }
+        public string Email { get; set; }
         public string Password { get; set; }
 
         public AUser()
@@ -26,12 +26,13 @@ namespace BP_Webshop.Models
             
         }
 
-        protected AUser(int id, string firstName, string lastName, string password)
+        protected AUser(int id, string firstName, string lastName, string role, string email, string password)
         {
             Id = id;
             FirstName = firstName;
             LastName = lastName;
-            //Email = email;
+            Role = role;
+            Email = email;
             Password = password;
         }
     }

@@ -1,0 +1,26 @@
+﻿@page
+@model BP_Webshop.Pages.Account.LogInModel
+@{
+}
+
+<div class="row">
+
+<div class="col-4"></div>
+    @Model.Message
+<div class="col-4 align-content-center">
+@* Post method *@
+<form method="post">
+    <div class="form-group">
+        <label class="control-lable">Email</label>
+        <input asp-for="@Model.Email" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label class="control-lable">Password</label>
+        <input asp-for="@Model.Password" class="form-control" />
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Opret" class="btn btn-dark" />
+    </div>
+</form>
+    </div>
+    </div>
