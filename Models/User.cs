@@ -7,7 +7,6 @@ namespace BP_Webshop.Models
 {
     public class User : AUser
     {
-        public string Email { get; set; }
         public string Address { get; set; }
         public string PhoneNumber { get; set; }
 
@@ -16,9 +15,8 @@ namespace BP_Webshop.Models
             
         }
 
-        public User(int id, string firstName, string lastName, string address, string phoneNumber, string email, string password) : base(id, firstName, lastName, password)
+        public User(int id, string firstName, string lastName, string address, string phoneNumber, string role, string email, string password) : base(id, firstName, lastName, role, email, password)
         {
-            Email = email;
             Address = address;
             PhoneNumber = phoneNumber;
         }
