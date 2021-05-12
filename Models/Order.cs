@@ -14,7 +14,7 @@ namespace BP_Webshop.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int OrderId { get; set; }
         public DateTime OrderDate { get; set; }
-        [ForeignKey("Id")]
+        [ForeignKey("JewelryId")]
         public int Id { get; set; }
         public decimal DeliveryPrice { get; set; }
         public decimal TotalPrice { get; set; }
