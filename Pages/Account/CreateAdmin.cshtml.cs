@@ -12,7 +12,6 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace BP_Webshop.Pages.Account
 {
-    [Authorize(Roles = "admin")]
     public class CreateAdminModel : PageModel
     {
         private AdminService _adminService;
@@ -28,7 +27,7 @@ namespace BP_Webshop.Pages.Account
         [BindProperty]
         public string LastName { get; set; }
         [BindProperty]
-        public string Username { get; set; }
+        public string Email { get; set; }
         [BindProperty]
         public string Role { get; set; }
 
@@ -51,7 +50,7 @@ namespace BP_Webshop.Pages.Account
                 return Page();
             }
 
-            await _adminService.AddAdminUserAsync(new AdminUser(Id, FirstName, LastName, "admin", Username, passwordHasher.HashPassword(null, Password)));
+            await _adminService.AddAdminUserAsync(new AdminUser(Id, FirstName, LastName, "admin", Email, passwordHasher.HashPassword(null, Password)));
             return RedirectToPage("/Index");
         }
 
