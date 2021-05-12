@@ -29,20 +29,32 @@
                         <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
                     </form>
 
-                   
-                    <li class="nav-item">
-                        <a class="nav-link" asp-area="" asp-page="/Account/CreateUser">Create User</a>
-                    </li>
-                    @if(User.IsInRole("admin"))
-                    { 
+                   @if (!Context.User.Identity.IsAuthenticated)
+                   {
+                       <li class="nav-item">
+                           <a class="nav-link" asp-area="" asp-page="/Account/CreateUser">Create User</a>
+                       </li>
 
+                       <li class="nav-item">
+                           <a class="nav-link" asp-area="" asp-page="/Account/LogIn">Login</a>
+                       </li>
+                   }
+                    
+                    @if (User.IsInRole("admin"))
+                    {
                         <li class="nav-item">
                             <a class="nav-link" asp-area="" asp-page="/Account/CreateAdmin">Create Admin</a>
                         </li>
+                    
                     }
-                    <li class="nav-item">
-                        <a class="nav-link" asp-area="" asp-page="/Account/LogIn">Login</a>
-                    </li>
+
+                   
+                    @if (Context.User.Identity.IsAuthenticated)
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-page="/Account/LogoutPage">Logout</a>
+                        </li>
+                    }
                 </ul>
             </div>
             @*</div>*@

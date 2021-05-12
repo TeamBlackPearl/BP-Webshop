@@ -14,31 +14,32 @@
         <form method="post">
             <div class="form-group">
                 <label class="control-lable">Fornavn</label>
-                <input asp-for="@Model.FirstName" class="form-control"/>
+                <input asp-for="@Model.FirstName" class="form-control" />
             </div>
             <div class="form-group">
                 <label class="control-lable">Efternavn</label>
-                <input asp-for="@Model.LastName" class="form-control"/>
-            </div>
-            <div class="form-group">
-                <label class="control-lable">Opret et password</label>
-                <input asp-for="@Model.Password" class="form-control"/>
-            </div>
-            <div class="form-group">
-                <label class="control-lable">Indtast din email</label>
-                <input asp-for="@Model.Email" class="form-control"/>
+                <input asp-for="@Model.LastName" class="form-control" />
             </div>
             <div class="form-group">
                 <label class="control-lable">Adresse</label>
-                <input asp-for="@Model.Address" class="form-control"/>
+                <input asp-for="@Model.Address" class="form-control" />
             </div>
             <div class="form-group">
                 <label class="control-lable">Tlf.</label>
-                <input asp-for="@Model.PhoneNumber" class="form-control"/>
+                <input asp-for="@Model.PhoneNumber" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label class="control-lable">Indtast din email</label>
+                <input asp-for="@Model.Email" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label class="control-lable">Opret et password</label>
+                <input asp-for="@Model.Password" class="form-control" />
             </div>
 
+
             <div class="form-group">
-                <input type="submit" value="Opret" class="btn btn-dark"/>
+                <input type="submit" value="Opret" class="btn btn-dark" />
             </div>
         </form>
 
