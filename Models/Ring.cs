@@ -9,7 +9,9 @@ namespace BP_Webshop.Models
     {
         public enum RingTypes
         {
-
+            Panjangla,
+            DoubleRings,
+            SilverRings,
         }
 
         public int RingSize { get; set; }

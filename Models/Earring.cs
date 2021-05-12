@@ -10,7 +10,8 @@ namespace BP_Webshop.Models
     {
         public enum EarringTypes
         {
-
+            Jhumkay,
+            Tops,
         }
 
         public double EarringLength { get; set; }

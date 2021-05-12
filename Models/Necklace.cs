@@ -9,7 +9,9 @@ namespace BP_Webshop.Models
     {
         public enum NecklaceTypes
         {
-
+            Mala,
+            Choker,
+            Multilayered,
         }
 
         public double NecklaceLength { get; set; }
