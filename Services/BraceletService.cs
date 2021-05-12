@@ -76,6 +76,18 @@ namespace BP_Webshop.Services
             }
         }
 
+        public Bracelet GetBraceByType(Bracelet.BraceletTypes braceletTypes)
+        {
+            foreach (Bracelet braceTypes in Bracelets)
+            {
+                if (braceletTypes == braceletTypes)
+                    return braceTypes;
+
+            }
+
+            return null;
+        }
+
 
     }
 }

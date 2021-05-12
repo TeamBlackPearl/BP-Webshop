@@ -13,25 +13,28 @@ namespace BP_Webshop.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int OrderId { get; set; }
-        public DateTime OrderDate { get; set; }
-        [ForeignKey("Id")]
-        public int Id { get; set; }
-        public decimal DeliveryPrice { get; set; }
-        public decimal TotalPrice { get; set; }
+        //  [Range(1, int.MaxValue, ErrorMessage = "Please enter a value bigger than {1}")]
+        public int Count { get; set; }
+        //[DataType(DataType.Date)]
+        //[DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}")]
+        public DateTime Date { get; set; }
+        [Required]
+        public int UserId { get; set; }
+        public User User { get; set; }
+        [Required]
+        public int ItemId { get; set; }
+        public Jewelry Product { get; set; }
 
         public Order()
         {
             
         }
 
-        public Order(int orderId, DateTime orderDate, int id, decimal deliveryPrice, decimal totalPrice)
+        public Order(User user, Jewelry product)
         {
-            OrderId = orderId;
-            OrderDate = orderDate;
-            Id = id;
-            DeliveryPrice = deliveryPrice;
-            TotalPrice = totalPrice;
+            Date = DateTime.Now;
+            User = user;
+            Product = product;
         }
-
     }
 }
