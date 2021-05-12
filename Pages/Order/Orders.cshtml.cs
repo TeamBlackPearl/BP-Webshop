@@ -11,18 +11,17 @@ namespace BP_Webshop.Pages.Order
 {
     public class OrdersModel : PageModel
     {
-        public UserService UserService { get;  }
-        
-        //IEnumrable
-        public IEnumerable<Models.Order> Orders { get; set; }
+        private BraceletService braceletService;
+        private EarringService earringService;
+        private HeadJewService headJewService;
+        private NecklaceService necklaceService;
+        private RingService ringService;
+        private UserService userService;
+        private OrderService orderService;
+        public Models.Bracelet Bracelet { get; set; }
+        public Models.Earring Earring { get; set; }
+        public Models.HeadJewelry HeadJewelry { get; set; }
+        public Models.Necklace Necklace { get; set; }
 
-        public OrdersModel(UserService userService)
-        {
-            UserService = userService;
-        }
-
-        public void OnGet()
-        {
-        }
     }
 }
