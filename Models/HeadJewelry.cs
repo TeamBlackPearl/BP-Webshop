@@ -9,7 +9,9 @@ namespace BP_Webshop.Models
     {
         public enum HeadJewelryTypes
         {
-
+            Bindi,
+            MathaPatti,
+            Jhoomar,
         }
 
         public string HeadJewelrySize { get; set; }

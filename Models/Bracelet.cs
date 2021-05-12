@@ -9,7 +9,10 @@ namespace BP_Webshop.Models
     {
         public enum BraceletTypes
         {
-
+            Kangan,
+            Bracelet,
+            Bangles,
+            Panjangla,
         }
 
         public double BraceletLength { get; set; }
