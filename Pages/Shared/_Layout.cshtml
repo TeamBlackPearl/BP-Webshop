@@ -52,12 +52,14 @@
                     @if (Context.User.Identity.IsAuthenticated)
                     {
                         <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-page="/Account/LogoutPage">Logout</a>
+                            <a class="nav-link" asp-area="" asp-page="/Account/LogOut">Logout</a>
+                        </li>
+                        <li class="nav-item nav-link mr-3">
+                            User: @Context.User.Identity.Name
                         </li>
                     }
                 </ul>
             </div>
-            @*</div>*@
         </nav>
 
 
