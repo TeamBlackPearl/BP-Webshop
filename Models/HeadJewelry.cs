@@ -16,15 +16,17 @@ namespace BP_Webshop.Models
 
 
         public string HeadJewelrySize { get; set; }
+        public HeadJewelryTypes HeadJewType { get; set; }
 
         public HeadJewelry()
         {
 
         }
 
-        public HeadJewelry(int jewelryId, string jewelryTitle, string description, string color, decimal price, string headJewelrySize, double averageRating, string imageLink) : base(jewelryId, jewelryTitle, description, color, price, averageRating, imageLink)
+        public HeadJewelry(int jewelryId, string jewelryTitle, string description, string color, decimal price, string headJewelrySize, double averageRating, string imageLink, HeadJewelryTypes headJewType) : base(jewelryId, jewelryTitle, description, color, price, averageRating, imageLink)
         {
             HeadJewelrySize = headJewelrySize;
+            HeadJewType = headJewType;
         }
     }
 }
