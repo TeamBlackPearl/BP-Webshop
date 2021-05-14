@@ -20,18 +20,34 @@
                 </button>
                 @*<div class="d-flex justify-content-between">*@
             <div class="d-flex flex-row-reverse">
+               @if (Context.User.Identity.IsAuthenticated)
+                    {
                 <div class="p-2">
                     <a asp-area="" asp-page="/Account/Logout" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Log out</a>
                 </div>
                 <div class="p-2">
-                    <a asp-area="" asp-page="/Account/LogIn" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Log in</a>
-                </div>
-                <div class="p-2">
+                         User: @Context.User.Identity.Name
+                 </div>
+
+              }
+              
+               @if (User.IsInRole("admin"))
+                    {
+              <div class="p-2">
                     <a asp-area="" asp-page="/Account/CreateAdmin" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Create admin</a>
+                </div>
+              }
+              
+               @if (!Context.User.Identity.IsAuthenticated)
+                   {
+                <div class="p-2">
+                    <a asp-area="" asp-page="/Account/LogIn" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Log in</a>
                 </div>
                 <div class="p-2">
                     <a asp-area="" asp-page="/Account/CreateUser" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Create user</a>
                 </div>
+              }
+                    
                 <div class="p-2">
                     <a asp-area="" asp-page="/Payment/CheckOut" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Payment site</a>
                 </div>

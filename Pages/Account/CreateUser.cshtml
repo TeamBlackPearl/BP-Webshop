@@ -13,32 +13,33 @@
         @* Post method *@
         <form method="post">
             <div class="form-group">
-                <label class="control-lable">Fornavn</label>
-                <input asp-for="@Model.FirstName" class="form-control"/>
+                <label class="control-lable">First Name</label>
+                <input asp-for="@Model.FirstName" class="form-control" placeholder="First name"/>
             </div>
             <div class="form-group">
-                <label class="control-lable">Efternavn</label>
-                <input asp-for="@Model.LastName" class="form-control"/>
+                <label class="control-lable">Last Name</label>
+                <input asp-for="@Model.LastName" class="form-control" placeholder="Last name"/>
             </div>
             <div class="form-group">
-                <label class="control-lable">Opret et password</label>
-                <input asp-for="@Model.Password" class="form-control"/>
+                <label class="control-lable">Address</label>
+                <input asp-for="@Model.Address" class="form-control" placeholder="Billing address (optional)"/>
             </div>
             <div class="form-group">
-                <label class="control-lable">Indtast din email</label>
-                <input asp-for="@Model.Email" class="form-control"/>
+                <label class="control-lable">Phone Number</label>
+                <input asp-for="@Model.PhoneNumber" class="form-control" placeholder="Phone number"/>
             </div>
             <div class="form-group">
-                <label class="control-lable">Adresse</label>
-                <input asp-for="@Model.Address" class="form-control"/>
+                <label class="control-lable">Insert your email</label>
+                <input asp-for="@Model.Email" class="form-control" placeholder="Email"/>
             </div>
             <div class="form-group">
-                <label class="control-lable">Tlf.</label>
-                <input asp-for="@Model.PhoneNumber" class="form-control"/>
+                <label class="control-lable">Create a password</label>
+                <input asp-for="@Model.Password" class="form-control" placeholder="Password"/>
             </div>
 
+
             <div class="form-group">
-                <input type="submit" value="Opret" class="btn btn-dark"/>
+                <input type="submit" value="Opret" class="btn btn-dark" />
             </div>
         </form>
 
