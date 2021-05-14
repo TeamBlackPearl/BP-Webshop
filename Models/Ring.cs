@@ -16,18 +16,16 @@ namespace BP_Webshop.Models
 
         public int RingSize { get; set; }
         public double RingWidth { get; set; }
-        public RingTypes RingType { get; set; }
 
         public Ring()
         {
 
         }
 
-        public Ring(int jewelryId, string jewelryTitle, string description, string color, decimal price, int ringSize, double ringWidth, double averageRating, string imageLink, RingTypes ringType) : base(jewelryId, jewelryTitle, description, color, price, averageRating, imageLink)
+        public Ring(int jewelryId, string jewelryTitle, string description, string color, decimal price, int ringSize, double ringWidth, double averageRating, string imageLink) : base(jewelryId, jewelryTitle, description, color, price, averageRating, imageLink)
         {
             RingSize = ringSize;
             RingWidth = ringWidth;
-            RingType = ringType;
         }
     }
 }

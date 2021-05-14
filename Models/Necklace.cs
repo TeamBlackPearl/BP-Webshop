@@ -16,18 +16,16 @@ namespace BP_Webshop.Models
 
         public double NecklaceLength { get; set; }
         public double NecklaceWidth { get; set; }
-        public NecklaceTypes NecklaceType { get; set; }
 
         public Necklace()
         {
 
         }
 
-        public Necklace(int jewelryId, string jewelryTitle, string description, string color, decimal price, double necklaceLength, double necklaceWidth, double averageRating, string imageLink, NecklaceTypes necklaceType) : base(jewelryId, jewelryTitle, description, color, price, averageRating, imageLink)
+        public Necklace(int jewelryId, string jewelryTitle, string description, string color, decimal price, double necklaceLength, double necklaceWidth, double averageRating, string imageLink) : base(jewelryId, jewelryTitle, description, color, price, averageRating, imageLink)
         {
             NecklaceLength = necklaceLength;
             NecklaceWidth = necklaceWidth;
-            NecklaceType = necklaceType;
         }
 
     }
