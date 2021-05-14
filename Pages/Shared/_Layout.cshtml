@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using System.Security.Claims
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -7,96 +8,149 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
 </head>
 <body>
     <header>
-        @* DENNE DEL MANGLER - EXNADER I SM OG MD TILSTAND *@
         <nav class="navbar navbar-expand-sm navbar-toggleable mb-3">
-            <div class="container">
+            <div class="container-fluid">
                 <a class="navbar-brand" asp-area="" asp-page="/Index">Black Pearl Webshop</a>
-                
-
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <ul class="navbar-nav flex-grow-1">
-
-                    @* SEARCH *@
-                    <form method="post" class="form-inline my-2 my-lg-0">
-                        <input class="form-control mr-sm-2" type="search" placeholder="Search title" id="searchCriteria" name="searchCriteria" aria-label="Search">
-                        <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
-                    </form>
-
-                   
-                    <li class="nav-item">
-                        <a class="nav-link" asp-area="" asp-page="/Account/CreateUser">Create User</a>
-                    </li>
-                    @if(User.IsInRole("admin"))
-                    { 
-
-                        <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-page="/Account/CreateAdmin">Create Admin</a>
-                        </li>
-                    }
-                    <li class="nav-item">
-                        <a class="nav-link" asp-area="" asp-page="/Account/LogIn">Login</a>
-                    </li>
-                </ul>
+                @*<div class="d-flex justify-content-between">*@
+            <div class="d-flex flex-row-reverse">
+                <div class="p-2">
+                    <a asp-area="" asp-page="/Account/Logout" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Log out</a>
+                </div>
+                <div class="p-2">
+                    <a asp-area="" asp-page="/Account/LogIn" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Log in</a>
+                </div>
+                <div class="p-2">
+                    <a asp-area="" asp-page="/Account/CreateAdmin" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Create admin</a>
+                </div>
+                <div class="p-2">
+                    <a asp-area="" asp-page="/Account/CreateUser" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Create user</a>
+                </div>
+                <div class="p-2">
+                    <a asp-area="" asp-page="/Payment/CheckOut" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Payment site</a>
+                </div>
+                @*<a class="nav-link" asp-area="" asp-page="/Account/CreateAdmin"></a>
+        <a class="nav-link" asp-area="" asp-page="/Account/CreateUser">Create User</a>
+        <a class="nav-link" asp-area="" asp-page="/Account/LogIn">Login</a>
+        <a class="nav-link" asp-area="" asp-page="/Account/Logout">Logout</a>*@
             </div>
-            @*</div>*@
-        </nav>
 
-
-
-        @* HAMBURGER MENU *@
-        <nav class="navbar navbar-dark">
-            <a class="navbar-brand" href="/Index"></a>
-            <a class="" href="">
-                <i class="fa fa-shopping-cart"></i>
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item active">
-
-                        @*<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>*@
-                        <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-area="" asp-page="/Jewellery/AllJewelries">All Jewelries</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-area="" asp-page="/Jewellery/BraceletCRUD/AllBracelets">Bracelets</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-area="" asp-page="/Jewellery/NecklaceCRUD/AllNecklaces">Necklaces</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-area="" asp-page="/Jewellery/EarringCrud/AllEarrings">Earrings</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-area="" asp-page="/Jewellery/RingCRUD/AllRings">Rings</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-area="" asp-page="/Jewellery/HeadJewelleryCRUD/AllHeadJew">Head Jewellery</a>
-
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Pricing</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link disabled" href="#">Disabled</a>
-                    </li>
-                </ul>
+                <div class="d-flex flex-row-reverse">
+                    <div class="p-2">
+                        <button type="button" class="btn btn-outline-primary"><i class="fa fa-shopping-cart"></i></button>
+                    </div>
+                    <div class="p-2">
+                        @* SEARCH *@
+                        <form method="post" class="form-inline my-2 my-lg-0">
+                            <input class="form-control mr-sm-2" type="search" placeholder="Search title" id="searchCriteria" name="searchCriteria" aria-label="Search">
+                            <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
+                        </form>
+                    </div>
+                    <div class="p-2">
+                    </div>
+                </div>
             </div>
-        </nav>
+        </nav> 
 
-    </header>
+   
+
+    @* HAMBURGER INDE I EN ROW *@
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm bg-dark">
+                <p></p>
+                </div>
+            </div>
+        <div class="row">
+            <div class="col-sm col-4">
+                <nav class="navbar navbar-light"></nav>
+                </div>
+            <div class="col-sm col-4">
+                @* HAMBURGER MENU *@
+                @* EXPAND-LG VÆK *@
+                <nav class="navbar navbar-light">
+                    <a class="navbar-brand" href="#"></a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                        </button>
+                    <div class="collapse navbar-collapse bg-light" id="navbarNav">
+                        <ul class="navbar-nav text-black">
+                            <li class="nav-item active">
+                                <a class="nav-link text-black" href="#">Home <span class="sr-only">(current)</span></a>
+                                </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-black" asp-area="" asp-page="/Jewellery/AllJewelries">All Jewelries</a>
+                                </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" asp-page="/Jewellery/EarringCrud/AllEarrings" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Earrings
+                                    </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                    <a class="dropdown-item">Types</a>
+                                    <a class="dropdown-item" asp-page="/Jewellery/EarringCrud/AllEarrings">Jhumkay</a>
+                                    <a class="dropdown-item" asp-page="/Jewellery/EarringCrud/AllEarrings">Tops</a>
+                                    </div>
+                                </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" asp-area="" asp-page="/Jewellery/NecklaceCRUD/AllNecklaces" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Necklace
+                                    </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                    <a class="dropdown-item">Types</a>
+                                    <a class="dropdown-item" asp-page="/Jewellery/NecklaceCRUD/AllNecklaces">Mala</a>
+                                    <a class="dropdown-item" asp-page="/Jewellery/NecklaceCRUD/AllNecklaces">Choker</a>
+                                    <a class="dropdown-item" asp-page="/Jewellery/NecklaceCRUD/AllNecklaces">Multilayered</a>
+                                    </div>
+                                </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" asp-area="" asp-page="/Jewellery/BraceletCRUD/AllBracelet" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Bracelet
+                                    </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                    <a class="dropdown-item">Types</a>
+                                    <a class="dropdown-item" asp-page="/Jewellery/BraceletCRUD/AllBracelet">Kangan</a>
+                                    <a class="dropdown-item" asp-page="/Jewellery/BraceletCRUD/AllBracelet">Bangles</a>
+                                    <a class="dropdown-item" asp-page="/Jewellery/BraceletCRUD/AllBracelet">Panjangla</a>
+                                    </div>
+                                </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" asp-page="/Jewellery/RingCRUD/AllRings" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Rings
+                                    </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                    <a class="dropdown-item">Types</a>
+                                    <a class="dropdown-item" asp-page="/Jewellery/RingCRUD/AllRings">Panjangla</a>
+                                    <a class="dropdown-item" asp-page="/Jewellery/RingCRUD/AllRings">DoubleRings</a>
+                                    <a class="dropdown-item" asp-page="/Jewellery/RingCRUD/AllRings">SilverRings</a>
+                                    </div>
+                                </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" asp-page="/Jewellery/HeadJewelleryCRUD/AllHeadJew" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Head Jewellery
+                                    </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                    <a class="dropdown-item">Types</a>
+                                    <a class="dropdown-item" asp-page="/Jewellery/HeadJewelleryCRUD/AllHeadJew">Bindi</a>
+                                    <a class="dropdown-item" asp-page="/Jewellery/HeadJewelleryCRUD/AllHeadJew" >MathaPatti</a>
+                                    <a class="dropdown-item" asp-page="/Jewellery/HeadJewelleryCRUD/AllHeadJew" >Jhoomar</a>
+                                    </div>
+                                </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-black" asp-page="/AboutUs">About Black Pearl</a>
+                            </li>
+                        </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+</header>
 
     <div class="container">
         <main role="main" class="pb-3">

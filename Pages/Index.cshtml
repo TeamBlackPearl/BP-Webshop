@@ -27,43 +27,47 @@
     </div>
 </div>
 
+<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+    <a class="dropdown-item">Types</a>
+    <a class="dropdown-item" asp-page="/Jewellery/HeadJewelleryCRUD/AllHeadJew">Bindi</a>
+    <a class="dropdown-item" asp-page="/Jewellery/HeadJewelleryCRUD/AllHeadJew" >MathaPatti</a>
+    <a class="dropdown-item" asp-page="/Jewellery/HeadJewelleryCRUD/AllHeadJew" >Jhoomar</a>
+</div>
+
+
+
 <div class="container">
 
     <div class="row">
         <div class="col Bracelet_category">
-            <button class="btn btn-default" asp-area="" asp-page="/Jewellery/BraceletCRUD/AllBracelets">
-                @*1 of 2*@
-                    <img src="Images/bracelet1.jpg" class="col-sm Bracelet_img rounded" alt="Responsive image">
-            </button>
+            <a asp-area="" asp-page="/Jewellery/BraceletCRUD/AllBracelets" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">
+                <img type="button" src="Images/bracelet1.jpg" class="col-sm  rounded btn btn-link Bracelet_img" alt="Responsive image">
+            </a>
         </div>
        
         <div class="col Earring_category">
-            <button class="btn btn-default" asp-area="" asp-page="/Jewellery/EarringCrud/AllEarrings">
-                @*2 of 2*@
-                <img src="Images/earring1.jpg" class="col-sm Earring_img rounded" alt="Responsive image">
-            </button>
+            <a asp-area="" asp-page="/Jewellery/EarringCrud/AllEarrings" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">
+                <img type="button" src="Images/earring1.jpg" class="col-sm  rounded btn btn-link Earring_img" alt="Responsive image">
+            </a>
         </div>
     </div>
 
     <div class="row">
         <div class="col Head_category">
-            <button class="btn btn-default" asp-area="" asp-page="/Jewellery/HeadJewelleryCRUD/AllHeadJew">
-                @*1 of 3*@
-                <img src="Images/head2.png" alt="Responsive image" class="col-sm Head_img rounded">
-            </button>
-          </div>
+            <a asp-area="" asp-page="/Jewellery/HeadJewelleryCRUD/AllHeadJew" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">
+                <img type="button" src="Images/head2.png" class="col-sm  rounded btn btn-link Head_img" alt="Responsive image">
+            </a>
+        </div>
         
         <div class="col Ring_category">
-            <button class="btn btn-default" asp-area="" asp-page="/Jewellery/RingCRUD/AllRings">
-            @*2 of 3*@
-                <img src="Images/ring1.jpg" alt="Responsive image" class="col-sm Ring_img rounded">
-            </button>
-         </div>
+            <a asp-area="" asp-page="/Jewellery/RingCRUD/AllRings" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">
+                <img type="button" src="Images/ring1.jpg" class="col-sm  rounded btn btn-link Ring_img" alt="Responsive image">
+            </a>
+        </div>
         <div class="col Necklace_category">
-            <button class="btn btn-default" asp-area="" asp-page="/Jewellery/NecklaceCRUD/AllNecklaces">
-                @*3 of 3*@
-                <img src="Images/necklace2.JPG" alt="Responsive image" class="col-sm col-md Necklace_img">
-            </button>
+            <a asp-area="" asp-page="/Jewellery/NecklaceCRUD/AllNecklaces" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">
+                <img type="button" src="Images/necklace2.jpg" class="col-sm  rounded btn btn-link Necklace_img" alt="Responsive image">
+            </a>
         </div>
     </div>
 </div>
