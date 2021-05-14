@@ -26,9 +26,9 @@ namespace BP_Webshop.Models
 
         public Order(User user, Jewelry product)
         {
-            Date = DateTime.Now;
-            User = user;
-            Product = product;
+            //Date = DateTime.Now;
+            //User = user;
+            //Product = product;
         }
     }
 }

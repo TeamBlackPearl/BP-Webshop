@@ -15,15 +15,17 @@ namespace BP_Webshop.Models
         }
 
         public double EarringLength { get; set; }
+        public EarringTypes EarringType { get; set; }
 
         public Earring()
         {
             
         }
 
-        public Earring(int jewelryId, string jewelryTitle, string description, string color, decimal price, double earringLength, double averageRating, string imageLink) : base(jewelryId, jewelryTitle, description, color, price, averageRating, imageLink)
+        public Earring(int jewelryId, string jewelryTitle, string description, string color, decimal price, double earringLength, double averageRating, string imageLink, EarringTypes earringType) : base(jewelryId, jewelryTitle, description, color, price, averageRating, imageLink)
         {
             EarringLength = earringLength;
+            EarringType = earringType;
         }
 
     }
