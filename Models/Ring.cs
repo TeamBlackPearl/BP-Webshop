@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -14,7 +15,9 @@ namespace BP_Webshop.Models
             SilverRings,
         }
 
+        [Required(ErrorMessage = "Size is required")]
         public int RingSize { get; set; }
+        //optional
         public double RingWidth { get; set; }
 
         public Ring()
