@@ -24,11 +24,13 @@ namespace BP_Webshop.Models
             
         }
 
-        public Order(User user, Jewelry product)
+        public Order(int orderId, DateTime orderDate, int id, decimal deliveryPrice, decimal totalPrice)
         {
-            Date = DateTime.Now;
-            User = user;
-            Product = product;
+            OrderId = orderId;
+            OrderDate = orderDate;
+            Id = id;
+            DeliveryPrice = deliveryPrice;
+            TotalPrice = totalPrice;
         }
     }
 }

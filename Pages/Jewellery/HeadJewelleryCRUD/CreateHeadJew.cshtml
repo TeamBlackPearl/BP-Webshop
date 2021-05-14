@@ -15,29 +15,29 @@
         @* Post method *@
         <form method="post">
             <div class="form-group">
-                <label class="control-lable">Titel:</label>
-                <input asp-for="@Model.HeadJew.JewelryTitle" class="form-control"/>
+                <label class="control-lable">Title</label>
+                <input asp-for="@Model.HeadJew.JewelryTitle" class="form-control" placeholder="Title"/>
             </div>
             <div class="form-group">
-                <label class="control-lable">Beskrivelse</label>
-                <input asp-for="@Model.HeadJew.Description" class="form-control"/>
+                <label class="control-lable">Description</label>
+                <input asp-for="@Model.HeadJew.Description" class="form-control" placeholder="Description"/>
             </div>
             <div class="form-group">
-                <label class="control-lable">Color:</label>
-                <input asp-for="@Model.HeadJew.Color" class="form-control"/>
+                <label class="control-lable">Color</label>
+                <input asp-for="@Model.HeadJew.Color" class="form-control" placeholder="color"/>
             </div>
             <div class="form-group">
-                <label class="control-lable">Pris:</label>
-                <input asp-for="@Model.HeadJew.Price" class="form-control"/>
+                <label class="control-lable">Price</label>
+                <input asp-for="@Model.HeadJew.Price" class="form-control" placeholder="Price"/>
             </div>
             <div class="form-group">
-                <label class="control-lable">Størrelse:</label>
-                <input asp-for="@Model.HeadJew.HeadJewelrySize" class="form-control"/>
-            </div>
-            <div class="form-group">
-                <label asp-for="@Model.HeadJew.ImageLink" class="control-label"></label>
-                <input asp-for="@Model.HeadJew.ImageLink" class="form-control" />
+                <label asp-for="@Model.HeadJew.ImageLink" class="control-label">Image name</label>
+                <input asp-for="@Model.HeadJew.ImageLink" class="form-control" placeholder="Image name"/>
                 <span asp-validation-for="@Model.HeadJew.ImageLink" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-lable">Size</label>
+                <input asp-for="@Model.HeadJew.HeadJewelrySize" class="form-control" placeholder="Size (optional)"/>
             </div>
             <div class="form-group">
                 <input type="submit" value="Opret" class="btn btn-dark"/>

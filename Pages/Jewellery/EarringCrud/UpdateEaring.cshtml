@@ -3,42 +3,48 @@
 @{
 }
 
-<h1>Update the Earring</h1>
-
+<h3 class="text-white">Edit the Earring</h3>
 <br />
-<form method="post">
+<div class="row">
+    <div class="col-2"></div>
+    <div class="col-8 align-content-center bg-light">
+        <form method="post">
     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
     <input type="hidden" asp-for="@Model.Earring.JewelryID" />
     <div class="form-group">
         <label asp-for="@Model.Earring.JewelryTitle" class="control-label"></label>
-        <input asp-for="@Model.Earring.JewelryTitle" class="form-control" />
+        <input asp-for="@Model.Earring.JewelryTitle" class="form-control" placeholder="Title"/>
     </div>
     <div class="form-group">
         <label asp-for="@Model.Earring.Description" class="control-label"></label>
-        <input asp-for="@Model.Earring.Description" class="form-control" />
+        <input asp-for="@Model.Earring.Description" class="form-control" placeholder="Description"/>
     </div>
     <div class="form-group">
         <label asp-for="@Model.Earring.Color" class="control-label"></label>
-        <input asp-for="@Model.Earring.Color" class="form-control" />
+        <input asp-for="@Model.Earring.Color" class="form-control" placeholder="Color"/>
     </div>
     <div class="form-group">
         <label asp-for="@Model.Earring.Price" class="control-label"></label>
-        <input asp-for="@Model.Earring.Price" class="form-control" />
+        <input asp-for="@Model.Earring.Price" class="form-control" placeholder="Price"/>
     </div>
     <div class="form-group">
         <label asp-for="@Model.Earring.AverageRating" class="control-label"></label>
-        <input asp-for="@Model.Earring.AverageRating" class="form-control" />
+        <input asp-for="@Model.Earring.AverageRating" class="form-control" placeholder="Average rating"/>
     </div>
     <div class="form-group">
         <label asp-for="@Model.Earring.ImageLink" class="control-label"></label>
-        <input asp-for="@Model.Earring.ImageLink" class="form-control" />
+        <input asp-for="@Model.Earring.ImageLink" class="form-control" placeholder="Image name"/>
     </div>
     <div class="form-group">
         <label asp-for="@Model.Earring.EarringLength" class="control-label"></label>
-        <input asp-for="@Model.Earring.EarringLength" class="form-control" />
+        <input asp-for="@Model.Earring.EarringLength" class="form-control" placeholder="Length (optional)"/>
     </div>
     <div class="form-group">
         <input type="submit" value="Save" class="btn btn-primary" />
         <a asp-page="AllEarrings" class="btn btn-danger">Cancel</a>
     </div>
 </form>
+    </div>
+    <div class="col-2"></div>
+</div>
+
