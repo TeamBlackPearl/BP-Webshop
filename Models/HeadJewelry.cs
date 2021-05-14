@@ -14,6 +14,7 @@ namespace BP_Webshop.Models
             Jhoomar,
         }
 
+
         public string HeadJewelrySize { get; set; }
 
         public HeadJewelry()
