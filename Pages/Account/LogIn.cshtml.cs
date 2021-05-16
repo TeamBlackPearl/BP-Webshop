@@ -27,7 +27,6 @@ namespace BP_Webshop.Pages.Account
         }
 
         public string Role { get; set; }
-        public string UserName { get; set; }
 
         public string Email { get; set; }
         [DataType(DataType.Password)]
