@@ -39,8 +39,9 @@ namespace BP_Webshop.Pages.Account
             this._adminService = adminService;
             passwordHasher = new PasswordHasher<string>();
         }
-        public void OnGet()
+        public IActionResult OnGet()
         {
+            return Page();
         }
 
         public async Task<IActionResult> OnPostAsync()

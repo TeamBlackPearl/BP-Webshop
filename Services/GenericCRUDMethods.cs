@@ -15,7 +15,6 @@ namespace BP_Webshop.Services
             {
                 return await context.Set<T>().AsNoTracking().ToListAsync();
             }
-
         }
 
         public async Task AddObjectAsync(T obj)

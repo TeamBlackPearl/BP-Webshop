@@ -54,7 +54,7 @@ namespace BP_Webshop.Pages.Account
                 return Page();
             }
 
-            await _userService.AddUser(new User(Id, FirstName, LastName, Address, PhoneNumber, "user", Email, passwordHasher.HashPassword(null, Password)));
+            await _userService.AddUserAsync(new User(Id, FirstName, LastName, Address, PhoneNumber, "user", Email, passwordHasher.HashPassword(null, Password)));
             return RedirectToPage("/Index");
         }
 

@@ -18,7 +18,7 @@ namespace BP_Webshop.Services
             OrderList = DbService.GetObjectsAsync().Result.ToList();
         }
 
-        public async void AddOrder(Order order)
+        public async Task AddOrderAsync(Order order)
         {
             OrderList.Add(order);
             await DbService.AddObjectAsync(order);

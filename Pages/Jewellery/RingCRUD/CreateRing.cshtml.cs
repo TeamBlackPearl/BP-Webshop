@@ -35,7 +35,7 @@ namespace BP_Webshop.Pages.Jewellery.RingCRUD
                 return Page();
             }
 
-            await ringService.AddRing(Ring);
+            await ringService.AddRingAsync(Ring);
             return RedirectToPage("AllRings");
         }
     }

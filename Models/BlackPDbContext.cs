@@ -23,8 +23,8 @@ namespace BP_Webshop.Models
         public DbSet<HeadJewelry> HeadJewelries { get; set; }
         public DbSet<Necklace> Necklaces { get; set; }
         public DbSet<Ring> Rings { get; set; }
-        //public DbSet<Order> Orders { get; set; }
-        //public DbSet<OrderLine> OrderLines { get; set; }
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<OrderLine> OrderLines { get; set; }
 
         //public DbSet<Jewelry> Jewelries { get; set; }
 

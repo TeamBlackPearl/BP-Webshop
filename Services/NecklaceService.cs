@@ -18,7 +18,7 @@ namespace BP_Webshop.Services
             necklaces = dbCrudMethods.GetObjectsAsync().Result.ToList();
 
         }
-        public async Task AddNecklace(Necklace necklace)
+        public async Task AddNecklaceAsync(Necklace necklace)
         {
             necklaces.Add(necklace);
             await DbCrudMethods.AddObjectAsync(necklace);
@@ -58,7 +58,7 @@ namespace BP_Webshop.Services
             {
                 foreach (var necklace in necklaces)
                 {
-                    if (necklace.JewelryID == necklace.JewelryID)
+                    if (necklace.JewelryID == Necklace.JewelryID)
                     {
                         necklace.JewelryTitle = Necklace.JewelryTitle;
                         necklace.Description = Necklace.Description;
