@@ -19,14 +19,12 @@ namespace BP_Webshop.Pages.Account
     {
         private UserService _userService;
 
-        public List<AUser> allUserTypes;
+        private List<AUser> allUserTypes;
 
         public LogInModel(UserService userService)
         {
             _userService = userService;
         }
-
-        public string Role { get; set; }
 
         public string Email { get; set; }
         [DataType(DataType.Password)]
@@ -34,8 +32,9 @@ namespace BP_Webshop.Pages.Account
 
         public string Message { get; set; }
 
-        public void OnGet()
+        public IActionResult OnGet()
         {
+            return Page();
         }
 
         public async Task<IActionResult> OnPostAsync()

@@ -12,7 +12,6 @@ namespace BP_Webshop.Pages.Jewellery.EarringCrud
     public class DeleteEarringModel : PageModel
     {
         private EarringService _earringService;
-        private List<Models.Earring> earringList;
 
         //models navigation
         [BindProperty]

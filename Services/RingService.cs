@@ -18,7 +18,7 @@ namespace BP_Webshop.Services
             rings = dbCrudMethods.GetObjectsAsync().Result.ToList();
 
         }
-        public async Task AddRing(Ring ring)
+        public async Task AddRingAsync(Ring ring)
         {
             rings.Add(ring);
             await DbCrudMethods.AddObjectAsync(ring);
@@ -58,7 +58,7 @@ namespace BP_Webshop.Services
             {
                 foreach (var ring in rings)
                 {
-                    if (ring.JewelryID == ring.JewelryID)
+                    if (ring.JewelryID == Ring.JewelryID)
                     {
                         ring.JewelryTitle = Ring.JewelryTitle;
                         ring.Description = Ring.Description;

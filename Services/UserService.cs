@@ -25,10 +25,10 @@ namespace BP_Webshop.Services
 
 
         //task og async
-        public async Task AddUser(User users)
+        public async Task AddUserAsync(User user)
         {
-            UsersList.Add(users);
-            await DbService.AddObjectAsync(users);
+            UsersList.Add(user);
+            await DbService.AddObjectAsync(user);
         }
 
         public IEnumerable<User> GetUsers()
