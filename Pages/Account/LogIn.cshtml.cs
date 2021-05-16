@@ -26,8 +26,6 @@ namespace BP_Webshop.Pages.Account
             _userService = userService;
         }
 
-        //public string Role { get; set; }
-
         public string Email { get; set; }
         [DataType(DataType.Password)]
         public string Password { get; set; }
