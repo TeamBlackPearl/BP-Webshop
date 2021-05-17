@@ -12,6 +12,7 @@
     <div class="col-4 align-content-center">
         @* Post method *@
         <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label class="control-lable">First Name</label>
                 <input asp-for="@Model.FirstName" class="form-control" placeholder="First name"/>

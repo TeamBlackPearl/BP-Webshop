@@ -37,6 +37,7 @@ namespace BP_Webshop.Pages.Account
         public CreateAdminModel(AdminService adminService)
         {
             this._adminService = adminService;
+            _adminUserList = adminService.AdminUserList;
             passwordHasher = new PasswordHasher<string>();
         }
         public IActionResult OnGet()
@@ -53,6 +54,7 @@ namespace BP_Webshop.Pages.Account
 
             await _adminService.AddAdminUserAsync(new AdminUser(Id, FirstName, LastName, "admin", Email, passwordHasher.HashPassword(null, Password)));
             return RedirectToPage("/Index");
+
         }
 
     }
