@@ -12,36 +12,43 @@
     <div class="col-4 align-content-center">
         @* Post method *@
         <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label class="control-lable">Title</label>
                 <input asp-for="@Model.Earring.JewelryTitle" class="form-control" placeholder="Title"/>
+                <span asp-validation-for="@Model.Earring.JewelryTitle"></span>
             </div>
             <div class="form-group">
                 <label class="control-lable">Description</label>
-                <input asp-for="@Model.Earring.Description" class="form-control" placeholder="Description"/>
+                <input asp-for="@Model.Earring.Description" class="form-control" placeholder="Description" />
+                <span asp-validation-for="@Model.Earring.Description"></span>
             </div>
             <div class="form-group">
                 <label class="control-lable">Color</label>
                 <input asp-for="@Model.Earring.Color" class="form-control" placeholder="Color"/>
+                <span asp-validation-for="@Model.Earring.Color"></span>
             </div>
             <div class="form-group">
                 <label class="control-lable">Price</label>
                 <input asp-for="@Model.Earring.Price" class="form-control" placeholder="Price"/>
+                <span asp-validation-for="@Model.Earring.Price"></span>
             </div>
             <div class="form-group">
                 <label class="control-lable">Average rating</label>
                 <input asp-for="@Model.Earring.AverageRating" class="form-control" placeholder="Average rating"/>
+                <span asp-validation-for="@Model.Earring.AverageRating"></span>
             </div>
             <div class="form-group">
                 <label class="control-lable">Image Name</label>
                 <input asp-for="@Model.Earring.ImageLink" class="form-control" placeholder="Image name"/>
+                <span asp-validation-for="@Model.Earring.ImageLink"></span>
             </div>
             <div class="form-group">
                 <label class="control-lable">Length</label>
                 <input asp-for="@Model.Earring.EarringLength" class="form-control" placeholder="Length (optional)"/>
             </div>
             <div class="form-group">
-                <input type="submit" value="Opret" class="btn btn-dark" />
+                <input type="submit" value="Opret" class="btn btn-dark"/>
             </div>
         </form>
 

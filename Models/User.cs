@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
 
 namespace BP_Webshop.Models
 {
@@ -10,7 +11,9 @@ namespace BP_Webshop.Models
     {
         //optional
         public string Address { get; set; }
-        [Required(ErrorMessage = "you need to enter your phone number"), Range(8,8, ErrorMessage = "Has to be 8 digits")]
+        [Required]
+        [StringLength(8, MinimumLength = 8, ErrorMessage = "Has to be 8 digits")]
+        //[DataType(DataType.PhoneNumber, ErrorMessage = "Has to be 8 digits")]
         public string PhoneNumber { get; set; }
 
         public virtual ICollection<Order> Orders { get; set; }

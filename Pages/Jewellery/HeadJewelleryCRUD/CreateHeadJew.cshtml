@@ -14,21 +14,26 @@
 
         @* Post method *@
         <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label class="control-lable">Title</label>
                 <input asp-for="@Model.HeadJew.JewelryTitle" class="form-control" placeholder="Title"/>
+                <span asp-validation-for="@Model.HeadJew.JewelryTitle" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label class="control-lable">Description</label>
                 <input asp-for="@Model.HeadJew.Description" class="form-control" placeholder="Description"/>
+                <span asp-validation-for="@Model.HeadJew.Description" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label class="control-lable">Color</label>
                 <input asp-for="@Model.HeadJew.Color" class="form-control" placeholder="color"/>
+                <span asp-validation-for="@Model.HeadJew.Color" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label class="control-lable">Price</label>
                 <input asp-for="@Model.HeadJew.Price" class="form-control" placeholder="Price"/>
+                <span asp-validation-for="@Model.HeadJew.Price" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="@Model.HeadJew.ImageLink" class="control-label">Image name</label>
@@ -41,7 +46,7 @@
             </div>
             <div class="form-group">
                 <input type="submit" value="Opret" class="btn btn-dark"/>
-            
+
             </div>
         </form>
         
