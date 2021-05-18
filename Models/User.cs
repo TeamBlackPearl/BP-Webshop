@@ -11,8 +11,8 @@ namespace BP_Webshop.Models
     {
         //optional
         public string Address { get; set; }
-        [Required]
-        [StringLength(8, MinimumLength = 8, ErrorMessage = "Has to be 8 digits")]
+        //[Required]
+        //[StringLength(8, MinimumLength = 8, ErrorMessage = "Has to be 8 digits")]
         //[DataType(DataType.PhoneNumber, ErrorMessage = "Has to be 8 digits")]
         public string PhoneNumber { get; set; }
 
