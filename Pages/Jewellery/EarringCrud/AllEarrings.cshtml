@@ -3,53 +3,65 @@
 @{
 }
 
-<h2>All earrings</h2>
+<h1 class="display-4 text-white">All earrings</h1>
+
 
 <br />
 <br />
-<form>
-    <p>
-        <a asp-page="CreateEarring" class="btn btn-light">Create a new Earring</a>
-    </p>
-</form>
+@* ADMIN RUNDT OM *@
+@if (User.IsInRole("admin"))
+{
+    <form>
+        <p>
+            <a asp-page="CreateEarring" class="btn btn-light">Create a new Earring</a>
+        </p>
+    </form>
+}
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>Id</th>
-            <th>Title</th>
-            <th>Description</th>
-            <th>Color</th>
-            <th>Price</th>
-            <th>Average Rating</th>
-            <th>Image Name</th>
-            <th>Length</th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
+<div class="container">
+    <div class="row">
         @if (@Model.earringList != null)
         {
-            @foreach (var earring in Model.earringList)
+            @foreach (var bracelet in Model.earringList)
             {
-                <tr>
-                    <td>@earring.JewelryID</td>
-                    <td>@earring.JewelryTitle</td>
-                    <td>@earring.Description</td>
-                    <td>@earring.Color</td>
-                    <td>@earring.Price</td>
-                    <td>@earring.AverageRating</td>
-                    <td><img src="/Images/@earring.ImageLink" width="80" height="auto" /></td>
-                    <td>@earring.EarringLength</td>
-                    <td>
-                        @*Call to action buttons*@
-                        @*<a class="btn" asp-page="CreateEarring" asp-route-id="@earring.JewelryID">Create an earring</a>*@
-                        <a class="btn" asp-page="UpdateEaring" asp-route-id="@earring.JewelryID"><i class="fa fa-pencil"></i></a>
-                        <a class="btn" asp-page="DeleteEarring" asp-route-id="@earring.JewelryID"><i class="fa fa-trash"></i></a>
+                <div class="col-3">
+                    <table class="table">
+                        <tbody>
+                            <tr>
+                                @* SKAL ADMIN RUNDT OM *@
 
-                    </td>
-                </tr>
+                                <p>@bracelet.JewelryID</p>
+
+                                @* ADMIN SLUT *@
+                                <a asp-area="" asp-page="/Jewellery/ProductDetails/" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">
+                                    <img src="/Images/@bracelet.ImageLink" type="button" class="btn btn-link" width="80" height="auto" />
+                                </a>
+
+                                <p>@bracelet.JewelryTitle</p>
+                                <p>@bracelet.Description</p>
+                                <p>@bracelet.Color</p>
+                                <p>@bracelet.Price</p>
+                                <p>@bracelet.AverageRating</p>
+                                <p>@bracelet.EarringLength</p>
+
+
+                                @* SKAL ADMIN RUNDT OM *@
+                                @if (User.IsInRole("admin"))
+                                {
+
+                                    <td>
+                                        @*Call to action buttons*@
+                                        <a class="btn" asp-page="UpdateEaring" asp-route-id="@bracelet.JewelryID"><i class="fa fa-pencil"></i></a>
+                                        <a class="btn" asp-page="DeleteEarring" asp-route-id="@bracelet.JewelryID"><i class="fa fa-trash"></i></a>
+                                    </td>
+                                    @* ADMIN SLUT *@
+                                }
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             }
         }
-    </tbody>
-</table>
+
+    </div>
+</div>

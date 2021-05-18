@@ -4,72 +4,75 @@
     ViewData["Title"] = "DeleteBracelet";
 }
 
-<h1>Delete the Bracelet</h1>
+<h3 class="display-4 text-white">Delete bracelet</h3>
 
 <br />
 <br />
-<h3>Are you sure you want to delete this?</h3>
+<h3 class="text-white">Are you sure you want to delete this?</h3>
 
 <br />
 <div>
     <form method="post">
         <dl class="row">
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Bracelet.JewelryID)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.Bracelet.JewelryID)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Bracelet.JewelryTitle)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.Bracelet.JewelryTitle)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Bracelet.Description)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.Bracelet.Description)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Bracelet.Color)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.Bracelet.Color)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Bracelet.Price)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.Bracelet.Price)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Bracelet.AverageRating)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.Bracelet.AverageRating)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Bracelet.ImageLink)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.Bracelet.ImageLink)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Bracelet.BraceletLength)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.Bracelet.BraceletLength)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Bracelet.BraceletWidth)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.Bracelet.BraceletWidth)
-            </dd>
+            <div class="col-6 bg-white">
+
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Bracelet.JewelryID)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Bracelet.JewelryID)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Bracelet.JewelryTitle)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Bracelet.JewelryTitle)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Bracelet.Description)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Bracelet.Description)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Bracelet.Color)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Bracelet.Color)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Bracelet.Price)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Bracelet.Price)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Bracelet.AverageRating)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Bracelet.AverageRating)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Bracelet.ImageLink)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Bracelet.ImageLink)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Bracelet.BraceletLength)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Bracelet.BraceletLength)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Bracelet.BraceletWidth)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Bracelet.BraceletWidth)
+                </dd>
+            </div>
         </dl>
         <input type="submit" value="Delete" class="btn btn-danger" />
-        <a asp-page="AllBraclets" class="btn btn-primary">Cancel</a>
+        <a asp-page="AllBracelets" class="btn btn-danger">Cancel</a>
     </form>
 </div>
