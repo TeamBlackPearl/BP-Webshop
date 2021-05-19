@@ -14,6 +14,10 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace BP_Webshop.Pages.Account
 {
+    /// <summary>
+    /// 
+    /// </summary>
+    
     [BindProperties]
     public class LogInModel : PageModel
     {
@@ -46,13 +50,13 @@ namespace BP_Webshop.Pages.Account
                 if (Email == u.Email)
                 {
                     var passwordHasher = new PasswordHasher<string>();
+
                     if (passwordHasher.VerifyHashedPassword(null, u.Password, Password) == PasswordVerificationResult.Success)
                     {
                         //loggedinuser
                         var claims = new List<Claim>
                         {
-                            new Claim(ClaimTypes.Name, u.FirstName),
-                            //new Claim(ClaimTypes.Role, u.Role.ToString())
+                            new Claim(ClaimTypes.Name, u.FirstName)
                         };
 
                         if (u.Role == "admin") claims.Add(new Claim(ClaimTypes.Role, u.Role));
