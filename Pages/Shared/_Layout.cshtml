@@ -11,17 +11,20 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable mb-3">
+        <nav class="navbar navbar-expand-sm">
             <div class="container-fluid">
                 <a class="navbar-brand" asp-area="" asp-page="/Index"><img src="Images/BPLOGO.jpg" width="100" height="auto"></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
+                    @*<span class="navbar-toggler-icon"></span>*@
                 </button>
+            @if (Context.User.Identity.IsAuthenticated)
+            {
                 @*<div class="d-flex justify-content-between">*@
                 <div class="align-content-center text-white">
                     <p>User logged in: <i>@Context.User.Identity.Name</i> </p>
                 </div>
+            }
                 <div class="d-flex flex-row-reverse">
 
                     <div class="p-2 align-content-center text-white">
