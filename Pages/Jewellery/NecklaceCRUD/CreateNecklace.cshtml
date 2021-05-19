@@ -14,7 +14,6 @@
     <div class="col-8 align-content-center bg-light">
 <form method="post">
     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-
     <div class="form-group">
         <label asp-for="@Model.Necklace.JewelryTitle" class="control-label">Title</label>
         <input asp-for="@Model.Necklace.JewelryTitle" class="form-control" placeholder="Title" />
@@ -53,15 +52,11 @@
     </div>
     <div class="form-group">
         <label asp-for="@Model.Necklace.NecklaceLength" class="control-label">Length</label>
-        <input asp-for="@Model.Necklace.NecklaceLength" class="form-control" placeholder="Length (optional)" />
-        <span asp-validation-for="@Model.Necklace.NecklaceLength" class="text-danger"></span>
-
+        <input asp-for="@Model.Necklace.NecklaceLength" class="form-control" placeholder="Length (optional)"/>
     </div>
     <div class="form-group">
         <label asp-for="@Model.Necklace.NecklaceWidth" class="control-label">Width</label>
-        <input asp-for="@Model.Necklace.NecklaceWidth" class="form-control" placeholder="Width (optional)" />
-        <span asp-validation-for="@Model.Necklace.NecklaceWidth" class="text-danger"></span>
-
+        <input asp-for="@Model.Necklace.NecklaceWidth" class="form-control" placeholder="Width (optional)"/>
     </div>
 
     <div class="form-group">

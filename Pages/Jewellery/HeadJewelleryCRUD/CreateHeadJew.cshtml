@@ -10,38 +10,43 @@
     <div class="col-2"></div>
     <div class="col-8 align-content-center bg-light">
         @* Post method *@
-                <form method="post">
-                    <div class="form-group">
-                        <label class="control-lable">Title</label>
-                        <input asp-for="@Model.HeadJew.JewelryTitle" class="form-control" placeholder="Title" />
-                    </div>
-                    <div class="form-group">
-                        <label class="control-lable">Description</label>
-                        <input asp-for="@Model.HeadJew.Description" class="form-control" placeholder="Description" />
-                    </div>
-                    <div class="form-group">
-                        <label class="control-lable">Color</label>
-                        <input asp-for="@Model.HeadJew.Color" class="form-control" placeholder="color" />
-                    </div>
-                    <div class="form-group">
-                        <label class="control-lable">Price</label>
-                        <input asp-for="@Model.HeadJew.Price" class="form-control" placeholder="Price" />
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="@Model.HeadJew.ImageLink" class="control-label">Image name</label>
-                        <input asp-for="@Model.HeadJew.ImageLink" class="form-control" placeholder="Image name" />
-                        <span asp-validation-for="@Model.HeadJew.ImageLink" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-lable">Size</label>
-                        <input asp-for="@Model.HeadJew.HeadJewelrySize" class="form-control" placeholder="Size (optional)" />
-                    </div>
-                    <div class="form-group">
-                        <input type="submit" value="Create" class="btn btn-dark" />
-                        <a asp-page="AllHeadJew" class="btn btn-danger">Cancel</a>
-
-                    </div>
-                </form>
-           </div>
+  
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label class="control-lable">Title</label>
+                <input asp-for="@Model.HeadJew.JewelryTitle" class="form-control" placeholder="Title"/>
+                <span asp-validation-for="@Model.HeadJew.JewelryTitle" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-lable">Description</label>
+                <input asp-for="@Model.HeadJew.Description" class="form-control" placeholder="Description"/>
+                <span asp-validation-for="@Model.HeadJew.Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-lable">Color</label>
+                <input asp-for="@Model.HeadJew.Color" class="form-control" placeholder="color"/>
+                <span asp-validation-for="@Model.HeadJew.Color" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-lable">Price</label>
+                <input asp-for="@Model.HeadJew.Price" class="form-control" placeholder="Price"/>
+                <span asp-validation-for="@Model.HeadJew.Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.HeadJew.ImageLink" class="control-label">Image name</label>
+                <input asp-for="@Model.HeadJew.ImageLink" class="form-control" placeholder="Image name"/>
+                <span asp-validation-for="@Model.HeadJew.ImageLink" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-lable">Size</label>
+                <input asp-for="@Model.HeadJew.HeadJewelrySize" class="form-control" placeholder="Size (optional)"/>
+            </div>
+            <div class="form-group">
+                 <input type="submit" value="Create" class="btn btn-dark" />
+                 <a asp-page="AllHeadJew" class="btn btn-danger">Cancel</a>
+            </div>
+        </form>
+      </div>
     <div class="col-2"></div>
 </div>

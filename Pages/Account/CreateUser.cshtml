@@ -12,34 +12,41 @@
     <div class="col-4 align-content-center">
         @* Post method *@
         <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label class="control-lable">First Name</label>
                 <input asp-for="@Model.FirstName" class="form-control" placeholder="First name"/>
+                <span asp-validation-for="@Model.FirstName" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label class="control-lable">Last Name</label>
                 <input asp-for="@Model.LastName" class="form-control" placeholder="Last name"/>
+                <span asp-validation-for="@Model.LastName" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label class="control-lable">Address</label>
                 <input asp-for="@Model.Address" class="form-control" placeholder="Billing address (optional)"/>
+                <span asp-validation-for="@Model.Address" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label class="control-lable">Phone Number</label>
                 <input asp-for="@Model.PhoneNumber" class="form-control" placeholder="Phone number"/>
+                <span asp-validation-for="@Model.PhoneNumber" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label class="control-lable">Insert your email</label>
                 <input asp-for="@Model.Email" class="form-control" placeholder="Email"/>
+                <span asp-validation-for="@Model.Email" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label class="control-lable">Create a password</label>
                 <input asp-for="@Model.Password" class="form-control" placeholder="Password"/>
+                <span asp-validation-for="@Model.Password" class="text-danger"></span>
             </div>
 
 
             <div class="form-group">
-                <input type="submit" value="Opret" class="btn btn-dark" />
+                <input type="submit" value="Opret" class="btn btn-dark"/>
             </div>
         </form>
 

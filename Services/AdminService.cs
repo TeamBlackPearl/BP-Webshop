@@ -10,9 +10,9 @@ namespace BP_Webshop.Services
     {
 
         //statusveryfied
-
         public List<AdminUser> AdminUserList { get; set; }
         private GenericCRUDMethods<AdminUser> GenericCrudMethods { get; set; }
+
 
         public AdminService(GenericCRUDMethods<AdminUser> genericCrudMethods)
         {
@@ -23,8 +23,9 @@ namespace BP_Webshop.Services
 
         public async Task AddAdminUserAsync(AdminUser adminUser)
         {
-            AdminUserList.Add(adminUser);
+            AdminUserList.Add(adminUser); 
             await GenericCrudMethods.AddObjectAsync(adminUser);
+            
         }
 
         public IEnumerable<AdminUser> GetAdminUsers()

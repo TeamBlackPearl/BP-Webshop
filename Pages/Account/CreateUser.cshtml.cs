@@ -39,9 +39,11 @@ namespace BP_Webshop.Pages.Account
         [BindProperty, DataType(DataType.Password)]
         public string Password { get; set; }
 
+
         public CreateUserModel(UserService userService)
         {
             this._userService = userService;
+            users = userService.UsersList;
             passwordHasher = new PasswordHasher<string>();
         }
 
@@ -53,7 +55,7 @@ namespace BP_Webshop.Pages.Account
             {
                 return Page();
             }
-
+            
             await _userService.AddUserAsync(new User(Id, FirstName, LastName, Address, PhoneNumber, "user", Email, passwordHasher.HashPassword(null, Password)));
             return RedirectToPage("/Index");
         }
