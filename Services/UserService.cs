@@ -35,19 +35,23 @@ namespace BP_Webshop.Services
         {
             return UsersList;
         }
-
+        //1.en local list oprettes
+        //2.henter alle adminUsers, og tæller antallet af adminUsers
+        //3.henter alle users, og tæller antallet af users
+        //4.tager det antal af adminUsers der er fundet og ligger det ind i 
+        //den nye liste allUserTypes, der sker det samme med Users
+        //5.til sidst returnere den listen allUserTypes
         public List<AUser> GetAllUserTypes()
         {
-            //local list
+           
             List<AUser> allUserTypes = new List<AUser>
-                //henter alle admin users, og tæller antal af admin users
-                //og henter alle users, og tæller antal af users
-                (_adminService.GetAdminUsers().Count() + GetUsers().Count());
-            //tager det antal admin users der er fundet og ligger det ind i 
-            //den nye liste allusertypes
+            //henter, tæller    
+            (_adminService.GetAdminUsers().Count() + GetUsers().Count());
+            //ligger adminUsers ind i listen
             allUserTypes.AddRange(_adminService.GetAdminUsers());
-            //sker det samme her, og henter getusers direkte
+            //ligger Users ind i listen
             allUserTypes.AddRange(GetUsers());
+            //returnere listen
             return allUserTypes;
         }
 

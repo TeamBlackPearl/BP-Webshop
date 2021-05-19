@@ -40,6 +40,7 @@ namespace BP_Webshop.Pages.Jewellery
             {
                 Jewelries = jewelryService.GetAllJewelries()
                     .FindAll(x => x.JewelryTitle.ToUpper().Contains(searchCriteria.ToUpper()));
+                 //return RedirectToPage("/Jewellery/AllJewelries");
             }
 
             return Page();
