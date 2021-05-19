@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Diagnostics.Eventing.Reader;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
@@ -43,11 +44,15 @@ namespace BP_Webshop.Pages.Account
 
         public async Task<IActionResult> OnPostAsync()
         {
+
             List<AUser> allUserTypes = _userService.GetAllUserTypes();
 
             foreach (var u in allUserTypes)
             {
-                if (Email == u.Email)
+                try
+                {
+
+                    if (Email == u.Email)
                 {
                     var passwordHasher = new PasswordHasher<string>();
                     if (passwordHasher.VerifyHashedPassword(null, u.Password, Password) == PasswordVerificationResult.Success)
@@ -67,10 +72,21 @@ namespace BP_Webshop.Pages.Account
                             new ClaimsPrincipal(claimsIdentity));
                         return RedirectToPage("/Index");
                     }
+                   
+                  }
                 }
+                catch (Exception e)
+                {
+                    ModelState.AddModelError(string.Empty, e.Message);
+                    return Page();
+                }
+                //else
+                //{
+                //    throw new ArgumentException("Invalid attempt! The Email and Password needs to match!");
+                //    //Message = "Invalid attempt!";
+                //}
             }
 
-            Message = "Invalid attempt!";
             return Page();
         }
 
