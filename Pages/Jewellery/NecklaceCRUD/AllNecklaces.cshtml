@@ -2,49 +2,65 @@
 @model BP_Webshop.Pages.Jewellery.NecklaceCRUD.AllNecklacesModel
 @{
 }
-<h2>All Necklaces</h2>
-<form>
-    <p>
-        <a asp-page="CreateNecklace" class="btn btn-light">Add Necklace</a>
-    </p>
-</form>
-<table class="table">
-    <thead>
-        <tr>
-            <th>Id</th>
-            <th>Title</th>
-            <th>Description</th>
-            <th>Color</th>
-            <th>Price</th>
-            <th>Average Rating</th>
-            <th>Image Name</th>
-            <th>Length</th>
-            <th>Witdh</th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
+<h1 class="display-4 text-white">All Necklaces</h1>
+
+<br />
+@if (User.IsInRole("admin"))
+{
+    <form>
+        <p>
+            <a asp-page="CreateNecklace" class="btn btn-light">Create Necklace</a>
+        </p>
+    </form>
+}
+
+<div class="container">
+    <div class="row">
         @if (@Model.necklaces != null)
         {
             @foreach (var necklace in Model.necklaces)
             {
-                <tr>
-                    <td>@necklace.JewelryID</td>
-                    <td>@necklace.JewelryTitle</td>
-                    <td>@necklace.Description</td>
-                    <td>@necklace.Color</td>
-                    <td>@necklace.Price</td>
-                    <td>@necklace.AverageRating</td>
-                    <td><img src="/Images/@necklace.ImageLink" width="80" height="auto" /></td>
-                    <td>@necklace.NecklaceLength</td>
-                    <td>@necklace.NecklaceWidth</td>
-                    <td>
-                        @*Call to action buttons*@
-                        <a class="btn" asp-page="EditNecklace" asp-route-id="@necklace.JewelryID"><i class="fa fa-pencil"></i></a>
-                        <a class="btn" asp-page="DeleteNecklace" asp-route-id="@necklace.JewelryID"><i class="fa fa-trash"></i></a>
-                    </td>
-                </tr>
+                <div class="col-3">
+                    <table class="table">
+                        <tbody>
+                            <tr>
+                                @* SKAL ADMIN RUNDT OM *@
+
+                                <p>@necklace.JewelryID</p>
+
+                                @* ADMIN SLUT *@
+                                <a asp-area="" asp-page="/Jewellery/ProductDetails/" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">
+                                    <img src="/Images/@necklace.ImageLink" type="button" class="btn btn-link" width="80" height="auto" />
+                                </a>
+                                <p>@necklace.JewelryTitle</p>
+                                <p>@necklace.Description</p>
+                                <p>@necklace.Color</p>
+                                <p>@necklace.Price</p>
+                                <p>@necklace.AverageRating</p>
+                                @*<td><img src="/Images/@necklace.ImageLink" width="80" height="auto" /></td>*@
+                                <p>@necklace.NecklaceLength</p>
+                                <p>@necklace.NecklaceWidth</p>
+
+
+                                @* SKAL ADMIN RUNDT OM *@
+                                @if (User.IsInRole("admin"))
+                                {
+                                    <td>
+                                        @*Call to action buttons*@
+                                        <a class="btn" asp-page="EditNecklace" asp-route-id="@necklace.JewelryID"><i class="fa fa-pencil"></i></a>
+                                        <a class="btn" asp-page="DeleteNecklace" asp-route-id="@necklace.JewelryID"><i class="fa fa-trash"></i></a>
+                                    </td>
+                                    @* ADMIN SLUT *@
+                                }
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             }
         }
-    </tbody>
-</table>
+
+    </div>
+</div>
+
+
+

@@ -2,49 +2,65 @@
 @model BP_Webshop.Pages.Jewellery.RingCRUD.AllRingsModel
 @{
 }
-<h2>All Rings</h2>
-<form>
-    <p>
-        <a asp-page="CreateRing" class="btn btn-light">Add Ring</a>
-    </p>
-</form>
-<table class="table">
-    <thead>
-    <tr>
-        <th>Id</th>
-        <th>Title</th>
-        <th>Description</th>
-        <th>Color</th>
-        <th>Price</th>
-        <th>Average Rating</th>
-        <th>Image Name</th>
-        <th>Ring Size</th>
-        <th>Ring Width</th>
-        <th>Tools</th>
-    </tr>
-    </thead>
-    <tbody>
-    @if (@Model.rings != null)
-    {
-        @foreach (var ring in Model.rings)
+<h1 class="display-4 text-white">All rings</h1>
+
+<br/>
+
+@* SKAL ADMIN RUNDT OM *@
+@if (User.IsInRole("admin"))
+{
+    <form>
+        <p>
+            <a asp-page="CreateRing" class="btn btn-light">Create a ring</a>
+        </p>
+    </form>
+}
+
+<div class="container">
+    <div class="row">
+        @if (@Model.rings != null)
         {
-            <tr>
-                <td>@ring.JewelryID</td>
-                <td>@ring.JewelryTitle</td>
-                <td>@ring.Description</td>
-                <td>@ring.Color</td>
-                <td>@ring.Price</td>
-                <td>@ring.AverageRating</td>
-                <td><img src="/Images/@ring.ImageLink" width="80" height="auto" /></td>
-                <td>@ring.RingSize</td>
-                <td>@ring.RingWidth</td>
-                <td>
-                    @*Call to action buttons*@
-                    <a class="btn" asp-page="EditRing" asp-route-id="@ring.JewelryID"><i class="fa fa-pencil"></i></a>
-                    <a class="btn" asp-page="DeleteRing" asp-route-id="@ring.JewelryID"><i class="fa fa-trash"></i></a>
-                </td>
-            </tr>
+            @foreach (var r in Model.rings)
+            {
+                <div class="col-3">
+                    <table class="table">
+                        <tbody>
+                            <tr>
+                                @* SKAL ADMIN RUNDT OM *@
+
+                                <td>@r.JewelryID</td>
+
+                                @* ADMIN SLUT *@
+                                <a asp-area="" asp-page="/Jewellery/ProductDetails/" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">
+                                    <img src="/Images/@r.ImageLink" type="button" class="btn btn-link" width="80" height="auto" />
+                                </a>
+
+                                <p>@r.JewelryTitle</p>
+                                <p>@r.Description</p>
+                                <p>@r.Color</p>
+                                <p>@r.Price</p>
+                                <p>@r.AverageRating</p>
+                                <p>@r.RingSize</p>
+                                <p>@r.RingWidth</p>
+
+
+                                @* SKAL ADMIN RUNDT OM *@
+                                @if (User.IsInRole("admin"))
+                                {
+
+                                    <td>
+                                        @*Call to action buttons*@
+                                        <a class="btn" asp-page="EditRing" asp-route-id="@r.JewelryID"><i class="fa fa-pencil"></i></a>
+                                        <a class="btn" asp-page="DeleteRing" asp-route-id="@r.JewelryID"><i class="fa fa-trash"></i></a>
+                                    </td>
+                                    @* ADMIN SLUT *@
+                                }
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            }
         }
-    }
-    </tbody>
-</table>
+
+    </div>
+</div>

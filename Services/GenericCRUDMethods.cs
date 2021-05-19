@@ -24,6 +24,7 @@ namespace BP_Webshop.Services
                 context.Set<T>().Add(obj);
                 await context.SaveChangesAsync();
             }
+
         }
 
         public async Task DeleteObjectAsync(T obj)

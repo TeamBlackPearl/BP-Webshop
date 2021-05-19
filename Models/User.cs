@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
@@ -9,7 +10,9 @@ namespace BP_Webshop.Models
 {
     public class User : AUser
     {
-        //optional
+        //[Key]
+        //[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+
         public string Address { get; set; }
         [Required]
         [StringLength(8, MinimumLength = 8, ErrorMessage = "Has to be 8 digits")]

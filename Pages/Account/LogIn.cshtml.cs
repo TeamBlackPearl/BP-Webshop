@@ -51,7 +51,7 @@ namespace BP_Webshop.Pages.Account
                         //loggedinuser
                         var claims = new List<Claim>
                         {
-                            new Claim(ClaimTypes.Email, u.Email),
+                            new Claim(ClaimTypes.Name, u.FirstName),
                             //new Claim(ClaimTypes.Role, u.Role.ToString())
                         };
 

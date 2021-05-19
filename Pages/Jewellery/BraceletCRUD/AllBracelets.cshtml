@@ -3,39 +3,42 @@
 @{
 }
 
-<h1 class="display-4 text-white">Bracelets</h1>
+<h1 class="display-4 text-white">All Bracelets</h1>
 
 <br/>
 
 @* SKAL ADMIN RUNDT OM *@
+@if (User.IsInRole("admin"))
+{
 <form>
     <p>
         <a asp-page="CreateBracelet" class="btn btn-light">Create a new Bracelet</a>
     </p>
 </form>
+}
 
 @* ADMIN SLUT *@
 
 <div class="container">
     <div class="row">
-        <div class="col-3">
-            <table class="table">
-                <tbody>
-
-                    @if (@Model.bracelets != null)
-                    {
-                        @foreach (var bracelet in Model.bracelets)
-                        {
+        @if (@Model.bracelets != null)
+        {
+            @foreach (var bracelet in Model.bracelets)
+            {
+                <div class="col-3">
+                    <table class="table">
+                        <tbody>
                             <tr>
                                 @* SKAL ADMIN RUNDT OM *@
 
-                                <td>@bracelet.JewelryID</td>
+
 
                                 @* ADMIN SLUT *@
                                 <a asp-area="" asp-page="/Jewellery/ProductDetails/" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">
                                     <img src="/Images/@bracelet.ImageLink" type="button" class="btn btn-link" width="80" height="auto" />
                                 </a>
 
+                                <p>@bracelet.JewelryID</p>
                                 <p>@bracelet.JewelryTitle</p>
                                 <p>@bracelet.Description</p>
                                 <p>@bracelet.Color</p>
@@ -46,18 +49,23 @@
 
 
                                 @* SKAL ADMIN RUNDT OM *@
-                                <td>
-                                    @*Call to action buttons*@
-                                    <a class="btn" asp-page="EditBracelet" asp-route-id="@bracelet.JewelryID"><i class="fa fa-pencil"></i></a>
-                                    <a class="btn" asp-page="DeleteBracelet" asp-route-id="@bracelet.JewelryID"><i class="fa fa-trash"></i></a>
-                                </td>
-                                @* ADMIN SLUT *@
+                                @if (User.IsInRole("admin"))
+                                {
+
+                                    <td>
+                                        @*Call to action buttons*@
+                                        <a class="btn" asp-page="EditBracelet" asp-route-id="@bracelet.JewelryID"><i class="fa fa-pencil"></i></a>
+                                        <a class="btn" asp-page="DeleteBracelet" asp-route-id="@bracelet.JewelryID"><i class="fa fa-trash"></i></a>
+                                    </td>
+                                    @* ADMIN SLUT *@
+                                }
                             </tr>
-                        }
-                    }
-                </tbody>
-            </table>
-        </div>
+                        </tbody>
+                    </table>
+                </div>
+            }
+        }
+
         <div class="col-3">
             <table class="table">
                 <tbody>

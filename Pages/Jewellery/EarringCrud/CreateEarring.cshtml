@@ -3,13 +3,12 @@
 @{
 }
 
-<h2>Create a earring product</h2>
+<h3 class="text-white">Create a earring</h3>
+
 
 <div class="row">
-
-    <div class="col-4"></div>
-
-    <div class="col-4 align-content-center">
+    <div class="col-2"></div>
+    <div class="col-8 align-content-center bg-light">
         @* Post method *@
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -17,10 +16,12 @@
                 <label class="control-lable">Title</label>
                 <input asp-for="@Model.Earring.JewelryTitle" class="form-control" placeholder="Title"/>
                 <span asp-validation-for="@Model.Earring.JewelryTitle"></span>
+
             </div>
             <div class="form-group">
                 <label class="control-lable">Description</label>
                 <input asp-for="@Model.Earring.Description" class="form-control" placeholder="Description" />
+
                 <span asp-validation-for="@Model.Earring.Description"></span>
             </div>
             <div class="form-group">
@@ -45,17 +46,14 @@
             </div>
             <div class="form-group">
                 <label class="control-lable">Length</label>
-                <input asp-for="@Model.Earring.EarringLength" class="form-control" placeholder="Length (optional)"/>
+                <input asp-for="@Model.Earring.EarringLength" class="form-control" placeholder="Length (optional)" />
             </div>
             <div class="form-group">
-                <input type="submit" value="Opret" class="btn btn-dark"/>
+                <input type="submit" value="Create" class="btn btn-dark" />
+                <a asp-page="AllEarrings" class="btn btn-danger">Cancel</a>
+
             </div>
         </form>
-
-        <div class="col-4"></div>
-
     </div>
-</div>
-<div>
-    <a asp-page="AllEarrings">Tilbage</a>
+    <div class="col-2"></div>
 </div>

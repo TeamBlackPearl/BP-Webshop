@@ -12,7 +12,7 @@ namespace BP_Webshop.Services
 
         public GenericCRUDMethods<Order> DbService { get; set; }
 
-        public OrderService( GenericCRUDMethods<Order> dbService)
+        public OrderService(GenericCRUDMethods<Order> dbService)
         {
             DbService = dbService;
             OrderList = DbService.GetObjectsAsync().Result.ToList();
@@ -23,6 +23,8 @@ namespace BP_Webshop.Services
             OrderList.Add(order);
             await DbService.AddObjectAsync(order);
         }
+
+
 
     }
 }

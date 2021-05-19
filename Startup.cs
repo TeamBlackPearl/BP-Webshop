@@ -96,6 +96,7 @@ namespace BP_Webshop
 
             app.UseRouting();
 
+            //tilføj Use authentification
             app.UseAuthentication();
             app.UseAuthorization();
 

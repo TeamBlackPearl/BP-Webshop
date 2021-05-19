@@ -4,46 +4,48 @@
     ViewData["Title"] = "CreateRing";
 
 }
-<h1>Add a new Ring</h1>
-
+<h3 class="text-white">Create Ring</h3>
 <br />
-<form method="post">
-    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-    <div class="form-group">
-        <label asp-for="@Model.Ring.JewelryTitle" class="control-label">Title</label>
-        <input asp-for="@Model.Ring.JewelryTitle" class="form-control" placeholder="Title"/>
-        <span asp-validation-for="@Model.Ring.JewelryTitle" class="text-danger"></span>
 
-    </div>
-    <div class="form-group">
-        <label asp-for="@Model.Ring.Description" class="control-label">Description</label>
-        <input asp-for="@Model.Ring.Description" class="form-control" placeholder="Description"/>
-        <span asp-validation-for="@Model.Ring.Description" class="text-danger"></span>
+<div class="row">
+    <div class="col-2"></div>
+    <div class="col-8 align-content-center bg-light">
+    <form method="post">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
-    </div>
-    <div class="form-group">
-        <label asp-for="@Model.Ring.Color" class="control-label">Color</label>
-        <input asp-for="@Model.Ring.Color" class="form-control" placeholder="Color"/>
-        <span asp-validation-for="@Model.Ring.Color" class="text-danger"></span>
+        <div class="form-group">
+            <label asp-for="@Model.Ring.JewelryTitle" class="control-label">Title</label>
+            <input asp-for="@Model.Ring.JewelryTitle" class="form-control" placeholder="Title" />
+          <span asp-validation-for="@Model.Ring.JewelryTitle" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.Ring.Description" class="control-label">Description</label>
+            <input asp-for="@Model.Ring.Description" class="form-control" placeholder="Description" />
+            <span asp-validation-for="@Model.Ring.Description" class="text-danger"></span>
 
-    </div>
-    <div class="form-group">
-        <label asp-for="@Model.Ring.Price" class="control-label">Price</label>
-        <input asp-for="@Model.Ring.Price" class="form-control" placeholder="Price"/>
-        <span asp-validation-for="@Model.Ring.Price" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.Ring.Color" class="control-label">Color</label>
+            <input asp-for="@Model.Ring.Color" class="form-control" placeholder="Color" />
+            <span asp-validation-for="@Model.Ring.Color" class="text-danger"></span>
 
-    </div>
-    <div class="form-group">
-        <label asp-for="@Model.Ring.AverageRating" class="control-label">Average Rating</label>
-        <input asp-for="@Model.Ring.AverageRating" class="form-control" placeholder="Average rating"/>
-        <span asp-validation-for="@Model.Ring.AverageRating" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.Ring.Price" class="control-label">Price</label>
+            <input asp-for="@Model.Ring.Price" class="form-control" placeholder="Price" />
+            <span asp-validation-for="@Model.Ring.Price" class="text-danger"></span>
 
-    </div>
-    <div class="form-group">
-        <label asp-for="@Model.Ring.ImageLink" class="control-label">Image Name</label>
-        <input asp-for="@Model.Ring.ImageLink" class="form-control" placeholder="Image name"/>
-        <span asp-validation-for="@Model.Ring.ImageLink" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.Ring.AverageRating" class="control-label">Average Rating</label>
+            <input asp-for="@Model.Ring.AverageRating" class="form-control" placeholder="Average rating" />
+            <span asp-validation-for="@Model.Ring.AverageRating" class="text-danger"></span>
 
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.Ring.ImageLink" class="control-label">Image Name</label>
+            <input asp-for="@Model.Ring.ImageLink" class="form-control" placeholder="Image name" />
+            <span asp-validation-for="@Model.Ring.ImageLink" class="text-danger"></span>
     </div>
     <div class="form-group">
         <label asp-for="@Model.Ring.RingSize" class="control-label">Size</label>
@@ -54,11 +56,13 @@
     <div class="form-group">
         <label asp-for="@Model.Ring.RingWidth" class="control-label">Width</label>
         <input asp-for="@Model.Ring.RingWidth" class="form-control" placeholder="Width (optional)"/>
-
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Create" class="btn btn-primary" />
+            <a asp-page="AllNecklaces" class="btn btn-danger">Cancel</a>
+        </div>
+    </form>
     </div>
+    <div class="col-2"></div>
+</div>
 
-    <div class="form-group">
-        <input type="submit" value="Create" class="btn btn-primary" />
-        <a asp-page="AllNecklaces" class="btn btn-danger">Cancel</a>
-    </div>
-</form>
