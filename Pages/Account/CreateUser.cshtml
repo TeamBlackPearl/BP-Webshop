@@ -30,17 +30,17 @@
             </div>
             <div class="form-group">
                 <label class="control-lable">Phone Number</label>
-                <input asp-for="@Model.PhoneNumber" class="form-control" placeholder="Phone number"/>
+                <input type="number" asp-for="@Model.PhoneNumber" class="form-control" placeholder="Phone number"/>
                 <span asp-validation-for="@Model.PhoneNumber" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label class="control-lable">Insert your email</label>
-                <input asp-for="@Model.Email" class="form-control" placeholder="Email"/>
+                <input type="email" asp-for="@Model.Email" class="form-control" placeholder="Email"/>
                 <span asp-validation-for="@Model.Email" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label class="control-lable">Create a password</label>
-                <input asp-for="@Model.Password" class="form-control" placeholder="Password"/>
+                <input type="password" asp-for="@Model.Password" class="form-control" placeholder="Password"/>
                 <span asp-validation-for="@Model.Password" class="text-danger"></span>
             </div>
 

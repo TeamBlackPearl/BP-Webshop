@@ -14,9 +14,10 @@ namespace BP_Webshop.Models
         //[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
 
         public string Address { get; set; }
-        [Required]
-        [StringLength(8, MinimumLength = 8, ErrorMessage = "Has to be 8 digits")]
+        
+        //[StringLength(8, MinimumLength = 8, ErrorMessage = "Has to be 8 digits")]
         //[DataType(DataType.PhoneNumber, ErrorMessage = "Has to be 8 digits")]
+        [Required]
         public string PhoneNumber { get; set; }
 
         public virtual ICollection<Order> Orders { get; set; }
