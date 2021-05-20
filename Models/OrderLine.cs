@@ -13,22 +13,24 @@ namespace BP_Webshop.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int OrderLineId { get; set; }
-        //[Key, Column(Order = 0)]
-        [ForeignKey("OrderId")]
         public int OrderId { get; set; }
-        //[Key, Column(Order = 1)]
-        [ForeignKey("JewelryId")]
+        public Order Order { get; set; }
         public int JewelryId { get; set; }
+        public Jewelry Jewelry { get; set; }
         public int ProductCount { get; set; }
 
         public OrderLine()
         {
             
         }
-        public OrderLine(int orderId, int jewelryId, int productCount)
+
+        public OrderLine(int orderLineId, int orderId, Order order, int jewelryId, Jewelry jewelry, int productCount)
         {
+            OrderLineId = orderLineId;
             OrderId = orderId;
+            Order = order;
             JewelryId = jewelryId;
+            Jewelry = jewelry;
             ProductCount = productCount;
         }
     }
