@@ -35,6 +35,7 @@ namespace BP_Webshop
             //Add Userservice
             services.AddSingleton<UserService, UserService>();
             services.AddSingleton<OrderService, OrderService>();
+            services.AddSingleton<OrderLineService, OrderLineService>();
             services.AddSingleton<AdminService, AdminService>();
             services.AddSingleton<BraceletService, BraceletService>();
             services.AddSingleton<NecklaceService, NecklaceService>();
@@ -42,6 +43,7 @@ namespace BP_Webshop
             services.AddSingleton<RingService, RingService>();
             services.AddSingleton<HeadJewService, HeadJewService>();
             services.AddSingleton<JewelryService, JewelryService>();
+           
 
 
 

@@ -24,6 +24,23 @@ namespace BP_Webshop.Services
             return OrderLineList;
         }
 
+        public async Task CreateOrderLine(OrderLine orderLine)
+        {
+            OrderLineList.Add(orderLine);
+            await DbService.AddObjectAsync(orderLine);
+        }
+
+        public async Task DeleteOrderLine(int id)
+        {
+            OrderLine orderLineToDelete = OrderLineList.Find(orderLine => orderLine.OrderLineId == id);
+            if (orderLineToDelete != null)
+            {
+                OrderLineList.Remove(orderLineToDelete);
+                await DbService.DeleteObjectAsync(orderLineToDelete);
+            }
+        }
+
+
 
 
     }
