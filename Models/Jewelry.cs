@@ -28,7 +28,7 @@ namespace BP_Webshop.Models
         [Required(ErrorMessage = "average rating is required")]
         //[Range(0,5, ErrorMessage = "has to be between 0-5")]
         public double AverageRating { get; set; }
-        [Required(ErrorMessage = "There has to be an image")]
+        //[Required(ErrorMessage = "There has to be an image")]
         public string ImageLink { get; set; }
 
         public Jewelry()

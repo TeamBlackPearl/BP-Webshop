@@ -39,12 +39,11 @@
 
                     }
 
-                    @if (User.IsInRole("admin"))
-                    {
+                    
                         <div class="p-2">
                             <a asp-area="" asp-page="/Account/CreateAdmin" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Create admin</a>
                         </div>
-                    }
+                    
 
                     @if (!Context.User.Identity.IsAuthenticated)
                     {
