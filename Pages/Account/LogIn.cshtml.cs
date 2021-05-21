@@ -44,24 +44,22 @@ namespace BP_Webshop.Pages.Account
 
         public async Task<IActionResult> OnPostAsync()
         {
-
             List<AUser> allUserTypes = _userService.GetAllUserTypes();
 
             foreach (var u in allUserTypes)
             {
-                try
-                {
 
-                    if (Email == u.Email)
+                if (Email == u.Email)
                 {
                     var passwordHasher = new PasswordHasher<string>();
-                    if (passwordHasher.VerifyHashedPassword(null, u.Password, Password) == PasswordVerificationResult.Success)
+                    if (passwordHasher.VerifyHashedPassword(null, u.Password, Password) ==
+                        PasswordVerificationResult.Success)
                     {
                         //loggedinuser
                         var claims = new List<Claim>
                         {
                             new Claim(ClaimTypes.Name, u.FirstName)
-                         
+
                         };
 
                         if (u.Role == "admin") claims.Add(new Claim(ClaimTypes.Role, u.Role));
@@ -72,23 +70,14 @@ namespace BP_Webshop.Pages.Account
                             new ClaimsPrincipal(claimsIdentity));
                         return RedirectToPage("/Index");
                     }
-                   
-                  }
                 }
-                catch (Exception e)
-                {
-                    ModelState.AddModelError(string.Empty, e.Message);
-                    return Page();
-                }
-                //else
-                //{
-                //    throw new ArgumentException("Invalid attempt! The Email and Password needs to match!");
-                //    //Message = "Invalid attempt!";
-                //}
             }
 
+            Message = "Invalid attempt!";
             return Page();
         }
-
     }
 }
+
+    
+

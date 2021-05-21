@@ -10,14 +10,17 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-page="/Index"><img src="Images/BPLOGO.jpg" width="100" height="auto"></a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    @*<span class="navbar-toggler-icon"></span>*@
-                </button>
+<header>
+    <nav class="navbar navbar-expand-sm">
+        <a asp-page="/Index"> <img src="Images/BPLOGO.jpg" width="82" height="auto" alt="Responsive image"></a>
+        <div class="container-fluid">
+            <a asp-page="/Index" class="navbar-brand btn btn-primary btn-lg active" role="button" aria-pressed="true">
+                Black Pearl Webshop
+            </a>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                @*<span class="navbar-toggler-icon"></span>*@
+            </button>
             @if (Context.User.Identity.IsAuthenticated)
             {
                 @*<div class="d-flex justify-content-between">*@
@@ -25,45 +28,45 @@
                     <p>User logged in: <i>@Context.User.Identity.Name</i> </p>
                 </div>
             }
-                <div class="d-flex flex-row-reverse">
+            <div class="d-flex flex-row-reverse">
 
-                    <div class="p-2 align-content-center text-white">
-                    </div>
+                <div class="p-2 align-content-center text-white">
+                </div>
 
-                    @if (Context.User.Identity.IsAuthenticated)
-                    {
-                        <div class="p-2">
-                            <a asp-area="" asp-page="/Account/Logout" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Log out</a>
-                        </div>
-                        
-
-                    }
-
-                    @if (User.IsInRole("admin"))
-                    {
-                        <div class="p-2">
-                            <a asp-area="" asp-page="/Account/CreateAdmin" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Create admin</a>
-                        </div>
-                    }
-
-                    @if (!Context.User.Identity.IsAuthenticated)
-                    {
-                        <div class="p-2">
-                            <a asp-area="" asp-page="/Account/LogIn" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Log in</a>
-                        </div>
-                        <div class="p-2">
-                            <a asp-area="" asp-page="/Account/CreateUser" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Create user</a>
-                        </div>
-                    }
-
+                @if (Context.User.Identity.IsAuthenticated)
+                {
                     <div class="p-2">
-                        <a asp-area="" asp-page="/Payment/CheckOut" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Payment site</a>
+                        <a asp-area="" asp-page="/Account/Logout" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Log out</a>
                     </div>
-                    @*<a class="nav-link" asp-area="" asp-page="/Account/CreateAdmin"></a>
+
+
+                }
+
+                @if (User.IsInRole("admin"))
+                {
+                    <div class="p-2">
+                        <a asp-area="" asp-page="/Account/CreateAdmin" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Create admin</a>
+                    </div>
+                }
+
+                @if (!Context.User.Identity.IsAuthenticated)
+                {
+                    <div class="p-2">
+                        <a asp-area="" asp-page="/Account/LogIn" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Log in</a>
+                    </div>
+                    <div class="p-2">
+                        <a asp-area="" asp-page="/Account/CreateUser" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Create user</a>
+                    </div>
+                }
+
+                <div class="p-2">
+                    <a asp-area="" asp-page="/Payment/CheckOut" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Payment site</a>
+                </div>
+                @*<a class="nav-link" asp-area="" asp-page="/Account/CreateAdmin"></a>
                 <a class="nav-link" asp-area="" asp-page="/Account/CreateUser">Create User</a>
                 <a class="nav-link" asp-area="" asp-page="/Account/LogIn">Login</a>
                 <a class="nav-link" asp-area="" asp-page="/Account/Logout">Logout</a>*@
-                </div>
+            </div>
 
             <div class="d-flex flex-row-reverse">
 
@@ -75,8 +78,8 @@
                     <div id="searchCriteria" class="AllJewelries">
                         @{
                             Html.RenderPartialAsync("Jewellery/AllJewelries", "AllJewelriesModel");
-
                         }
+
                         @* SEARCH *@
                         <form method="post" class="form-inline my-2 my-lg-0">
                             <input class="form-control mr-sm-2" type="search" placeholder="Search title" id="searchCriteria" name="searchCriteria" aria-label="Search">
@@ -87,105 +90,107 @@
                 </div>
                 <div class="p-2">
                 </div>
-                
+
                 <div class="p-2">
                 </div>
             </div>
-                </div>
-        </nav> 
+        </div>
+    </nav>
 
-   
+
 
     @* HAMBURGER INDE I EN ROW *@
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm bg-dark">
                 <p></p>
-                </div>
             </div>
+        </div>
         <div class="row">
-            <div class="col-sm col-4">
+            <div class="col-sm col-6">
                 <nav class="navbar navbar-light"></nav>
-                </div>
-            <div class="col-sm col-4">
+            </div>
+            <div class="col-sm col-6">
+
                 @* HAMBURGER MENU *@
                 @* EXPAND-LG VÆK *@
                 <nav class="navbar navbar-light">
                     <a class="navbar-brand" href="#"></a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        @* TOOGLE ICON *@
                         <span class="navbar-toggler-icon"></span>
-                        </button>
+                    </button>
                     <div class="collapse navbar-collapse bg-light" id="navbarNav">
                         <ul class="navbar-nav text-black">
                             <li class="nav-item active">
                                 <a class="nav-link text-black" href="#">Home <span class="sr-only">(current)</span></a>
-                                </li>
+                            </li>
                             <li class="nav-item">
                                 <a class="nav-link text-black" asp-area="" asp-page="/Jewellery/AllJewelries">All Jewelries</a>
-                                </li>
+                            </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" asp-page="/Jewellery/EarringCrud/AllEarrings" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     Earrings
-                                    </a>
+                                </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                     <a class="dropdown-item">Types</a>
                                     <a class="dropdown-item" asp-page="/Jewellery/EarringCrud/AllEarrings">Jhumkay</a>
                                     <a class="dropdown-item" asp-page="/Jewellery/EarringCrud/AllEarrings">Tops</a>
-                                    </div>
-                                </li>
+                                </div>
+                            </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" asp-area="" asp-page="/Jewellery/NecklaceCRUD/AllNecklaces" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     Necklace
-                                    </a>
+                                </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                     <a class="dropdown-item">Types</a>
                                     <a class="dropdown-item" asp-page="/Jewellery/NecklaceCRUD/AllNecklaces">Mala</a>
                                     <a class="dropdown-item" asp-page="/Jewellery/NecklaceCRUD/AllNecklaces">Choker</a>
                                     <a class="dropdown-item" asp-page="/Jewellery/NecklaceCRUD/AllNecklaces">Multilayered</a>
-                                    </div>
-                                </li>
+                                </div>
+                            </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" asp-area="" asp-page="/Jewellery/BraceletCRUD/AllBracelet" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     Bracelet
-                                    </a>
+                                </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                     <a class="dropdown-item">Types</a>
                                     <a class="dropdown-item" asp-page="/Jewellery/BraceletCRUD/AllBracelet">Kangan</a>
                                     <a class="dropdown-item" asp-page="/Jewellery/BraceletCRUD/AllBracelet">Bangles</a>
                                     <a class="dropdown-item" asp-page="/Jewellery/BraceletCRUD/AllBracelet">Panjangla</a>
-                                    </div>
-                                </li>
+                                </div>
+                            </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" asp-page="/Jewellery/RingCRUD/AllRings" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     Rings
-                                    </a>
+                                </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                     <a class="dropdown-item">Types</a>
                                     <a class="dropdown-item" asp-page="/Jewellery/RingCRUD/AllRings">Panjangla</a>
                                     <a class="dropdown-item" asp-page="/Jewellery/RingCRUD/AllRings">DoubleRings</a>
                                     <a class="dropdown-item" asp-page="/Jewellery/RingCRUD/AllRings">SilverRings</a>
-                                    </div>
-                                </li>
+                                </div>
+                            </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" asp-page="/Jewellery/HeadJewelleryCRUD/AllHeadJew" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     Head Jewellery
-                                    </a>
+                                </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                     <a class="dropdown-item">Types</a>
                                     <a class="dropdown-item" asp-page="/Jewellery/HeadJewelleryCRUD/AllHeadJew">Bindi</a>
-                                    <a class="dropdown-item" asp-page="/Jewellery/HeadJewelleryCRUD/AllHeadJew" >MathaPatti</a>
-                                    <a class="dropdown-item" asp-page="/Jewellery/HeadJewelleryCRUD/AllHeadJew" >Jhoomar</a>
-                                    </div>
-                                </li>
+                                    <a class="dropdown-item" asp-page="/Jewellery/HeadJewelleryCRUD/AllHeadJew">MathaPatti</a>
+                                    <a class="dropdown-item" asp-page="/Jewellery/HeadJewelleryCRUD/AllHeadJew">Jhoomar</a>
+                                </div>
+                            </li>
                             <li class="nav-item">
                                 <a class="nav-link text-black" asp-page="/AboutUs">About Black Pearl</a>
                             </li>
                         </ul>
-                        </div>
-                    </nav>
-                </div>
+                    </div>
+                </nav>
             </div>
         </div>
+    </div>
 </header>
 
     <div class="container">
