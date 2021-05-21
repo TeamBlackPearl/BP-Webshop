@@ -36,14 +36,14 @@
                         <div class="p-2">
                             <a asp-area="" asp-page="/Account/Logout" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Log out</a>
                         </div>
-                        
-
                     }
 
-                    
+                    @if(Context.User.IsInRole("admin"))
+                    { 
                         <div class="p-2">
                             <a asp-area="" asp-page="/Account/CreateAdmin" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Create admin</a>
                         </div>
+                    }
                     
 
                     @if (!Context.User.Identity.IsAuthenticated)
@@ -71,19 +71,11 @@
                     <button type="button" class="btn btn-outline-primary"><i class="fa fa-shopping-cart"></i></button>
                 </div>
                 <div class="p-2">
-
-                    <div id="searchCriteria" class="AllJewelries">
-                        @{
-                            Html.RenderPartialAsync("Jewellery/AllJewelries", "AllJewelriesModel");
-
-                        }
-                        @* SEARCH *@
-                        <form method="post" class="form-inline my-2 my-lg-0">
-                            <input class="form-control mr-sm-2" type="search" placeholder="Search title" id="searchCriteria" name="searchCriteria" aria-label="Search">
-                            <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
-                        </form>
-                    </div>
-
+                    @* SEARCH *@
+                    <form asp-page="/Jewellery/AllJewelries" method="post" class="form-inline my-2 my-lg-0">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Search title" id="searchCriteria" name="searchCriteria" aria-label="Search">
+                        <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
+                    </form>
                 </div>
                 <div class="p-2">
                 </div>
