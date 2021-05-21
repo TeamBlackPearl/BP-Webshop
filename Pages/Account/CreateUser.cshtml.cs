@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
@@ -23,21 +24,24 @@ namespace BP_Webshop.Pages.Account
         [BindProperty]
         public int Id { get; set; }
         [BindProperty]
-        [MinLength(2, ErrorMessage = "2 or more letters")]
+        [MinLength(2, ErrorMessage = "Min. 2 letters is needed")]
         public string FirstName { get; set; }
         [BindProperty]
         public string LastName { get; set; }
         [BindProperty]
         public string Address { get; set; }
         [BindProperty]
+        [StringLength(8, MinimumLength = 8, ErrorMessage = "has to be 8 digits")]
         public string PhoneNumber { get; set; }
         [BindProperty] 
         public string Role { get; set; }
         //UserName
         [BindProperty]
+        [EmailAddress(ErrorMessage = "@ is needed")]
         public string Email { get; set; }
 
-        [BindProperty, DataType(DataType.Password)]
+        [BindProperty] 
+        [PasswordPropertyText]
         public string Password { get; set; }
 
 

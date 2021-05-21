@@ -18,6 +18,7 @@ namespace BP_Webshop.Models
         //[StringLength(8, MinimumLength = 8, ErrorMessage = "Has to be 8 digits")]
         //[DataType(DataType.PhoneNumber, ErrorMessage = "Has to be 8 digits")]
         [Required]
+        [Phone]
         public string PhoneNumber { get; set; }
 
         public virtual ICollection<Order> Orders { get; set; }
