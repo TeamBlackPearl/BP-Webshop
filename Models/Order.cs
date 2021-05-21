@@ -14,8 +14,8 @@ namespace BP_Webshop.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int OrderId { get; set; }
         public DateTime OrderDate { get; set; }
-        public int Id { get; set; }
-        public User User { get; set; }
+        public int UserId { get; set; }
+        public virtual User User { get; set; }
         public decimal DeliveryPrice { get; set; }
         public double Tax { get; set; }
         public decimal TotalPrice { get; set; }
@@ -25,12 +25,11 @@ namespace BP_Webshop.Models
             
         }
 
-        public Order(int orderId, DateTime orderDate, int id, User user)
+        public Order(int orderId, DateTime orderDate, int userId)
         {
             OrderId = orderId;
             OrderDate = orderDate;
-            Id = id;
-            User = user;
+            UserId = userId;
             Tax = 25;
             DeliveryPrice = 45;
             TotalPrice = 0;
