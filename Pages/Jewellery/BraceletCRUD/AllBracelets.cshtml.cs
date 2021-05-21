@@ -31,7 +31,13 @@ namespace BP_Webshop.Pages.CRUD
             bracelets = braceletService.GetBracelets().ToList();
             return Page();
         }
-        
+
+        public void OnPostGetBCat(string subType)
+        {
+            
+            //bracelets = braceletService.GetBByCat("Kangan").ToList();
+            
+        }
 
     }
 }

@@ -1,4 +1,5 @@
 ﻿@using System.Security.Claims
+@using BP_Webshop.Models
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -146,13 +147,14 @@
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" asp-area="" asp-page="/Jewellery/BraceletCRUD/AllBracelet" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     Bracelet
-                                    </a>
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                </a>
+
+                                @*<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                     <a class="dropdown-item">Types</a>
-                                    <a class="dropdown-item" asp-page="/Jewellery/BraceletCRUD/AllBracelet">Kangan</a>
+                                    <a class="dropdown-item" asp-page="/Jewellery/BraceletCRUD/AllBracelet" asp-page-handler="GetBKangan" asp-route-id="@Model.Bracelet.BraceletType">Kangan</a>
                                     <a class="dropdown-item" asp-page="/Jewellery/BraceletCRUD/AllBracelet">Bangles</a>
                                     <a class="dropdown-item" asp-page="/Jewellery/BraceletCRUD/AllBracelet">Panjangla</a>
-                                    </div>
+                                    </div>*@
                                 </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" asp-page="/Jewellery/RingCRUD/AllRings" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

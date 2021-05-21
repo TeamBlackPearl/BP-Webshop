@@ -4,6 +4,7 @@ using System.Linq;
 using System.Reflection.Metadata.Ecma335;
 using System.Threading.Tasks;
 using BP_Webshop.Models;
+using Microsoft.Extensions.Primitives;
 
 namespace BP_Webshop.Services
 {
@@ -76,18 +77,26 @@ namespace BP_Webshop.Services
             }
         }
 
-        public Bracelet GetBraceByType(Bracelet.BraceletTypes braceletTypes)
+       
+
+        //public List<Bracelet> GetBByCat( string subtype)
+        //{
+        //    List<Bracelet> SubBracelets = new List<Bracelet>();
+        //    foreach (var brc in Bracelets)
+        //    {
+        //        if (brc.BraceletType == subtype)
+        //        {
+        //            SubBracelets.Add(brc);
+        //        }
+        //    }
+
+        //    return SubBracelets;
+
+        //}
+
+        public static List<string> GetTypes()
         {
-            foreach (Bracelet braceTypes in Bracelets)
-            {
-                if (braceletTypes == braceletTypes)
-                    return braceTypes;
-
-            }
-
-            return null;
+            return Enum.GetNames(typeof(Bracelet.BraceletTypes)).ToList();
         }
-
-
     }
 }
