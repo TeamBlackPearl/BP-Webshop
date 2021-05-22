@@ -14,9 +14,10 @@ namespace BP_Webshop.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int OrderId { get; set; }
         public DateTime OrderDate { get; set; }
-        [ForeignKey("UserId")]
-        public int Id { get; set; }
+        public int UserId { get; set; }
+        public virtual User User { get; set; }
         public decimal DeliveryPrice { get; set; }
+        public double Tax { get; set; }
         public decimal TotalPrice { get; set; }
 
         public Order()
@@ -24,13 +25,14 @@ namespace BP_Webshop.Models
             
         }
 
-        public Order(int orderId, DateTime orderDate, int id, decimal deliveryPrice, decimal totalPrice)
+        public Order(int orderId, DateTime orderDate, int userId)
         {
             OrderId = orderId;
             OrderDate = orderDate;
-            Id = id;
-            DeliveryPrice = deliveryPrice;
-            TotalPrice = totalPrice;
+            UserId = userId;
+            Tax = 25;
+            DeliveryPrice = 45;
+            TotalPrice = 0;
         }
     }
 }

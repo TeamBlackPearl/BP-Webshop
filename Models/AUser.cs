@@ -15,18 +15,17 @@ namespace BP_Webshop.Models
         public int Id { get; set; }
 
         [Required(ErrorMessage = "Firstname is required")]
-        [MinLength(3, ErrorMessage = "Min. 3 letters is needed")]
+        //[MinLength(2, ErrorMessage = "Min. 2 letters is needed")]
         public string FirstName { get; set; }
 
         [Required(ErrorMessage = "Lastname is required")]
-        [MinLength(3, ErrorMessage = "Min. 3 letters is needed")]
         public string LastName { get; set; }
         public string Role { get; set; }
 
         [Required(ErrorMessage = "Email is required")]
-        [DataType(DataType.EmailAddress, ErrorMessage = "@ is needed")]
-        [EmailAddress(ErrorMessage = "@ is needed")]
-        [RegularExpression("^[a-zA-Z0-9_\\.-]+@([a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$", ErrorMessage = "@ is needed")]
+        //[DataType(DataType.EmailAddress, ErrorMessage = "@ is needed")]
+        //[EmailAddress(ErrorMessage = "@ is needed")]
+        //[RegularExpression("^[a-zA-Z0-9_\\.-]+@([a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$", ErrorMessage = "@ is needed")]
         public string Email { get; set; }
 
         [Required]

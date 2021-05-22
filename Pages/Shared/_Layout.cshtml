@@ -1,4 +1,5 @@
 ﻿@using System.Security.Claims
+@using BP_Webshop.Models
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -39,7 +40,6 @@
                         <a asp-area="" asp-page="/Account/Logout" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Log out</a>
                     </div>
 
-
                 }
 
                 @if (User.IsInRole("admin"))
@@ -74,19 +74,11 @@
                     <button type="button" class="btn btn-outline-primary"><i class="fa fa-shopping-cart"></i></button>
                 </div>
                 <div class="p-2">
-
-                    <div id="searchCriteria" class="AllJewelries">
-                        @{
-                            Html.RenderPartialAsync("Jewellery/AllJewelries", "AllJewelriesModel");
-                        }
-
-                        @* SEARCH *@
-                        <form method="post" class="form-inline my-2 my-lg-0">
-                            <input class="form-control mr-sm-2" type="search" placeholder="Search title" id="searchCriteria" name="searchCriteria" aria-label="Search">
-                            <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
-                        </form>
-                    </div>
-
+                    @* SEARCH *@
+                    <form asp-page="/Jewellery/AllJewelries" method="post" class="form-inline my-2 my-lg-0">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Search title" id="searchCriteria" name="searchCriteria" aria-label="Search">
+                        <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
+                    </form>
                 </div>
                 <div class="p-2">
                 </div>
@@ -96,7 +88,6 @@
             </div>
         </div>
     </nav>
-
 
 
     @* HAMBURGER INDE I EN ROW *@
@@ -155,7 +146,7 @@
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                     <a class="dropdown-item">Types</a>
-                                    <a class="dropdown-item" asp-page="/Jewellery/BraceletCRUD/AllBracelet">Kangan</a>
+                                    <a class="dropdown-item" asp-page="/Jewellery/BraceletCRUD/AllBracelet" asp-page-handler="GetBKangan" asp-route-id="@Model.Bracelet.BraceletType">Kangan</a>
                                     <a class="dropdown-item" asp-page="/Jewellery/BraceletCRUD/AllBracelet">Bangles</a>
                                     <a class="dropdown-item" asp-page="/Jewellery/BraceletCRUD/AllBracelet">Panjangla</a>
                                 </div>

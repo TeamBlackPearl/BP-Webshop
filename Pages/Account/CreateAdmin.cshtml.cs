@@ -23,6 +23,7 @@ namespace BP_Webshop.Pages.Account
         [BindProperty]
         public int Id { get; set; }
         [BindProperty]
+        [MinLength(2, ErrorMessage = "2 or more letters")]
         public string FirstName { get; set; }
         [BindProperty]
         public string LastName { get; set; }

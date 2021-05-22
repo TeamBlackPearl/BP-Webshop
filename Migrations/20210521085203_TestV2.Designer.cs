@@ -4,14 +4,16 @@ using BP_Webshop.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace BP_Webshop.Migrations
 {
     [DbContext(typeof(BlackPDbContext))]
-    partial class BlackPDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210521085203_TestV2")]
+    partial class TestV2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -73,6 +75,7 @@ namespace BP_Webshop.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ImageLink")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("JewelryTitle")
@@ -188,8 +191,8 @@ namespace BP_Webshop.Migrations
                     b.Property<double>("BraceletLength")
                         .HasColumnType("float");
 
-                    b.Property<string>("BraceletType")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("BraceletType")
+                        .HasColumnType("int");
 
                     b.Property<double>("BraceletWidth")
                         .HasColumnType("float");
