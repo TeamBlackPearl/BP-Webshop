@@ -12,25 +12,24 @@
 </head>
 <body>
 <header>
+    @* FIRST NAV START *@
+  <div class="container-fluid">
     <nav class="navbar navbar-expand-sm">
         <a asp-page="/Index"> <img src="Images/BPLOGO.jpg" width="82" height="auto" alt="Responsive image"></a>
         <div class="container-fluid">
             <a asp-page="/Index" class="navbar-brand btn btn-primary btn-lg active" role="button" aria-pressed="true">
                 Black Pearl Webshop
             </a>
-
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                @*<span class="navbar-toggler-icon"></span>*@
-            </button>
             @if (Context.User.Identity.IsAuthenticated)
             {
-                @*<div class="d-flex justify-content-between">*@
                 <div class="align-content-center text-white">
                     <p>User logged in: <i>@Context.User.Identity.Name</i> </p>
+                    @Context
                 </div>
             }
-            <div class="d-flex flex-row-reverse">
 
+            @* FLEX ROW REVERSE START *@
+            <div class="d-flex flex-row-reverse">
                 <div class="p-2 align-content-center text-white">
                 </div>
 
@@ -39,7 +38,6 @@
                     <div class="p-2">
                         <a asp-area="" asp-page="/Account/Logout" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Log out</a>
                     </div>
-
                 }
 
                 @if (User.IsInRole("admin"))
@@ -62,14 +60,11 @@
                 <div class="p-2">
                     <a asp-area="" asp-page="/Payment/CheckOut" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Payment site</a>
                 </div>
-                @*<a class="nav-link" asp-area="" asp-page="/Account/CreateAdmin"></a>
-                <a class="nav-link" asp-area="" asp-page="/Account/CreateUser">Create User</a>
-                <a class="nav-link" asp-area="" asp-page="/Account/LogIn">Login</a>
-                <a class="nav-link" asp-area="" asp-page="/Account/Logout">Logout</a>*@
             </div>
+            @* FLEX ROW REVERSE END *@
 
+            @* FLEX ROW REVERSE START *@
             <div class="d-flex flex-row-reverse">
-
                 <div class="p-2">
                     <button type="button" class="btn btn-outline-primary"><i class="fa fa-shopping-cart"></i></button>
                 </div>
@@ -82,15 +77,16 @@
                 </div>
                 <div class="p-2">
                 </div>
-
                 <div class="p-2">
                 </div>
             </div>
+            @* FLEX ROW REVERSE END *@
         </div>
     </nav>
+        @* FIRST NAV END *@
+</div>
 
-
-    @* HAMBURGER INDE I EN ROW *@
+    @* HAMBURGER INSIDE A ROW AND COL-6 *@
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm bg-dark">
@@ -101,16 +97,19 @@
             <div class="col-sm col-6">
                 <nav class="navbar navbar-light"></nav>
             </div>
+            @* HAMBURGER INSIDE A COL-6 START *@
             <div class="col-sm col-6">
 
-                @* HAMBURGER MENU *@
-                @* EXPAND-LG VÆK *@
+                @* HAMBURGER MENU START *@
+                @* EXPAND-LG GONE - SO IT WILL STAY AS A HAMBURGER MENU *@
                 <nav class="navbar navbar-light">
                     <a class="navbar-brand" href="#"></a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         @* TOOGLE ICON *@
                         <span class="navbar-toggler-icon"></span>
                     </button>
+                    @* NAVBAR WITH UL AND LI *@
                     <div class="collapse navbar-collapse bg-light" id="navbarNav">
                         <ul class="navbar-nav text-black">
                             <li class="nav-item active">
@@ -119,8 +118,10 @@
                             <li class="nav-item">
                                 <a class="nav-link text-black" asp-area="" asp-page="/Jewellery/AllJewelries">All Jewelries</a>
                             </li>
+                            @* A DROPDOWN INSIDE THE NAV WITH EACH CATEGORY *@
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" asp-page="/Jewellery/EarringCrud/AllEarrings" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <a class="nav-link dropdown-toggle" asp-page="/Jewellery/EarringCrud/AllEarrings" id="navbarDropdownMenuLink" role="button"
+                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     Earrings
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -130,7 +131,8 @@
                                 </div>
                             </li>
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" asp-area="" asp-page="/Jewellery/NecklaceCRUD/AllNecklaces" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <a class="nav-link dropdown-toggle" asp-area="" asp-page="/Jewellery/NecklaceCRUD/AllNecklaces" id="navbarDropdownMenuLink" role="button"
+                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     Necklace
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -141,7 +143,8 @@
                                 </div>
                             </li>
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" asp-area="" asp-page="/Jewellery/BraceletCRUD/AllBracelet" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <a class="nav-link dropdown-toggle" asp-area="" asp-page="/Jewellery/BraceletCRUD/AllBracelet" id="navbarDropdownMenuLink" role="button"
+                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     Bracelet
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -152,7 +155,8 @@
                                 </div>
                             </li>
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" asp-page="/Jewellery/RingCRUD/AllRings" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <a class="nav-link dropdown-toggle" asp-page="/Jewellery/RingCRUD/AllRings" id="navbarDropdownMenuLink" role="button"
+                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     Rings
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -163,7 +167,8 @@
                                 </div>
                             </li>
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" asp-page="/Jewellery/HeadJewelleryCRUD/AllHeadJew" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <a class="nav-link dropdown-toggle" asp-page="/Jewellery/HeadJewelleryCRUD/AllHeadJew" id="navbarDropdownMenuLink" role="button"
+                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     Head Jewellery
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -180,6 +185,7 @@
                     </div>
                 </nav>
             </div>
+            @* COL-6 WITH HAMBURGER NAV END *@
         </div>
     </div>
 </header>
