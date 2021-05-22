@@ -3,13 +3,18 @@
 @{
 }
 
-<h3 class="text-white">Opret konto</h3>
-
+<h3 class="text-white text-center">Create an account</h3>
+<br />
+<br />
 <div class="row">
-
-    <div class="col-4"></div>
-
-    <div class="col-4 align-content-center bg-light">
+   <h3 class="text-white text-center">Create an account</h3>
+<br />
+<br />
+<div class="row">
+    <div class="col-sm">
+        <p></p>
+    </div>
+    <div class="col-sm align-content-center bg-light">
         @* Post method *@
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -43,18 +48,14 @@
                 <input type="password" asp-for="@Model.Password" class="form-control" placeholder="Password"/>
                 <span asp-validation-for="@Model.Password" class="text-danger"></span>
             </div>
-
-
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-dark"/>
-            </div>
-        </form>
-
-        <div class="col-4"></div>
-
+          <div class="form-group">
+            <input type="submit" value="Create" class="btn btn-dark" />
+               <a class="btn btn-primary bg-primary" asp-page="/Index">Back</a>
+                </div>
+            </form>     
+    <div class="col-sm">
+        <p></p>
     </div>
-</div>
-<div>
-    @*<button type="button" class="btn btn-primary" asp-page="/Index">Back</button>*@
-    <a class="btn btn-primary bg-primary" asp-page="/Index">Back</a>
-</div>
+    </div>
+
+
