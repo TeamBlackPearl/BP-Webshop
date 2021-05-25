@@ -24,25 +24,58 @@ namespace BP_Webshop.Services
             return OrderLineList;
         }
 
-        public async Task CreateOrderLine(OrderLine orderLine)
+        public async Task AddToCart(int id)
         {
-            OrderLineList.Add(orderLine);
-            await DbService.AddObjectAsync(orderLine);
+            OrderLine orderLine = new OrderLine(id);
+            if (OrderLineList.Contains(orderLine))
+            {
+                foreach (var line in OrderLineList)
+                {
+                    if (line.Equals(orderLine))
+                    {
+                        line.ProductCount++;
+                        return;
+                    }
+                }
+            }
+            else
+            {
+                orderLine.ProductCount = 1;
+                OrderLineList.Add(orderLine);
+                await DbService.AddObjectAsync(orderLine);
+            }
+
         }
 
         public async Task DeleteOrderLine(int id)
         {
-            OrderLine orderLineToDelete = OrderLineList.Find(orderLine => orderLine.OrderLineId == id);
-            if (orderLineToDelete != null)
-            {
-                OrderLineList.Remove(orderLineToDelete);
-                await DbService.DeleteObjectAsync(orderLineToDelete);
-            }
+            OrderLine orderLineToDelete = new OrderLine(id);
+            OrderLineList.Remove(orderLineToDelete);
+            await DbService.DeleteObjectAsync(orderLineToDelete);
         }
 
+        public async Task ChangeProductCount(int jewelryId, int productCount)
+        {
+            if (productCount == 0)
+            {
+                await DeleteOrderLine(jewelryId);
+                return;
+            }
 
+            OrderLine updateOrderLine = new OrderLine(jewelryId);
+            foreach (var orderLine in OrderLineList)
+            {
+                if (orderLine.Equals(updateOrderLine))
+                {
+                    orderLine.ProductCount = productCount;
+                    return;
+                }
+            }
 
+            await DbService.UpdateObjectAsync(updateOrderLine);
+        }
 
+        
     }
 }
 

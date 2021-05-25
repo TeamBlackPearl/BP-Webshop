@@ -23,6 +23,7 @@
         <th>Price</th>
         <th>Average Rating</th>
         <th>Image Name</th>
+        <th></th>
     </tr>
     </thead>
     <tbody>
@@ -38,6 +39,7 @@
                 <td>@jewelry.Price</td>
                 <td>@jewelry.AverageRating</td>
                 <td><img src="/Images/@jewelry.ImageLink" width="80" height="auto" /></td>
+                <td><a class="btn" asp-page="/Order/AddToCart" asp-route-id="@jewelry.JewelryID"><i class="fa fa-shopping-cart"></i></a></td>
             </tr>
         }
     }
