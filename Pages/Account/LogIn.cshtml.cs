@@ -55,7 +55,7 @@ namespace BP_Webshop.Pages.Account
                     if (passwordHasher.VerifyHashedPassword(null, u.Password, Password) ==
                         PasswordVerificationResult.Success)
                     {
-                        //loggedinuser
+                        //LoggedInUser = u;
                         var claims = new List<Claim>
                         {
                             new Claim(ClaimTypes.Name, u.FirstName)

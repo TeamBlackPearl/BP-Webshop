@@ -13,10 +13,8 @@ namespace BP_Webshop.Pages.Account
     {
         public async Task<IActionResult> OnGetAsync()
         {
-            
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
             return RedirectToPage("/index");
-
         }
     }
 }

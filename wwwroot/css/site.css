@@ -93,7 +93,9 @@ div.col.text_frontpage {
     padding: 10px 20px 2px 20px;
 }
 /*BUTTON IMAGES KATEGORIER*/
-.btn-primary:not(:disabled):not(.disabled).active, .btn-primary:not(:disabled):not(.disabled):active, .show > .btn-primary.dropdown-toggle {
+.btn-primary:not(:disabled):not(.disabled).active, 
+.btn-primary:not(:disabled):not(.disabled):active, 
+.show > .btn-primary.dropdown-toggle {
     color: #fff;
     background-color: transparent;
     border-color: transparent;
@@ -146,8 +148,8 @@ div.col.Necklace_category {
 }
 
 img.Necklace_img {
-    max-width: 200px;
-    min-height: auto;
+    /*max-width: 200px;
+    min-height: auto;*/
 }
 
 
@@ -190,6 +192,7 @@ html {
     }
 }
 
+
 /*Detail Page*/
 .column {
     float: left;
@@ -211,9 +214,25 @@ html {
     display: table;
     clear: both;
 }
-/*Card*/
-.card {
-    height: 40%;
+
+
+/*RATING SYSTEM*/
+
+.rating {
+    unicode-bidi: bidi-override;
+    direction: rtl;
+}
+
+.rating > span {
+    display: inline-block;
+    position: relative;
+    width: 1.1em;
+}
+
+.rating > span:hover:before,
+.rating > span:hover ~ span:before {
+    content: "\2605";
+    position: absolute;
 }
 
 /*PAYMENT*/

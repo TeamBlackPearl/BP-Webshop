@@ -14,8 +14,11 @@ namespace BP_Webshop.Pages.Jewellery
         private JewelryService jewelryService;
         public List<Jewelry> Jewelries { get; set; }
 
-        [BindProperty]
-        public Jewelry Jewelry { get; set; }
+        [BindProperty] public Jewelry Jewelry { get; set; }
+
+        //Prop For Sort and filter methods
+        [BindProperty] public int MaxPri { get; set; }
+        [BindProperty] public int MinPri { get; set; }
 
 
         public AllJewelriesModel(JewelryService jewelryService)
@@ -28,7 +31,6 @@ namespace BP_Webshop.Pages.Jewellery
         {
             Jewelries = jewelryService.GetAllJewelries().ToList();
             return Page();
-
 
         }
 
@@ -45,5 +47,25 @@ namespace BP_Webshop.Pages.Jewellery
 
             return Page();
         }
+
+        public IActionResult OnGetSortByPrice()
+        {
+            Jewelries = jewelryService.SortByPrice().ToList();
+            return Page();
+        }
+
+        public IActionResult OnGetSortByPriceDesc()
+        {
+            Jewelries = jewelryService.SortByPriceDesc().ToList();
+            return Page();
+        }
+
+
+        public IActionResult OnPostPriceFilter(int maxPri, int minPri = 0)
+        {
+            Jewelries = jewelryService.PriceFilter(maxPri, minPri).ToList();
+            return Page();
+        }
+
     }
 }

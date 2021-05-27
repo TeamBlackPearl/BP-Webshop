@@ -4,19 +4,19 @@
     ViewData["Title"] = "Home page";
 }
 
-<div class="text-center text-white">
-    <h1 class="display-3">Black Pearl</h1>
-    <div class="text_header_frontpage">
-        <p class="text-white text_header_frontpage"> En webshop med salg af Pakistansk- Indiske smykker</p>
+<div class="container">
+    <div class="text-center text-white">
+        <h1 class="display-3">Black Pearl</h1>
+        <div class="text_header_frontpage">
+            <p class="text-white text_header_frontpage"> En webshop med salg af Pakistansk- Indiske smykker</p>
+        </div>
     </div>
 </div>
-
 <div class="container-fluid">
     <h2 class="display-4 text-white"><i>Velkommen til...</i></h2>
     <div class="row">
         <div class="col text_frontpage">
             @*1 of 2*@
-
             <p class="text-white">
                 Lorem Ipsum is simply dummy text of the printing and typesetting industry.
                 Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
@@ -33,32 +33,19 @@
         </div>
     </div>
 </div>
-
-@*<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-    <a class="dropdown-item">Types</a>
-    <a class="dropdown-item" asp-page="/Jewellery/HeadJewelleryCRUD/AllHeadJew">Bindi</a>
-    <a class="dropdown-item" asp-page="/Jewellery/HeadJewelleryCRUD/AllHeadJew" >MathaPatti</a>
-    <a class="dropdown-item" asp-page="/Jewellery/HeadJewelleryCRUD/AllHeadJew" >Jhoomar</a>
-</div>*@
-
-
-
 <div class="container">
-
     <div class="row">
         <div class="col Bracelet_category">
             <a asp-area="" asp-page="/Jewellery/BraceletCRUD/AllBracelets" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">
                 <img type="button" src="Images/braceBang.png" class="col-sm  rounded btn btn-link Bracelet_img" alt="Responsive image">
             </a>
         </div>
-       
         <div class="col Earring_category">
             <a asp-area="" asp-page="/Jewellery/EarringCrud/AllEarrings" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">
                 <img type="button" src="Images/earrings.jpg" class="col-sm  rounded btn btn-link Earring_img" alt="Responsive image">
             </a>
         </div>
     </div>
-
     <div class="row">
         <div class="col Head_category">
             <a asp-area="" asp-page="/Jewellery/HeadJewelleryCRUD/AllHeadJew" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">
