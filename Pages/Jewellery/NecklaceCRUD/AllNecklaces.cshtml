@@ -14,53 +14,31 @@
     </form>
 }
 
-<div class="container">
-    <div class="row">
-        @if (@Model.necklaces != null)
+<main>
+    <div class="card-columns">
+        @foreach (var neck in Model.necklaces)
         {
-            @foreach (var necklace in Model.necklaces)
-            {
-                <div class="col-3">
-                    <table class="table">
-                        <tbody>
-                            <tr>
-                                @* SKAL ADMIN RUNDT OM *@
-
-                                <p>@necklace.JewelryID</p>
-
-                                @* ADMIN SLUT *@
-                                <a asp-area="" asp-page="/Jewellery/ProductDetails/" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">
-                                    <img src="/Images/@necklace.ImageLink" type="button" class="btn btn-link" width="80" height="auto" />
-                                </a>
-                                <p>@necklace.JewelryTitle</p>
-                                <p>@necklace.Description</p>
-                                <p>@necklace.Color</p>
-                                <p>@necklace.Price</p>
-                                <p>@necklace.AverageRating</p>
-                                @*<td><img src="/Images/@necklace.ImageLink" width="80" height="auto" /></td>*@
-                                <p>@necklace.NecklaceLength</p>
-                                <p>@necklace.NecklaceWidth</p>
-
-
-                                @* SKAL ADMIN RUNDT OM *@
-                                @if (User.IsInRole("admin"))
-                                {
-                                    <td>
-                                        @*Call to action buttons*@
-                                        <a class="btn" asp-page="EditNecklace" asp-route-id="@necklace.JewelryID"><i class="fa fa-pencil"></i></a>
-                                        <a class="btn" asp-page="DeleteNecklace" asp-route-id="@necklace.JewelryID"><i class="fa fa-trash"></i></a>
-                                    </td>
-                                    @* ADMIN SLUT *@
-                                }
-                            </tr>
-                        </tbody>
-                    </table>
+            <div class="card">
+                <div class="card-img">
+                    <img src="~/images/@neck.ImageLink" class="img-fluid w-100" />
                 </div>
-            }
+                <div class="card-body">
+                    <h6 class="card-title">
+                        @neck.JewelryTitle
+                    </h6>
+                    <h6 class="card-Description">
+                        @neck.Description
+                    </h6>
+                </div>
+                <div class="d-flex flex-row-reverse">
+                    <a class="btn" type="button" asp-page="/Jewellery/ProductDetail" asp-route-id="@neck.JewelryID">Details </a>
+                    <a class="btn" asp-page="EditNecklace" asp-route-id="@neck.JewelryID"><i class="fa fa-pencil"></i></a>
+                    <a class="btn" asp-page="DeleteNecklace" asp-route-id="@neck.JewelryID"><i class="fa fa-trash"></i></a>
+                </div>
+            </div>
+
         }
-
     </div>
-</div>
-
+</main>
 
 

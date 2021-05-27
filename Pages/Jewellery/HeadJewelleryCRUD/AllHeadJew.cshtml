@@ -17,50 +17,31 @@
         </p>
     </form>
 }
-<div class="container">
-    <div class="row">
 
-        @if (@Model.headJewList != null)
+<main>
+    <div class="card-columns">
+        @foreach (var headJ in Model.headJewList)
         {
-            @foreach (var h in Model.headJewList)
-            {
-                <div class="col-3">
-                    <table class="table">
-                        <tbody>
-                            <tr>
-                                @* SKAL ADMIN RUNDT OM *@
-
-                                <td>@h.JewelryID</td>
-
-                                @* ADMIN SLUT *@
-                                <a asp-area="" asp-page="/Jewellery/ProductDetails/" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">
-                                    <img src="/Images/@h.ImageLink" type="button" class="btn btn-link" width="80" height="auto" />
-                                </a>
-                               
-                                <p>@h.JewelryTitle</p>
-                                <p>@h.Description</p>
-                                <p>@h.Color</p>
-                                <p>@h.Price</p>
-                                <p>@h.AverageRating</p>
-                                @*<td><img src="/Images/@h.ImageLink" width="80" height="auto"/></td>*@
-                                <p>@h.HeadJewelrySize</p>
-
-                                @* SKAL ADMIN RUNDT OM *@
-                                @if (User.IsInRole("admin"))
-                                {
-
-                                    <td>
-                                        @*Call to action buttons*@
-                                        <a class="btn" asp-page="UpdateHeadJew" asp-route-id="@h.JewelryID"><i class="fa fa-pencil"></i></a>
-                                        <a class="btn" asp-page="DeleteHeadJew" asp-route-id="@h.JewelryID"><i class="fa fa-trash"></i></a>
-                                    </td>
-                                    @* ADMIN SLUT *@
-                                }
-                            </tr>
-                        </tbody>
-                    </table>
+            <div class="card">
+                <div class="card-img">
+                    <img src="~/images/@headJ.ImageLink" class="img-fluid w-100" />
                 </div>
-            }
+                <div class="card-body">
+                    <h6 class="card-title">
+                        @headJ.JewelryTitle
+                    </h6>
+                    <h6 class="card-Description">
+                        @headJ.Description
+                    </h6>
+
+                </div>
+                <div class="d-flex flex-row-reverse">
+                    <a class="btn" type="button" asp-page="/Jewellery/ProductDetail" asp-route-id="@headJ.JewelryID">Details </a>
+                    <a class="btn" asp-page="UpdateHeadJew" asp-route-id="@headJ.JewelryID"><i class="fa fa-pencil"></i></a>
+                    <a class="btn" asp-page="DeleteHeadJew" asp-route-id="@headJ.JewelryID"><i class="fa fa-trash"></i></a>
+                </div>
+            </div>
+
         }
     </div>
-</div>
+</main>

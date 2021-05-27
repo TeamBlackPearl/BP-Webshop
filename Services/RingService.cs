@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using BP_Webshop.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace BP_Webshop.Services
 {
@@ -74,5 +75,19 @@ namespace BP_Webshop.Services
                 await DbCrudMethods.UpdateObjectAsync(Ring);
             }
         }
+
+        public async Task<List<Ring>> GetRingByType(Ring.RingTypes type)
+        {
+            List<Ring> rrc = new List<Ring>();
+            using (var context = new BlackPDbContext())
+            {
+                rrc = await context.Rings
+                    .Where(b => b.RingType == type)
+                    .ToListAsync();
+            }
+
+            return rrc;
+        }
+
     }
 }

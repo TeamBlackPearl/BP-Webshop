@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using BP_Webshop.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace BP_Webshop.Services
 {
@@ -74,5 +75,19 @@ namespace BP_Webshop.Services
                 await DbCrudMethods.UpdateObjectAsync(Necklace);
             }
         }
+
+        public async Task<List<Necklace>> GetNecklaceByType(Necklace.NecklaceTypes type)
+        {
+            List<Necklace> nrc = new List<Necklace>();
+            using (var context = new BlackPDbContext())
+            {
+                nrc = await context.Necklaces
+                    .Where(b => b.NecklaceType == type)
+                    .ToListAsync();
+            }
+
+            return nrc;
+        }
+
     }
 }

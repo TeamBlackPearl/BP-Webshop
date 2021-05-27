@@ -1,6 +1,7 @@
 ﻿@page
 @model BP_Webshop.Pages.Jewellery.AllJewelriesModel
 @{
+    string tempTextDescription;
 }
 <h2 class="text-white">All Jewelleries</h2>
 <br />
@@ -37,6 +38,48 @@
             </div>
             <input @*asp-for="@Model.MinPri"*@ class="form-control mr-1" />
 
+<<main>
+    <div class="card-columns">
+        @foreach (var jew in Model.Jewelries)
+        {
+            <div class="card">
+                <div class="card-img" height="600">
+                    <img src="~/images/@jew.ImageLink" class="img-fluid w-100" />
+                </div>
+                
+                <div class="card-body">
+                    <h6 class="card-title p-3" >
+                        @jew.JewelryTitle
+                    </h6>
+                    @if (jew.Description.Length < 30)
+                    {
+                       
+                        <h6 class="card-Description">
+                            @jew.Description
+                        </h6>
+                    }
+                    else
+                    {
+                       
+                        <h6 class="card-Description">
+                            @jew.Description.Substring(0, 30)...
+                        </h6>
+                    }
+                   
+                </div>
+      
+      
+                <div class="d-flex flex-row-reverse">
+                    <a class="btn" asp-page="/Jewellery/ProductDetail" asp-route-id="@jew.JewelryID">Details </a>
+                    <a class="btn" asp-page="EditBracelet" asp-route-id="@jew.JewelryID"><i class="fa fa-pencil"></i></a>
+                    <a class="btn" asp-page="DeleteBracelet" asp-route-id="@jew.JewelryID"><i class="fa fa-trash"></i></a>
+                   <a class="btn" asp-page="/Order/AddToCart" asp-route-id="@jew.JewelryID"><i class="fa fa-shopping-cart"></i></a>
+                </div>
+            </div>
+
+        }
+    </div> 
+</main>
             <div class="input-group-prepend">
                 <span class="input-group-text">Max</span>
             </div>
@@ -45,29 +88,6 @@
         </div>
     </form>
 </div>
-    <div class="container-fluid">
-        <div class="row">
-            @if (@Model.Jewelries != null)
-                        {
-                        @foreach (var jewelry in Model.Jewelries)
-                        {
-            <div class="card" style="width: 16rem;">
-                <img class="card-img-top" src="/Images/@jewelry.ImageLink" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">Title: @jewelry.JewelryTitle</h5>
-                    <p>@jewelry.JewelryID</p>
-                    <p class="card-text">Description: @jewelry.Description</p>
-                    <p>Color: @jewelry.Color</p>
-                    <p>Price: @jewelry.Price</p>
-                    <p>Average Rating: @jewelry.AverageRating</p>
-                    <div class="rating">
-                        <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
-                    </div>
-                    <a class="btn btn-primary" asp-page="/Jewellery/ProductDetails/">See more</a>
-                </div>
-                <a class="btn" asp-page="/Order/AddToCart" asp-route-id="@jewelry.JewelryID"><i class="fa fa-shopping-cart"></i></a>
-            </div>
-                       }
-                    }
-                </div>
-            </div>
+
+               
+         

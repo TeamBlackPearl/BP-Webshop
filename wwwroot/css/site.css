@@ -192,6 +192,30 @@ html {
     }
 }
 
+
+/*Detail Page*/
+.column {
+    float: left;
+    padding: 10px;
+    
+}
+
+.left {
+    width: 45%;
+}
+
+.right {
+    width: 55%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+
 /*RATING SYSTEM*/
 
 .rating {

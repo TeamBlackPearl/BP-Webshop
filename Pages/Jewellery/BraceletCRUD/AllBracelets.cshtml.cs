@@ -26,18 +26,23 @@ namespace BP_Webshop.Pages.CRUD
         }
         
         //Iaction henter og viser den ved at hente dem til en lokal liste
+
+
         public IActionResult OnGet()
         {
             bracelets = braceletService.GetBracelets().ToList();
             return Page();
         }
-
-        public void OnPostGetBCat(string subType)
+        
+        
+        
+        public async Task <IActionResult> OnGetByTypeAsync(Bracelet.BraceletTypes type)
         {
-            
-            //bracelets = braceletService.GetBByCat("Kangan").ToList();
-            
+
+            bracelets = await braceletService.GetBraceletbyType(type);
+            return Page();
         }
 
+        
     }
 }

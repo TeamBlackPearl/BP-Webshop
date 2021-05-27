@@ -28,5 +28,12 @@ namespace BP_Webshop.Pages.Jewellery.NecklaceCRUD
             necklaces = necklaceService.GetNecklaces().ToList();
             return Page();
         }
+
+        public async Task<IActionResult> OnGetByNTypeAsync(Necklace.NecklaceTypes type)
+        {
+
+            necklaces = await necklaceService.GetNecklaceByType(type);
+            return Page();
+        }
     }
 }

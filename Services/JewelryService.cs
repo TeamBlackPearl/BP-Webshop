@@ -70,6 +70,7 @@ namespace BP_Webshop.Services
             return searchResults;
         }
 
+
         //LINQ 
         public IEnumerable<Jewelry> PriceFilter(int maxPri, int minPri = 0)
         {
@@ -93,6 +94,7 @@ namespace BP_Webshop.Services
                 orderby item.Price descending
                 select item;
         }
+
 
 
     }

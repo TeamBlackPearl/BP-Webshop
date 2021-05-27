@@ -9,15 +9,15 @@ namespace BP_Webshop.Models
     {
         public enum BraceletTypes
         {
-            All,
             Kangan,
             Bangle
-            
+
         }
 
         public double BraceletLength { get; set; }
         public double BraceletWidth { get; set; }
         public BraceletTypes BraceletType { get; set; }
+
         
 
         public Bracelet()
@@ -30,7 +30,7 @@ namespace BP_Webshop.Models
         {
             BraceletLength = braceletLength;
             BraceletWidth = braceletWidth;
-            BraceletType = BraceletTypes.All;
+            BraceletType = braceletType;
         }
     }
 }

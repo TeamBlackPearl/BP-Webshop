@@ -4,6 +4,7 @@ using System.Linq;
 using System.Reflection.Metadata.Ecma335;
 using System.Threading.Tasks;
 using BP_Webshop.Models;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Primitives;
 
 namespace BP_Webshop.Services
@@ -70,6 +71,7 @@ namespace BP_Webshop.Services
                         brace.ImageLink = bracelet.ImageLink;
                         brace.BraceletLength = bracelet.BraceletLength;
                         brace.BraceletWidth = bracelet.BraceletWidth;
+                        brace.BraceletType = bracelet.BraceletType;
                     }
                 }
 
@@ -79,24 +81,25 @@ namespace BP_Webshop.Services
 
        
 
-        //public List<Bracelet> GetBByCat( string subtype)
-        //{
-        //    List<Bracelet> SubBracelets = new List<Bracelet>();
-        //    foreach (var brc in Bracelets)
-        //    {
-        //        if (brc.BraceletType == subtype)
-        //        {
-        //            SubBracelets.Add(brc);
-        //        }
-        //    }
 
-        //    return SubBracelets;
-
-        //}
-
-        public static List<string> GetTypes()
+        public async Task<List<Bracelet>> GetBraceletbyType(Bracelet.BraceletTypes type)
         {
-            return Enum.GetNames(typeof(Bracelet.BraceletTypes)).ToList();
+            List<Bracelet> brc = new List<Bracelet>();
+            using (var context = new BlackPDbContext() )
+            {
+                brc = await context.Bracelets
+                    .Where(b => b.BraceletType == type)
+                    .ToListAsync();
+            }
+
+            return brc;
         }
+
+        
+
+
+
+
+
     }
 }

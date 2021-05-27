@@ -27,5 +27,12 @@ namespace BP_Webshop.Pages.Jewellery.RingCRUD
             rings = ringService.GetRings().ToList();
             return Page();
         }
+
+        public async Task<IActionResult> OnGetByRTypeAsync(Ring.RingTypes type)
+        {
+
+            rings = await ringService.GetRingByType(type);
+            return Page();
+        }
     }
 }

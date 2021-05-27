@@ -33,6 +33,12 @@ namespace BP_Webshop.Pages.Jewellery.EarringCrud
             }
 
 
-        
+            public async Task<IActionResult> OnGetByETypeAsync(Earring.EarringTypes type)
+            {
+
+                earringList = await _earringService.GetEarringbyType(type);
+                return Page();
+            }
+
     }
 }
