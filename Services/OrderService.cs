@@ -13,21 +13,45 @@ namespace BP_Webshop.Services
 
 
         public GenericCRUDMethods<Order> DbService;
+        public OrderLineService OrderLineService;
         public JewelryService JewelryService;
         public OrderLine OrderLine;
         public Order Order;
 
 
-        public OrderService(GenericCRUDMethods<Order> dbService, JewelryService jewelryService)
+        public OrderService(GenericCRUDMethods<Order> dbService, JewelryService jewelryService, OrderLineService orderLineService )
         {
             DbService = dbService;
             OrderList = DbService.GetObjectsAsync().Result.ToList();
 
             JewelryService = jewelryService;
+            OrderLineService = orderLineService;
+        }
+
+        public IEnumerable<Order> GetOrders()
+        {
+            return OrderList;
+        }
+
+        public Order GetOrder(int id)
+        {
+            foreach (var order in OrderList)
+            {
+                if (order.OrderId == id)
+                {
+                    return order;
+                }
+            }
+
+            return null;
         }
 
         public async Task AddOrderAsync(Order order)
         {
+            if (OrderLineService.OrderLineList.Count > 0)
+            {
+                Order ord = new Order();
+            }
             OrderList.Add(order);
             await DbService.AddObjectAsync(order);
         }

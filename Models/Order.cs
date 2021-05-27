@@ -25,10 +25,10 @@ namespace BP_Webshop.Models
             
         }
 
-        public Order(int orderId, DateTime orderDate, int userId)
+        public Order(int orderId, int userId)
         {
             OrderId = orderId;
-            OrderDate = orderDate;
+            OrderDate = DateTime.Now;
             UserId = userId;
             Tax = 25;
             DeliveryPrice = 45;

@@ -14,25 +14,30 @@ namespace BP_Webshop.Pages.Orders
         public JewelryService JewelryService;
         public OrderService OrderService;
         public OrderLineService OrderLineService;
+        public UserService UserService;
+
         [BindProperty]
         public Jewelry Jewelry { get; set; }
         [BindProperty]
         public OrderLine OrderLine { get; set; }
         [BindProperty]
         public Models.Order Order { get; set; }
+        [BindProperty] public User User { get; set; }
         [BindProperty] public int Count { get; set; }
         [BindProperty] public double Tax { get; set; }
 
-        public AddToCartModel(JewelryService jewelryService, OrderService orderService, OrderLineService orderLineService)
+        public AddToCartModel(JewelryService jewelryService, OrderService orderService, OrderLineService orderLineService, UserService userService)
         {
             JewelryService = jewelryService;
             OrderService = orderService;
             OrderLineService = orderLineService;
+            UserService = userService;
         }
 
         public IActionResult OnGet(int id)
         {
-            JewelryService.GetJewelry(id);
+            Jewelry = JewelryService.GetJewelry(id);
+            Order = OrderService.GetOrder(id);
             return Page();
         }
 
@@ -44,14 +49,17 @@ namespace BP_Webshop.Pages.Orders
             }
 
             Jewelry = JewelryService.GetJewelry(id);
+            Order.UserId = User.Id;
             OrderLine.JewelryId = Jewelry.JewelryID;
             OrderLine.OrderId = Order.OrderId;
-            OrderLine.ProductCount = Convert.ToInt32(OrderLineService.ChangeProductCount(id, Count));
+            OrderLine.ProductCount = Count;
             Order.Tax = Tax;
             Order.TotalPrice = OrderService.TotalPriceWithoutTax() * (1 + ((decimal)Tax / 100));
             await OrderLineService.AddToCart(id);
-            return Page();
+            return RedirectToPage("/Jewellery/AllJewelries");
 
         }
+
+
     }
 }
