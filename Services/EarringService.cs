@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using BP_Webshop.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace BP_Webshop.Services
 {
@@ -82,6 +83,20 @@ namespace BP_Webshop.Services
                 await DbServiceMethods.UpdateObjectAsync(earring);
             }
         }
+
+        public async Task<List<Earring>> GetEarringbyType(Earring.EarringTypes type)
+        {
+            List<Earring> erc = new List<Earring>();
+            using (var context = new BlackPDbContext())
+            {
+                erc = await context.Earrings
+                    .Where(b => b.EarringType == type)
+                    .ToListAsync();
+            }
+
+            return erc;
+        }
+
 
     }
 }

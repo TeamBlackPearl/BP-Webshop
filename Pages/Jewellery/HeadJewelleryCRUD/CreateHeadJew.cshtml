@@ -1,4 +1,5 @@
 ﻿@page
+@using BP_Webshop.Models
 @model BP_Webshop.Pages.Jewellery.HeadJewelleryCRUD.CreateHeadJewModel
 @{
 }
@@ -37,6 +38,17 @@
                 <label asp-for="@Model.HeadJew.ImageLink" class="control-label">Image name</label>
                 <input asp-for="@Model.HeadJew.ImageLink" class="form-control" placeholder="Image name"/>
                 <span asp-validation-for="@Model.HeadJew.ImageLink" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label  class="control-label">Head Jewellery Type</label>
+                <select asp-for="@Model.HeadJew.HeadJewType" class="form-select" >
+                    @foreach (var type in Enum.GetNames(typeof(HeadJewelry.HeadJewelryTypes)))
+                    {
+                        <option value="@type">@type</option>
+                    }
+
+                </select>
+                <span asp-validation-for="@Model.HeadJew.HeadJewType" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label class="control-lable">Size</label>

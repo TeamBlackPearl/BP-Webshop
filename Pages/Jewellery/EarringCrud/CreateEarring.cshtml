@@ -1,4 +1,5 @@
 ﻿@page
+@using BP_Webshop.Models
 @model BP_Webshop.Pages.Jewellery.EarringCrud.CreateEarringModel
 @{
 }
@@ -44,6 +45,17 @@
                 <input asp-for="@Model.Earring.ImageLink" class="form-control" placeholder="Image name"/>
                 <span asp-validation-for="@Model.Earring.ImageLink"></span>
             </div>
+            <div class="form-group">
+            <label  class="control-label">Earring Type</label>
+            <select asp-for="@Model.Earring.EarringType" class="form-select" >
+                @foreach (var type in Enum.GetNames(typeof(Earring.EarringTypes)))
+                {
+                    <option value="@type">@type</option>
+                }
+
+            </select>
+            <span asp-validation-for="@Model.Earring.EarringType" class="text-danger"></span>
+                </div>
             <div class="form-group">
                 <label class="control-lable">Length</label>
                 <input asp-for="@Model.Earring.EarringLength" class="form-control" placeholder="Length (optional)" />

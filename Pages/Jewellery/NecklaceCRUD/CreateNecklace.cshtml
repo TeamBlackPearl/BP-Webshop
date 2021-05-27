@@ -1,4 +1,5 @@
 ﻿@page
+@using BP_Webshop.Models
 @model BP_Webshop.Pages.Jewellery.NecklaceCRUD.CreateNecklaceModel
 @{
     ViewData["Title"] = "CreateBracelet";
@@ -49,6 +50,18 @@
         <input asp-for="@Model.Necklace.ImageLink" class="form-control" placeholder="Image name" />
         <span asp-validation-for="@Model.Necklace.ImageLink" class="text-danger"></span>
 
+    </div>
+    
+    <div class="form-group">
+        <label  class="control-label">Necklace Type</label>
+        <select asp-for="@Model.Necklace.NecklaceType" class="form-select" >
+            @foreach (var type in Enum.GetNames(typeof(Necklace.NecklaceTypes)))
+            {
+                <option value="@type">@type</option>
+            }
+
+        </select>
+        <span asp-validation-for="@Model.Necklace.NecklaceType" class="text-danger"></span>
     </div>
     <div class="form-group">
         <label asp-for="@Model.Necklace.NecklaceLength" class="control-label">Length</label>

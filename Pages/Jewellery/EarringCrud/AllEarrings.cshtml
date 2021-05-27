@@ -18,50 +18,29 @@
     </form>
 }
 
-<div class="container">
-    <div class="row">
-        @if (@Model.earringList != null)
+<main>
+    <div class="card-columns">
+        @foreach (var earring in Model.earringList)
         {
-            @foreach (var bracelet in Model.earringList)
-            {
-                <div class="col-3">
-                    <table class="table">
-                        <tbody>
-                            <tr>
-                                @* SKAL ADMIN RUNDT OM *@
-
-                                <p>@bracelet.JewelryID</p>
-
-                                @* ADMIN SLUT *@
-                                <a asp-area="" asp-page="/Jewellery/ProductDetails/" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">
-                                    <img src="/Images/@bracelet.ImageLink" type="button" class="btn btn-link" width="80" height="auto" />
-                                </a>
-
-                                <p>@bracelet.JewelryTitle</p>
-                                <p>@bracelet.Description</p>
-                                <p>@bracelet.Color</p>
-                                <p>@bracelet.Price</p>
-                                <p>@bracelet.AverageRating</p>
-                                <p>@bracelet.EarringLength</p>
-
-
-                                @* SKAL ADMIN RUNDT OM *@
-                                @if (User.IsInRole("admin"))
-                                {
-
-                                    <td>
-                                        @*Call to action buttons*@
-                                        <a class="btn" asp-page="UpdateEaring" asp-route-id="@bracelet.JewelryID"><i class="fa fa-pencil"></i></a>
-                                        <a class="btn" asp-page="DeleteEarring" asp-route-id="@bracelet.JewelryID"><i class="fa fa-trash"></i></a>
-                                    </td>
-                                    @* ADMIN SLUT *@
-                                }
-                            </tr>
-                        </tbody>
-                    </table>
+            <div class="card">
+                <div class="card-img">
+                    <img src="~/images/@earring.ImageLink" class="img-fluid w-100" />
                 </div>
-            }
-        }
+                <div class="card-body">
+                    <h6 class="card-title">
+                        @earring.JewelryTitle
+                    </h6>
+                    <h6 class="card-Description">
+                        @earring.Description
+                    </h6>
+                </div>
+                <div class="d-flex flex-row-reverse">
+                    <a class="btn" type="button" asp-page="/Jewellery/ProductDetail" asp-route-id="@earring.JewelryID">Details </a>
+                    <a class="btn" asp-page="UpdateEaring" asp-route-id="@earring.JewelryID"><i class="fa fa-pencil"></i></a>
+                    <a class="btn" asp-page="DeleteEarring" asp-route-id="@earring.JewelryID"><i class="fa fa-trash"></i></a>
+                </div>
+            </div>
 
+        }
     </div>
-</div>
+</main>

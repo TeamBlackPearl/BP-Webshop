@@ -54,5 +54,20 @@ namespace BP_Webshop.Services
             }
             return searchResults;
         }
+
+        public Jewelry GetJewelryById(int id)
+        {
+
+            foreach (Jewelry Jew in Jewelries)
+            {
+                if (Jew.JewelryID == id)
+                {
+                    return Jew;
+                }
+            }
+
+            return null;
+
+        }
     }
 }

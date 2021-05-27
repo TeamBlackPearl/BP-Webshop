@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using BP_Webshop.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace BP_Webshop.Services
 {
@@ -75,6 +76,19 @@ namespace BP_Webshop.Services
 
                 await DbServiceMethods.UpdateObjectAsync(headJew);
             }
+        }
+
+        public async Task<List<HeadJewelry>> GetHeadJbyType(HeadJewelry.HeadJewelryTypes type)
+        {
+            List<HeadJewelry> hrc = new List<HeadJewelry>();
+            using (var context = new BlackPDbContext())
+            {
+                hrc = await context.HeadJewelries
+                    .Where(b => b.HeadJewType == type)
+                    .ToListAsync();
+            }
+
+            return hrc;
         }
 
 

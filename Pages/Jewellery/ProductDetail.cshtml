@@ -1,0 +1,35 @@
+﻿@page
+@using BP_Webshop.Models
+@model BP_Webshop.Pages.Jewellery.ProductDetailModel
+@{
+}
+
+<div class="row">
+    <div class="column left" @*style="background-color:navy;"*@ style="color: silver">
+
+        @foreach (var jewelry in Model.jewelries)
+        {
+            if (jewelry.ImageLink == Model.Jewelry.ImageLink)
+            {
+                <div>
+                    <img src="~/images/@jewelry.ImageLink" class="img-fluid w-100" />
+                </div>
+            }
+        }
+
+
+        
+
+    </div>
+    <div class="column right" @*style="background-color:black;"*@ style="color: silver">
+        @foreach (var jewelry in Model.jewelries)
+        {
+            if (jewelry.JewelryID == Model.Jewelry.JewelryID)
+            {
+                <h2>@jewelry.JewelryTitle</h2>
+
+                <h5>@jewelry.Description</h5>
+            }
+        }
+    </div>
+</div>

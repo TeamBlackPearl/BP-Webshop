@@ -125,8 +125,8 @@
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                     <a class="dropdown-item">Types</a>
-                                    <a class="dropdown-item" asp-page="/Jewellery/EarringCrud/AllEarrings">Jhumkay</a>
-                                    <a class="dropdown-item" asp-page="/Jewellery/EarringCrud/AllEarrings">Tops</a>
+                                    <a class="dropdown-item" asp-page="/Jewellery/EarringCrud/AllEarrings" asp-page-handler="ByEType" asp-route-type="@Earring.EarringTypes.Jhumkay">Jhumkay</a>
+                                    <a class="dropdown-item" asp-page="/Jewellery/EarringCrud/AllEarrings" asp-page-handler="ByEType" asp-route-type="@Earring.EarringTypes.Tops">Tops</a>
                                 </div>
                             </li>
                             <li class="nav-item dropdown">
@@ -135,9 +135,9 @@
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                     <a class="dropdown-item">Types</a>
-                                    <a class="dropdown-item" asp-page="/Jewellery/NecklaceCRUD/AllNecklaces">Mala</a>
-                                    <a class="dropdown-item" asp-page="/Jewellery/NecklaceCRUD/AllNecklaces">Choker</a>
-                                    <a class="dropdown-item" asp-page="/Jewellery/NecklaceCRUD/AllNecklaces">Multilayered</a>
+                                    <a class="dropdown-item" asp-page="/Jewellery/NecklaceCRUD/AllNecklaces" asp-page-handler="ByNType" asp-route-type="@Necklace.NecklaceTypes.Mala">Mala</a>
+                                    <a class="dropdown-item" asp-page="/Jewellery/NecklaceCRUD/AllNecklaces" asp-page-handler="ByNType" asp-route-type="@Necklace.NecklaceTypes.Choker">Choker</a>
+                                    <a class="dropdown-item" asp-page="/Jewellery/NecklaceCRUD/AllNecklaces" asp-page-handler="ByNType" asp-route-type="@Necklace.NecklaceTypes.Multilayered">Multilayered</a>
                                 </div>
                             </li>
                             <li class="nav-item dropdown">
@@ -146,9 +146,9 @@
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                     <a class="dropdown-item">Types</a>
-                                    <a class="dropdown-item" asp-page="/Jewellery/BraceletCRUD/AllBracelet">Kangan</a>
-                                    <a class="dropdown-item" asp-page="/Jewellery/BraceletCRUD/AllBracelet">Bangles</a>
-                                    <a class="dropdown-item" asp-page="/Jewellery/BraceletCRUD/AllBracelet">Panjangla</a>
+                                    <a class="dropdown-item" asp-page="/Jewellery/BraceletCRUD/AllBracelets" asp-page-handler="ByType" asp-route-type="@Bracelet.BraceletTypes.Kangan">Kangan</a>
+                                    <a class="dropdown-item" asp-page="/Jewellery/BraceletCRUD/AllBracelets" asp-page-handler="ByType" asp-route-type="@Bracelet.BraceletTypes.Bangle">Bangles</a>
+                                    @*<a class="dropdown-item" asp-page="/Jewellery/BraceletCRUD/AllBracelet" asp-page-handler="ByType" asp-route-type="@Bracelet.BraceletTypes.Panjangla">Panjangla</a>*@
                                 </div>
                             </li>
                             <li class="nav-item dropdown">
@@ -157,9 +157,9 @@
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                     <a class="dropdown-item">Types</a>
-                                    <a class="dropdown-item" asp-page="/Jewellery/RingCRUD/AllRings">Panjangla</a>
-                                    <a class="dropdown-item" asp-page="/Jewellery/RingCRUD/AllRings">DoubleRings</a>
-                                    <a class="dropdown-item" asp-page="/Jewellery/RingCRUD/AllRings">SilverRings</a>
+                                    <a class="dropdown-item" asp-page="/Jewellery/RingCRUD/AllRings" asp-page-handler="ByRType" asp-route-type="@Ring.RingTypes.Panjangla">Panjangla</a>
+                                    <a class="dropdown-item" asp-page="/Jewellery/RingCRUD/AllRings" asp-page-handler="ByRType" asp-route-type="@Ring.RingTypes.DoubleRings">DoubleRings</a>
+                                    <a class="dropdown-item" asp-page="/Jewellery/RingCRUD/AllRings" asp-page-handler="ByRType" asp-route-type="@Ring.RingTypes.SilverRings">SilverRings</a>
                                 </div>
                             </li>
                             <li class="nav-item dropdown">
@@ -168,9 +168,9 @@
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                     <a class="dropdown-item">Types</a>
-                                    <a class="dropdown-item" asp-page="/Jewellery/HeadJewelleryCRUD/AllHeadJew">Bindi</a>
-                                    <a class="dropdown-item" asp-page="/Jewellery/HeadJewelleryCRUD/AllHeadJew">MathaPatti</a>
-                                    <a class="dropdown-item" asp-page="/Jewellery/HeadJewelleryCRUD/AllHeadJew">Jhoomar</a>
+                                    <a class="dropdown-item" asp-page="/Jewellery/HeadJewelleryCRUD/AllHeadJew" asp-page-handler="ByHType" asp-route-type="@HeadJewelry.HeadJewelryTypes.Bindi">Bindi</a>
+                                    <a class="dropdown-item" asp-page="/Jewellery/HeadJewelleryCRUD/AllHeadJew" asp-page-handler="ByHType" asp-route-type="@HeadJewelry.HeadJewelryTypes.MathaPatti">MathaPatti</a>
+                                    <a class="dropdown-item" asp-page="/Jewellery/HeadJewelleryCRUD/AllHeadJew" asp-page-handler="ByHType" asp-route-type="@HeadJewelry.HeadJewelryTypes.Jhoomar">Jhoomar</a>
                                 </div>
                             </li>
                             <li class="nav-item">
