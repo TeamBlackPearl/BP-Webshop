@@ -7,6 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BP-Webshop", "BP-Webshop.cs
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BP-UnitTesting", "..\BP-UnitTesting\BP-UnitTesting.csproj", "{6E86FA34-4A1C-4C8B-A71B-10FA9EB2EF46}"
 EndProject
+
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
