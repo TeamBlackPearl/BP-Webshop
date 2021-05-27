@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
+using System.Net.Mime;
 using System.Runtime;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
@@ -29,7 +30,8 @@ namespace BP_Webshop.Models
         //[Range(0,5, ErrorMessage = "has to be between 0-5")]
         public double AverageRating { get; set; }
         //[Required(ErrorMessage = "There has to be an image")]
-        public string ImageLink { get; set; }
+        //public const string Png = "image/png";
+        public string /*MediaTypeNames.Image*/ ImageLink { get; set; }
 
         public Jewelry()
         {
@@ -45,6 +47,7 @@ namespace BP_Webshop.Models
             Price = price;
             AverageRating = averageRating;
             ImageLink = imageLink;
+            //Png = Png;
         }
 
     }

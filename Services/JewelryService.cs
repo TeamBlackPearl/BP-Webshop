@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Threading.Tasks;
 using BP_Webshop.Models;
+using Microsoft.EntityFrameworkCore.Query.SqlExpressions;
 
 namespace BP_Webshop.Services
 {
@@ -54,5 +56,31 @@ namespace BP_Webshop.Services
             }
             return searchResults;
         }
+
+        //LINQ 
+        public IEnumerable<Jewelry> PriceFilter(int maxPri, int minPri = 0)
+        {
+            return from jewelry in Jewelries
+                where (minPri == 0 && jewelry.Price <= maxPri) ||
+                      (maxPri == 0 && jewelry.Price >= minPri) ||
+                      (jewelry.Price >= minPri && jewelry.Price <= maxPri)
+                select jewelry;
+        }
+
+        public IEnumerable<Jewelry> SortByPrice()
+        {
+            return from jewelry in Jewelries
+                orderby jewelry.Price
+                select jewelry;
+        }
+
+        public IEnumerable<Jewelry> SortByPriceDesc()
+        {
+            return from item in Jewelries
+                orderby item.Price descending
+                select item;
+        }
+
+
     }
 }

@@ -2,44 +2,72 @@
 @model BP_Webshop.Pages.Jewellery.AllJewelriesModel
 @{
 }
-<h2>All Jewelleries</h2>
+<h2 class="text-white">All Jewelleries</h2>
 <br />
-@* RYKKET TIL _LAYOUT VED NAV *@
-@*<form method="post" class="form-inline">
-    <div class="form-group mb-3">
-    <label for="titleSearch">Search:</label>
-        <input type="text" class="form-control" id="searchCriteria" name="searchCriteria" placeholder="Title to search">
-    </div>
-    <button type="submit" class="btn btn-primary mb-2">Search</button>
-</form>*@
+<br />
 
-<table class="table">
-    <thead>
-    <tr>
-        <th>Id</th>
-        <th>Title</th>
-        <th>Description</th>
-        <th>Color</th>
-        <th>Price</th>
-        <th>Average Rating</th>
-        <th>Image Name</th>
-    </tr>
-    </thead>
-    <tbody>
-    @if (@Model.Jewelries != null)
-    {
-        @foreach (var jewelry in Model.Jewelries)
-        {
-            <tr>
-                <td>@jewelry.JewelryID</td>
-                <td>@jewelry.JewelryTitle</td>
-                <td>@jewelry.Description</td>
-                <td>@jewelry.Color</td>
-                <td>@jewelry.Price</td>
-                <td>@jewelry.AverageRating</td>
-                <td><img src="/Images/@jewelry.ImageLink" width="80" height="auto" /></td>
-            </tr>
-        }
-    }
-    </tbody>
-</table>
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <table class="table table-bordered table-hover" width="40%">
+                <thead>
+                <tr class="btn-secondary active">
+                    <th>
+                        <div class="d-flex justify-content-between p-0">
+                            <div>
+                                <h6>Price </h6>
+                            </div>
+                            <div>
+                                <a data-toggle="tooltip" title="Sort By Price" asp-page-handler="SortByPrice"><i class="fa fa-angle-up text-white"></i></a>
+                                <a data-toggle="tooltip" title="Sort By Price Descending" asp-page-handler="SortByPriceDescending"><i class="fa fa-angle-down text-white"></i></a>
+                            </div>
+                        </div>
+                    </th>
+                </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+</div>
+<div class="d-flex justify-content-between p-0">
+    <form method="post" class="form-inline">
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Min</span>
+            </div>
+            <input @*asp-for="@Model.MinPri"*@ class="form-control mr-1" />
+
+            <div class="input-group-prepend">
+                <span class="input-group-text">Max</span>
+            </div>
+            <input @*asp-for="@Model.MaxPri"*@ class="form-control mr-1" />
+            <input type="submit" asp-page-handler="PriceFilter" value="Filter" class="btn btn-primary" />
+        </div>
+    </form>
+</div>
+    <div class="container-fluid">
+        <div class="row">
+            @if (@Model.Jewelries != null)
+                        {
+                        @foreach (var jewelry in Model.Jewelries)
+                        {
+                            <div class="card" style="width: 16rem;">
+                                <img class="card-img-top" src="/Images/@jewelry.ImageLink" alt="Card image cap">
+                                <div class="card-body">
+                                    <h5 class="card-title">Title: @jewelry.JewelryTitle</h5>
+                                    <p>@jewelry.JewelryID</p>
+                                    <p class="card-text">Description: @jewelry.Description</p>
+                                    <p>Color: @jewelry.Color</p>
+                                    <p>Price: @jewelry.Price</p>
+                                    <p>Average Rating: @jewelry.AverageRating</p>
+                                    <div class="rating">
+                                        <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+                                    </div>
+                                    <a class="btn btn-primary" asp-page="/Jewellery/ProductDetails/">See more</a>
+                                </div>
+                            </div>
+                       }
+                    }
+                </div>
+            </div>
+
