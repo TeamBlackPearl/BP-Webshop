@@ -51,21 +51,22 @@
                         {
                         @foreach (var jewelry in Model.Jewelries)
                         {
-                            <div class="card" style="width: 16rem;">
-                                <img class="card-img-top" src="/Images/@jewelry.ImageLink" alt="Card image cap">
-                                <div class="card-body">
-                                    <h5 class="card-title">Title: @jewelry.JewelryTitle</h5>
-                                    <p>@jewelry.JewelryID</p>
-                                    <p class="card-text">Description: @jewelry.Description</p>
-                                    <p>Color: @jewelry.Color</p>
-                                    <p>Price: @jewelry.Price</p>
-                                    <p>Average Rating: @jewelry.AverageRating</p>
-                                    <div class="rating">
-                                        <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
-                                    </div>
-                                    <a class="btn btn-primary" asp-page="/Jewellery/ProductDetails/">See more</a>
-                                </div>
-                            </div>
+            <div class="card" style="width: 16rem;">
+                <img class="card-img-top" src="/Images/@jewelry.ImageLink" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Title: @jewelry.JewelryTitle</h5>
+                    <p>@jewelry.JewelryID</p>
+                    <p class="card-text">Description: @jewelry.Description</p>
+                    <p>Color: @jewelry.Color</p>
+                    <p>Price: @jewelry.Price</p>
+                    <p>Average Rating: @jewelry.AverageRating</p>
+                    <div class="rating">
+                        <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+                    </div>
+                    <a class="btn btn-primary" asp-page="/Jewellery/ProductDetails/">See more</a>
+                </div>
+                <a class="btn" asp-page="/Order/AddToCart" asp-route-id="@jewelry.JewelryID"><i class="fa fa-shopping-cart"></i></a>
+            </div>
                        }
                     }
                 </div>
