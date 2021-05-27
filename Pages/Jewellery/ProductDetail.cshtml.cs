@@ -26,7 +26,7 @@ namespace BP_Webshop.Pages.Jewellery
         {
 
             jewelries = jewelryService.GetAllJewelries();
-            Jewelry = jewelryService.GetJewelryById(id);
+            Jewelry = jewelryService.GetJewelry(id);
 
         }
     }
