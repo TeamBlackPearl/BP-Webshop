@@ -24,6 +24,11 @@ namespace BP_Webshop.Models
             
         }
 
+        public OrderLine(int jewelryId)
+        {
+            JewelryId = jewelryId;
+        }
+
         public OrderLine(int orderLineId, int orderId, int jewelryId, int productCount)
         {
             OrderLineId = orderLineId;

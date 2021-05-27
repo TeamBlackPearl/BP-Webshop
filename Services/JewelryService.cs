@@ -41,6 +41,19 @@ namespace BP_Webshop.Services
             return Jewelries;
         }
 
+        public Jewelry GetJewelry(int id)
+        {
+            foreach (var jewelry in Jewelries)
+            {
+                if (jewelry.JewelryID == id)
+                {
+                    return jewelry;
+                }
+            }
+
+            return null;
+        }
+
         public IEnumerable<Jewelry> SearchInJewelries(string criteria)
         {
             List<Jewelry> searchResults = new List<Jewelry>();

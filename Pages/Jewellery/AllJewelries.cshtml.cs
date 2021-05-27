@@ -32,7 +32,6 @@ namespace BP_Webshop.Pages.Jewellery
             Jewelries = jewelryService.GetAllJewelries().ToList();
             return Page();
 
-
         }
 
         public IActionResult OnPost(string searchCriteria)
