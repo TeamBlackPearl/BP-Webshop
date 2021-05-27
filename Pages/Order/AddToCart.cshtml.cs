@@ -54,10 +54,9 @@ namespace BP_Webshop.Pages.Orders
             OrderLine.OrderId = Order.OrderId;
             OrderLine.ProductCount = Count;
             Order.Tax = Tax;
-            Order.TotalPrice = OrderService.TotalPriceWithoutTax() * (1 + ((decimal)Tax / 100));
+            //Order.T= OrderService.TotalPriceWithoutTax() * (1 + ((decimal)Tax / 100));
             await OrderLineService.AddToCart(id);
             return RedirectToPage("/Jewellery/AllJewelries");
-
         }
 
 

@@ -48,10 +48,10 @@ namespace BP_Webshop.Services
 
         public async Task AddOrderAsync(Order order)
         {
-            if (OrderLineService.OrderLineList.Count > 0)
-            {
-                Order ord = new Order();
-            }
+            //if (OrderLineService.OrderLineList.Count > 0)
+            //{
+            //    Order ord = new Order();
+            //}
             OrderList.Add(order);
             await DbService.AddObjectAsync(order);
         }
