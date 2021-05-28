@@ -24,7 +24,7 @@
     <div class="card-columns">
         @foreach (var bracelet in Model.bracelets)
         {
-            <div class="card h-100" >
+            <div class="card" >
                 <div class="card-img" >
                     <img src="~/images/@bracelet.ImageLink" class="img-fluid w-100" />
                 </div>
@@ -36,16 +36,26 @@
                         @bracelet.Description
                     </h6>
                     <p>@bracelet.Color</p>
-                    <p>@bracelet.AverageRating</p>
                     <div class="rating">
                         <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
                     </div>
                 </div>
-                <div class="d-flex flex-row-reverse">
-                    <a class="btn" asp-page="/Jewellery/ProductDetail" asp-route-id="@bracelet.JewelryID">Details </a>
-                    <a class="btn" asp-page="EditBracelet" asp-route-id="@bracelet.JewelryID"><i class="fa fa-pencil"></i></a>
-                    <a class="btn" asp-page="DeleteBracelet" asp-route-id="@bracelet.JewelryID"><i class="fa fa-trash"></i></a>
-                </div>
+                @if (User.IsInRole("admin"))
+                {
+                    <div class="d-flex flex-row-reverse">
+                        <a class="btn" asp-page="EditBracelet" asp-route-id="@bracelet.JewelryID"><i class="fa fa-pencil"></i></a>
+                        <a class="btn" asp-page="DeleteBracelet" asp-route-id="@bracelet.JewelryID"><i class="fa fa-trash"></i></a>
+                    </div>
+                }
+                else
+                {
+                    <div class="d-flex flex-row-reverse">
+                        <a class="btn" asp-page="/Jewellery/ProductDetail" asp-route-id="@bracelet.JewelryID">Details </a>
+                        <a class="btn" asp-page="/Order/AddToCart" asp-route-id="@bracelet.JewelryID"><i class="fa fa-shopping-cart"></i></a>
+
+                    </div>
+                }
+                
             </div>
 
         }

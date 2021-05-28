@@ -5,7 +5,7 @@
 }
 
 <div class="row">
-    <div class="column left" @*style="background-color:navy;"*@ style="color: silver">
+    <div class="column left" style="background-color:whitesmoke;" style="color: silver">
 
         @foreach (var jewelry in Model.jewelries)
         {
@@ -17,18 +17,36 @@
             }
         }
 
-
-        
-
     </div>
-    <div class="column right" @*style="background-color:black;"*@ style="color: silver">
+    <div class="column right" style="background-color:whitesmoke;" style="color: silver">
         @foreach (var jewelry in Model.jewelries)
         {
             if (jewelry.JewelryID == Model.Jewelry.JewelryID)
             {
                 <h2>@jewelry.JewelryTitle</h2>
 
+               
                 <h5>@jewelry.Description</h5>
+
+                
+                
+                <h5>@jewelry.Color</h5>
+               
+                
+                <div>
+
+                    <h4>@jewelry.Price DKK</h4>
+                </div>
+
+               
+                
+                
+                <h5>AverageRating</h5>
+                <div class="rating">
+                    <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+                </div>
+
+
             }
         }
     </div>

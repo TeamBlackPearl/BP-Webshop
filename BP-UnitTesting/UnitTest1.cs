@@ -1,11 +1,11 @@
 using System.Collections.Generic;
 using BP_Webshop.Models;
 using BP_Webshop.Services;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+//using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace BP_UnitTesting
 {
-    [TestClass]
+    //[TestClass]
     public class UnitTest1
     {
         private static GenericCRUDMethods<Order> _dbService = new GenericCRUDMethods<Order>();
@@ -24,7 +24,7 @@ namespace BP_UnitTesting
         private static OrderLineService _orderLineService = new OrderLineService(_dbService7);
         private static OrderService _orderService = new OrderService(_dbService, _jewelryService, _orderLineService);
 
-        [TestInitialize]
+        //[TestInitialize]
         public void BeforeTest()
         {
             
@@ -39,13 +39,13 @@ namespace BP_UnitTesting
             };
         }
 
-        [TestMethod]
-        public void TestTotalPriceWithoutTax()
-        {
-            decimal expectedValue = _jewelryService.Jewelries[0].Price + _jewelryService.Jewelries[1].Price;
-            decimal actualValue = _orderService.TotalPriceWithoutTax();
-            Assert.AreEqual(expectedValue, actualValue);
-        }
+        //[TestMethod]
+        //public void TestTotalPriceWithoutTax()
+        //{
+        //    decimal expectedValue = _jewelryService.Jewelries[0].Price + _jewelryService.Jewelries[1].Price;
+        //    decimal actualValue = _orderService.TotalPriceWithoutTax();
+        //    Assert.AreEqual(expectedValue, actualValue);
+        //}
 
 
     }

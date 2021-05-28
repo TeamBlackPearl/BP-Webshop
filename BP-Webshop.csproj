@@ -3,6 +3,8 @@
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
     <RootNamespace>BP_Webshop</RootNamespace>
+    <OutputType>Exe</OutputType>
+    <StartupObject></StartupObject>
   </PropertyGroup>
 
   <ItemGroup>
