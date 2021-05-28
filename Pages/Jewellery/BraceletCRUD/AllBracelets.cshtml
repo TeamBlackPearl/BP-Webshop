@@ -36,6 +36,7 @@
                         @bracelet.Description
                     </h6>
                     <p>@bracelet.Color</p>
+                    <p>@bracelet.Price DKK</p>
                     <div class="rating">
                         <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
                     </div>
@@ -47,14 +48,14 @@
                         <a class="btn" asp-page="DeleteBracelet" asp-route-id="@bracelet.JewelryID"><i class="fa fa-trash"></i></a>
                     </div>
                 }
-                else
-                {
-                    <div class="d-flex flex-row-reverse">
+                
+                
+                    <div class="">
                         <a class="btn" asp-page="/Jewellery/ProductDetail" asp-route-id="@bracelet.JewelryID">Details </a>
                         <a class="btn" asp-page="/Order/AddToCart" asp-route-id="@bracelet.JewelryID"><i class="fa fa-shopping-cart"></i></a>
 
                     </div>
-                }
+                
                 
             </div>
 
