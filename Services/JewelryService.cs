@@ -94,8 +94,5 @@ namespace BP_Webshop.Services
                 orderby item.Price descending
                 select item;
         }
-
-
-
     }
 }

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.AccessControl;
 using System.Threading.Tasks;
 using BP_Webshop.Models;
 using BP_Webshop.Services;
@@ -17,6 +18,7 @@ namespace BP_Webshop.Pages.Jewellery
         [BindProperty] public Jewelry Jewelry { get; set; }
 
         //Prop For Sort and filter methods
+        //[BindProperty] public string SearchString { get; set; } 
         [BindProperty] public int MaxPri { get; set; }
         [BindProperty] public int MinPri { get; set; }
 

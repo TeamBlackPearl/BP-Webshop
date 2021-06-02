@@ -15,7 +15,7 @@
     @* FIRST NAV START *@
   <div class="container-fluid">
     <nav class="navbar navbar-expand-sm">
-        <a asp-page="/Index"> <img src="Images/BPLOGO.jpg" width="82" height="auto" alt="Responsive image"></a>
+        <a asp-page="/Index"> <img src="Images/BPLOGO.jpg" width="82" height="auto" alt="Logo"></a>
         <div class="container-fluid">
             <a asp-page="/Index" class="navbar-brand btn btn-primary btn-lg active" role="button" aria-pressed="true">
                 Black Pearl Webshop
@@ -44,6 +44,9 @@
                     <div class="p-2">
                         <a asp-area="" asp-page="/Account/CreateAdmin" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Create admin</a>
                     </div>
+                    <div class="p-2">
+                        <a asp-area="" asp-page="/Payment/CheckOut" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Payment site</a>
+                    </div>
                 }
 
                 @if (!Context.User.Identity.IsAuthenticated)
@@ -51,32 +54,24 @@
                     <div class="p-2">
                         <a asp-area="" asp-page="/Account/LogIn" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Log in</a>
                     </div>
-                    <div class="p-2">
-                        <a asp-area="" asp-page="/Account/CreateUser" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Create user</a>
-                    </div>
                 }
-
-                <div class="p-2">
-                    <a asp-area="" asp-page="/Payment/CheckOut" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Payment site</a>
-                </div>
+            <div class="p-2">
+                <a asp-area="" asp-page="/Account/CreateUser" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Create user</a>
+            </div>
             </div>
             @* FLEX ROW REVERSE END *@
 
             @* FLEX ROW REVERSE START *@
             <div class="d-flex flex-row-reverse">
-                <div class="p-2">
-                    <button type="button" class="btn btn-outline-primary"><i class="fa fa-shopping-cart"></i></button>
-                </div>
-                <div class="p-2">
+                <div class="p-3">
                     @* SEARCH *@
                     <form asp-page="/Jewellery/AllJewelries" method="post" class="form-inline my-2 my-lg-0">
                         <input class="form-control mr-sm-2" type="search" placeholder="Search title" id="searchCriteria" name="searchCriteria" aria-label="Search">
                         <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
                     </form>
                 </div>
-                <div class="p-2">
-                </div>
-                <div class="p-2">
+                <div class="p-3">
+                    <button type="button" class="btn btn-outline-primary" style="background-color: #007bff"><i class="fa fa-shopping-cart" ></i></button>
                 </div>
             </div>
             @* FLEX ROW REVERSE END *@
@@ -112,7 +107,7 @@
                     <div class="collapse navbar-collapse bg-light" id="navbarNav">
                         <ul class="navbar-nav text-black">
                             <li class="nav-item active">
-                                <a class="nav-link text-black" href="#">Home <span class="sr-only">(current)</span></a>
+                                <a class="nav-link text-black" asp-area="" asp-page="/index">Home <span class="sr-only">(current)</span></a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link text-black" asp-area="" asp-page="/Jewellery/AllJewelries">All Jewelries</a>
@@ -124,7 +119,8 @@
                                     Earrings
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                    <a class="dropdown-item">Types</a>
+                                    <a class="dropdown-item" asp-page="/Jewellery/EarringCrud/AllEarrings">See earrings</a>
+                                    <a class="dropdown-item"><b>Types</b></a>
                                     <a class="dropdown-item" asp-page="/Jewellery/EarringCrud/AllEarrings" asp-page-handler="ByEType" asp-route-type="@Earring.EarringTypes.Jhumkay">Jhumkay</a>
                                     <a class="dropdown-item" asp-page="/Jewellery/EarringCrud/AllEarrings" asp-page-handler="ByEType" asp-route-type="@Earring.EarringTypes.Tops">Tops</a>
                                 </div>
@@ -135,7 +131,9 @@
                                     Necklace
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                    <a class="dropdown-item">Types</a>
+                                    <a class="dropdown-item" asp-page="/Jewellery/NecklaceCRUD/AllNecklaces">See necklaces</a>
+
+                                    <a class="dropdown-item"><b>Types</b></a>
                                     <a class="dropdown-item" asp-page="/Jewellery/NecklaceCRUD/AllNecklaces" asp-page-handler="ByNType" asp-route-type="@Necklace.NecklaceTypes.Mala">Mala</a>
                                     <a class="dropdown-item" asp-page="/Jewellery/NecklaceCRUD/AllNecklaces" asp-page-handler="ByNType" asp-route-type="@Necklace.NecklaceTypes.Choker">Choker</a>
                                     <a class="dropdown-item" asp-page="/Jewellery/NecklaceCRUD/AllNecklaces" asp-page-handler="ByNType" asp-route-type="@Necklace.NecklaceTypes.Multilayered">Multilayered</a>
@@ -147,7 +145,9 @@
                                     Bracelet
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                    <a class="dropdown-item">Types</a>
+                                    <a class="dropdown-item" asp-page="/Jewellery/BraceletCRUD/AllBracelets">See bracelets</a>
+
+                                    <a class="dropdown-item"><b>Types</b></a>
                                     <a class="dropdown-item" asp-page="/Jewellery/BraceletCRUD/AllBracelets" asp-page-handler="ByType" asp-route-type="@Bracelet.BraceletTypes.Kangan">Kangan</a>
                                     <a class="dropdown-item" asp-page="/Jewellery/BraceletCRUD/AllBracelets" asp-page-handler="ByType" asp-route-type="@Bracelet.BraceletTypes.Bangle">Bangles</a>
                                     @*<a class="dropdown-item" asp-page="/Jewellery/BraceletCRUD/AllBracelet" asp-page-handler="ByType" asp-route-type="@Bracelet.BraceletTypes.Panjangla">Panjangla</a>*@
@@ -159,7 +159,9 @@
                                     Rings
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                    <a class="dropdown-item">Types</a>
+                                    <a class="dropdown-item" asp-page="/Jewellery/RingCRUD/AllRings">See rings</a>
+
+                                    <a class="dropdown-item"><b>Types</b></a>
                                     <a class="dropdown-item" asp-page="/Jewellery/RingCRUD/AllRings" asp-page-handler="ByRType" asp-route-type="@Ring.RingTypes.Panjangla">Panjangla</a>
                                     <a class="dropdown-item" asp-page="/Jewellery/RingCRUD/AllRings" asp-page-handler="ByRType" asp-route-type="@Ring.RingTypes.DoubleRings">DoubleRings</a>
                                     <a class="dropdown-item" asp-page="/Jewellery/RingCRUD/AllRings" asp-page-handler="ByRType" asp-route-type="@Ring.RingTypes.SilverRings">SilverRings</a>
@@ -171,7 +173,9 @@
                                     Head Jewellery
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                    <a class="dropdown-item">Types</a>
+                                    <a class="dropdown-item" asp-page="/Jewellery/HeadJewelleryCRUD/AllHeadJew">See head jewelleries</a>
+
+                                    <a class="dropdown-item"><b>Types</b></a>
                                     <a class="dropdown-item" asp-page="/Jewellery/HeadJewelleryCRUD/AllHeadJew" asp-page-handler="ByHType" asp-route-type="@HeadJewelry.HeadJewelryTypes.Bindi">Bindi</a>
                                     <a class="dropdown-item" asp-page="/Jewellery/HeadJewelleryCRUD/AllHeadJew" asp-page-handler="ByHType" asp-route-type="@HeadJewelry.HeadJewelryTypes.MathaPatti">MathaPatti</a>
                                     <a class="dropdown-item" asp-page="/Jewellery/HeadJewelleryCRUD/AllHeadJew" asp-page-handler="ByHType" asp-route-type="@HeadJewelry.HeadJewelryTypes.Jhoomar">Jhoomar</a>

@@ -7,90 +7,104 @@
 <br />
 <br />
 
+@* SORT AND FILTER PRICE *@
 <div class="container">
     <div class="row">
-        <div class="col-6">
-            <table class="table table-bordered table-hover" width="40%">
-                <thead>
-                <tr class="btn-secondary active">
-                    <th>
-                        <div class="d-flex justify-content-between p-0">
-                            <div>
-                                <h6>Price </h6>
-                            </div>
-                            <div>
-                                <a data-toggle="tooltip" title="Sort By Price" asp-page-handler="SortByPrice"><i class="fa fa-angle-up text-white"></i></a>
-                                <a data-toggle="tooltip" title="Sort By Price Descending" asp-page-handler="SortByPriceDescending"><i class="fa fa-angle-down text-white"></i></a>
-                            </div>
-                        </div>
-                    </th>
-                </tr>
-                </thead>
-            </table>
+        <div class="col-4 text-white"><h5>Filter Price</h5></div>
+        <div class="col-4"></div>
+    </div>
+    <div class="row">
+        <div class="col-5">
+            <form method="post" class="form-inline">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Min</span>
+                    </div>
+                    <input asp-for="@Model.MinPri" class="form-control mr-1" />
+
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Max</span>
+                    </div>
+                    <input asp-for="@Model.MaxPri" class="form-control mr-1" />
+                    <input type="submit" asp-page-handler="PriceFilter" value="Filter" class="btn btn-primary" />
+                </div>
+            </form>
         </div>
     </div>
 </div>
-
-<div class="d-flex justify-content-between p-0">
-    <form method="post" class="form-inline">
-        <div class="input-group mb-3">
-            <div class="input-group-prepend">
-                <span class="input-group-text">Min</span>
-            </div>
-            <input @*asp-for="@Model.MinPri"*@ class="form-control mr-1" />
-
-            <div class="input-group-prepend">
-                <span class="input-group-text">Max</span>
-            </div>
-            <input @*asp-for="@Model.MaxPri"*@ class="form-control mr-1" />
-            <input type="submit" asp-page-handler="PriceFilter" value="Filter" class="btn btn-primary" />
-
-
-            <<main>
-                <div class="card-columns">
-                    @foreach (var jew in Model.Jewelries)
-                    {
-                        <div class="card">
-                            <div class="card-img" height="600">
-                                <img src="~/images/@jew.ImageLink" class="img-fluid w-100" />
-                            </div>
-
-                            <div class="card-body">
-                                <h6 class="card-title p-3">
-                                    @jew.JewelryTitle
-                                </h6>
-                                @if (jew.Description.Length < 30)
-                                {
-
-                                    <h6 class="card-Description">
-                                        @jew.Description
-                                    </h6>
-                                }
-                                else
-                                {
-
-                                    <h6 class="card-Description">
-                                        @jew.Description.Substring(0, 30)...
-                                    </h6>
-                                }
-
-                            </div>
-
-
-
-                            <div class="">
-                                <a class="btn" asp-page="/Jewellery/ProductDetail" asp-route-id="@jew.JewelryID">Details </a>
-                                <a class="btn" asp-page="/Order/AddToCart" asp-route-id="@jew.JewelryID"><i class="fa fa-shopping-cart"></i></a>
-
-                            </div>
-                        </div>
-
-                    }
+<div class="container">
+    <table class="table table-bordered table-hover table-striped" width="60%" style="background-color: #007bff;">
+        <col style="width: 90%">
+        <col style="width: 10%">
+        <col style="width: 0%">
+        <col style="width: 0%">
+        <thead>
+        <tr class="btn-secondary active" style="background-color:#007bff;">
+            <th style="background-color:#007bff;">
+                <div class="d-flex justify-content-between p-2">
+                    <div>
+                        <h5 class="text-white">Price</h5>
+                    </div>
+                    <div>
+                        <a data-toggle="tooltip" title="Sort By Price" asp-page-handler="SortByPrice"><i class="fa fa-angle-up text-white"></i></a>
+                        <a data-toggle="tooltip" title="Sort By Price Descending" asp-page-handler="SortByPriceDesc"><i class="fa fa-angle-down text-white"></i></a>
+                    </div>
                 </div>
-            </main>
-        </div>
-    </form>
+            </th>
+        </tr>
+        </thead>
+    </table>
 </div>
 
-               
-         
+<tbody>
+    @* CARDS - JEWELRY SHOWN *@
+    <div class="d-flex justify-content-between p-0">
+        <<main>
+            <div class="card-columns">
+                @foreach (var jew in Model.Jewelries)
+                {
+                    <div class="card">
+                        <div class="card-img" height="600">
+                            <img src="~/images/@jew.ImageLink" class="img-fluid w-100" />
+                        </div>
+
+                        <div class="card-body">
+                            <h6 class="card-title p-3">
+                                @jew.JewelryTitle
+                            </h6>
+                            @if (jew.Description.Length < 30)
+                            {
+
+                                <h6 class="card-Description">
+                                    @jew.Description
+                                </h6>
+                            }
+                            else
+                            {
+
+                                <h6 class="card-Description">
+                                    @jew.Description.Substring(0, 30)...
+                                </h6>
+                            }
+                        <p>@jew.Price DKK</p>
+                        </div>
+
+
+
+                        <div class="">
+                            <a class="btn" asp-page="/Jewellery/ProductDetail" asp-route-id="@jew.JewelryID">Details </a>
+                            <a class="btn" asp-page="/Order/AddToCart" asp-route-id="@jew.JewelryID" style="background-color: #007bff"><i class="fa fa-shopping-cart"></i></a>
+
+                        </div>
+                    </div>
+
+                }
+            </div>
+        </main>
+    </div>
+</tbody>
+
+
+
+
+

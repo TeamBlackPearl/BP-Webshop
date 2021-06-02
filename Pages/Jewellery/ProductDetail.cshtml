@@ -26,11 +26,11 @@
                 <h2>@jewelry.JewelryTitle</h2>
 
                
-                <h5>@jewelry.Description</h5>
+                <h5>Details: @jewelry.Description</h5>
 
                 
                 
-                <h5>@jewelry.Color</h5>
+                <h5>Color: @jewelry.Color</h5>
                
                 
                 <div>
@@ -38,17 +38,11 @@
                     <h4>@jewelry.Price DKK</h4>
                 </div>
 
-
-               
-                
                 <div>
-                    <a class="btn" asp-page="/Order/AddToCart" asp-route-id="@jewelry.JewelryID"><i class="fa fa-shopping-cart"></i></a>
-
+                    <p>Add to cart</p>
+                    <a class="btn" asp-page="/Order/AddToCart" asp-route-id="@jewelry.JewelryID" style="background-color: #007bff"><i class="fa fa-shopping-cart"></i></a>
                 </div>
 
-               
-                
-                
                 <h5>AverageRating</h5>
                 <div class="rating">
                     <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
