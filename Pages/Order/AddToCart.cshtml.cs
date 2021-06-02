@@ -16,13 +16,10 @@ namespace BP_Webshop.Pages.Orders
         public OrderLineService OrderLineService;
         public UserService UserService;
 
-        [BindProperty]
         public Jewelry Jewelry { get; set; }
-        [BindProperty]
         public OrderLine OrderLine { get; set; }
-        [BindProperty]
         public Models.Order Order { get; set; }
-        [BindProperty] public User User { get; set; }
+        public User User { get; set; }
         [BindProperty] public int Count { get; set; }
         [BindProperty] public double Tax { get; set; }
 
@@ -54,7 +51,6 @@ namespace BP_Webshop.Pages.Orders
             OrderLine.OrderId = Order.OrderId;
             OrderLine.ProductCount = Count;
             Order.Tax = Tax;
-            //Order.T= OrderService.TotalPriceWithoutTax() * (1 + ((decimal)Tax / 100));
             await OrderLineService.AddToCart(id);
             return RedirectToPage("/Jewellery/AllJewelries");
         }
