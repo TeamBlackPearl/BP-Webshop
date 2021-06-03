@@ -15,6 +15,7 @@ namespace BP_Webshop.Models
         public int OrderLineId { get; set; }
         public int OrderId { get; set; }
         public Order Order { get; set; }
+
         public int JewelryId { get; set; }
         public Jewelry Jewelry { get; set; }
         public int ProductCount { get; set; }

@@ -24,28 +24,28 @@ namespace BP_Webshop.Services
             return OrderLineList;
         }
 
-        public async Task AddToCart(int id)
+        public async Task AddToCart(OrderLine orderLine)
         {
-            OrderLine orderLine = new OrderLine(id);
-            if (OrderLineList.Contains(orderLine))
-            {
-                foreach (var line in OrderLineList)
-                {
-                    if (line.Equals(orderLine))
-                    {
-                        line.ProductCount++;
-                        return;
-                    }
-                }
+            //OrderLine orderLine = new OrderLine(id);
+            //if (OrderLineList.Contains(orderLine))
+            //{
+            //    foreach (var line in OrderLineList)
+            //    {
+            //        if (line.Equals(orderLine))
+            //        {
+            //            line.ProductCount++;
+            //            return;
+            //        }
+            //    }
 
-                //await DbService.UpdateObjectAsync(orderLine);
-            }
-            else
-            {
-                orderLine.ProductCount = 1;
-                OrderLineList.Add(orderLine);
-            }
-                await DbService.AddObjectAsync(orderLine);
+            //    //await DbService.UpdateObjectAsync(orderLine);
+            //}
+            //else
+            //{
+            //    orderLine.ProductCount = 1;
+            //    OrderLineList.Add(orderLine);
+            //}
+            await DbService.AddObjectAsync(orderLine);
         }
 
         public async Task DeleteOrderLine(int id)

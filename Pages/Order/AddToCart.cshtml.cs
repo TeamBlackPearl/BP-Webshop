@@ -49,12 +49,13 @@ namespace BP_Webshop.Pages.Orders
 
             Jewelry = JewelryService.GetJewelry(id);
             User = UserService.GetUserByFirstName(HttpContext.User.Identity.Name);
-            Order.UserId = User.Id;
-            OrderLine.JewelryId = Jewelry.JewelryID;
-            OrderLine.OrderId = Order.OrderId;
+            Order.User = User;
+            OrderLine = new OrderLine();
+            OrderLine.Jewelry = Jewelry;
+            OrderLine.Order = Order;
             OrderLine.ProductCount = Count;
             //Order.Tax = Tax;
-            await OrderLineService.AddToCart(id);
+            await OrderLineService.AddToCart(OrderLine);
             return RedirectToPage("/Jewellery/AllJewelries");
         }
 

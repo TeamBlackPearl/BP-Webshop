@@ -43,6 +43,8 @@ namespace BP_Webshop.Services
             return Jewelries;
         }
 
+
+
         public Jewelry GetJewelry(int id)
         {
             foreach (var jewelry in Jewelries)
