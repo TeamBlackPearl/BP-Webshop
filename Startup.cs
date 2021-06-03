@@ -43,6 +43,8 @@ namespace BP_Webshop
             services.AddSingleton<RingService, RingService>();
             services.AddSingleton<HeadJewService, HeadJewService>();
             services.AddSingleton<JewelryService, JewelryService>();
+            //tilføjet:
+            //services.AddSingleton<UserDBService, UserDBService>();
            
 
 

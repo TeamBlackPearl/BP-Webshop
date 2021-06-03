@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BP_Webshop.Migrations
 {
     [DbContext(typeof(BlackPDbContext))]
-    [Migration("20210522130753_BlDatabase")]
-    partial class BlDatabase
+    [Migration("20210603191340_v4Ba")]
+    partial class v4Ba
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -101,48 +101,25 @@ namespace BP_Webshop.Migrations
                     b.Property<decimal>("DeliveryPrice")
                         .HasColumnType("decimal(18,2)");
 
+                    b.Property<int>("JewelryID")
+                        .HasColumnType("int");
+
                     b.Property<DateTime>("OrderDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<double>("Tax")
-                        .HasColumnType("float");
-
-                    b.Property<decimal>("TotalPrice")
-                        .HasColumnType("decimal(18,2)");
+                    b.Property<int>("ProductCount")
+                        .HasColumnType("int");
 
                     b.Property<int>("UserId")
                         .HasColumnType("int");
 
                     b.HasKey("OrderId");
 
+                    b.HasIndex("JewelryID");
+
                     b.HasIndex("UserId");
 
                     b.ToTable("Orders");
-                });
-
-            modelBuilder.Entity("BP_Webshop.Models.OrderLine", b =>
-                {
-                    b.Property<int>("OrderLineId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("JewelryId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("OrderId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ProductCount")
-                        .HasColumnType("int");
-
-                    b.HasKey("OrderLineId");
-
-                    b.HasIndex("JewelryId");
-
-                    b.HasIndex("OrderId");
-
-                    b.ToTable("OrderLines");
                 });
 
             modelBuilder.Entity("BP_Webshop.Models.User", b =>
@@ -259,32 +236,21 @@ namespace BP_Webshop.Migrations
 
             modelBuilder.Entity("BP_Webshop.Models.Order", b =>
                 {
+                    b.HasOne("BP_Webshop.Models.Jewelry", "Jewelry")
+                        .WithMany()
+                        .HasForeignKey("JewelryID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("BP_Webshop.Models.User", "User")
                         .WithMany("Orders")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("User");
-                });
-
-            modelBuilder.Entity("BP_Webshop.Models.OrderLine", b =>
-                {
-                    b.HasOne("BP_Webshop.Models.Jewelry", "Jewelry")
-                        .WithMany()
-                        .HasForeignKey("JewelryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("BP_Webshop.Models.Order", "Order")
-                        .WithMany()
-                        .HasForeignKey("OrderId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.Navigation("Jewelry");
 
-                    b.Navigation("Order");
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("BP_Webshop.Models.User", b =>

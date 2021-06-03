@@ -10,12 +10,12 @@ namespace BP_Webshop.Services
     {
         public List<OrderLine> OrderLineList { get; set; }
 
-        public GenericCRUDMethods<OrderLine> DbService { get; set; }
+        //public GenericCRUDMethods<OrderLine> DbService { get; set; }
 
         public OrderLineService(GenericCRUDMethods<OrderLine> dbService)
         {
-            DbService = dbService;
-            OrderLineList = DbService.GetObjectsAsync().Result.ToList();
+            //DbService = dbService;
+            //OrderLineList = DbService.GetObjectsAsync().Result.ToList();
 
         }
 
@@ -45,25 +45,27 @@ namespace BP_Webshop.Services
             //    orderLine.ProductCount = 1;
             //    OrderLineList.Add(orderLine);
             //}
-            await DbService.AddObjectAsync(orderLine);
+            //await DbService.AddObjectAsync(orderLine);
         }
 
         public async Task DeleteOrderLine(int id)
         {
-            OrderLine orderLineToDelete = new OrderLine(id);
-            OrderLineList.Remove(orderLineToDelete);
-            await DbService.DeleteObjectAsync(orderLineToDelete);
+            //OrderLine orderLineToDelete = new OrderLine(id);
+            OrderLine orderLineToBeDeleted = OrderLineList.Find(orderLine => orderLine.OrderLineId == id);
+            OrderLineList.Remove(orderLineToBeDeleted);
+            //await DbService.DeleteObjectAsync(orderLineToBeDeleted);
         }
 
-        public async Task ChangeProductCount(int jewelryId, int productCount)
+        public async Task ChangeProductCount(int Id, int productCount)
         {
             if (productCount == 0)
             {
-                await DeleteOrderLine(jewelryId);
+                //await DeleteOrderLine(Id);
                 return;
             }
 
-            OrderLine updateOrderLine = new OrderLine(jewelryId);
+            //OrderLine updateOrderLine = new OrderLine(jewelryId);
+            OrderLine updateOrderLine = OrderLineList.Find(orderLine => orderLine.OrderLineId == Id);
             foreach (var orderLine in OrderLineList)
             {
                 if (orderLine.Equals(updateOrderLine))
@@ -73,7 +75,7 @@ namespace BP_Webshop.Services
                 }
             }
 
-            await DbService.UpdateObjectAsync(updateOrderLine);
+            //await DbService.UpdateObjectAsync(updateOrderLine);
         }
 
         

@@ -11,6 +11,7 @@ namespace BP_Webshop.Services
         //Liste med users
         public List<User> UsersList { get; set; }
         public GenericCRUDMethods<User> DbService { get; set; }
+        //public UserDBService DbUserService { get; set; }
 
         private AdminService _adminService;
 
@@ -58,6 +59,11 @@ namespace BP_Webshop.Services
         public User GetUserByFirstName(string firstName)
         {
             return UsersList.Find(user => user.FirstName == firstName);
+        }
+
+        public async Task<User> GetOrdersByUser(User user)
+        {
+            return DbService.GetOrdersByIdAsync(user.Id).Result;
         }
     }
 }
