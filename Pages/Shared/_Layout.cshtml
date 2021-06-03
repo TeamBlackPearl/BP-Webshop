@@ -55,9 +55,14 @@
                         <a asp-area="" asp-page="/Account/LogIn" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Log in</a>
                     </div>
                 }
-            <div class="p-2">
-                <a asp-area="" asp-page="/Account/CreateUser" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Create user</a>
-            </div>
+                <div class="p-2">
+                    <a asp-area="" asp-page="/Account/CreateUser" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Create user</a>
+                </div>
+                @* TILFØJET: 
+                    ORDRENE HERI: *@
+                <div class="p-2">
+                    <a asp-area="" asp-page="/Order/MyOrders">My Orders</a>
+                </div>
             </div>
             @* FLEX ROW REVERSE END *@
 

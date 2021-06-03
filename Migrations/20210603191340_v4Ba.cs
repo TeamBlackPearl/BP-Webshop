@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace BP_Webshop.Migrations
 {
-    public partial class Createdb : Migration
+    public partial class v4Ba : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -13,10 +13,11 @@ namespace BP_Webshop.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Username = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    FirstName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    LastName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Password = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    FirstName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    LastName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Role = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Password = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -29,21 +30,26 @@ namespace BP_Webshop.Migrations
                 {
                     JewelryID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    JewelryTitle = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Color = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    JewelryTitle = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Color = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     AverageRating = table.Column<double>(type: "float", nullable: false),
                     ImageLink = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Discriminator = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     BraceletLength = table.Column<double>(type: "float", nullable: true),
                     BraceletWidth = table.Column<double>(type: "float", nullable: true),
+                    BraceletType = table.Column<int>(type: "int", nullable: true),
                     EarringLength = table.Column<double>(type: "float", nullable: true),
+                    EarringType = table.Column<int>(type: "int", nullable: true),
                     HeadJewelrySize = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    HeadJewType = table.Column<int>(type: "int", nullable: true),
                     NecklaceLength = table.Column<double>(type: "float", nullable: true),
                     NecklaceWidth = table.Column<double>(type: "float", nullable: true),
+                    NecklaceType = table.Column<int>(type: "int", nullable: true),
                     RingSize = table.Column<int>(type: "int", nullable: true),
-                    RingWidth = table.Column<double>(type: "float", nullable: true)
+                    RingWidth = table.Column<double>(type: "float", nullable: true),
+                    RingType = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -56,12 +62,13 @@ namespace BP_Webshop.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Email = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Address = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    PhoneNumber = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    FirstName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    LastName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Password = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    PhoneNumber = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    FirstName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    LastName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Role = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Password = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -75,62 +82,37 @@ namespace BP_Webshop.Migrations
                     OrderId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     OrderDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Id1 = table.Column<int>(type: "int", nullable: true),
+                    UserId = table.Column<int>(type: "int", nullable: false),
                     DeliveryPrice = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    TotalPrice = table.Column<decimal>(type: "decimal(18,2)", nullable: false)
+                    JewelryID = table.Column<int>(type: "int", nullable: false),
+                    ProductCount = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Orders", x => x.OrderId);
                     table.ForeignKey(
-                        name: "FK_Orders_Users_Id1",
-                        column: x => x.Id1,
-                        principalTable: "Users",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "OrderLines",
-                columns: table => new
-                {
-                    OrderLineId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    OrderId1 = table.Column<int>(type: "int", nullable: true),
-                    JewelryID = table.Column<int>(type: "int", nullable: true),
-                    ProductCount = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_OrderLines", x => x.OrderLineId);
-                    table.ForeignKey(
-                        name: "FK_OrderLines_Jewelries_JewelryID",
+                        name: "FK_Orders_Jewelries_JewelryID",
                         column: x => x.JewelryID,
                         principalTable: "Jewelries",
                         principalColumn: "JewelryID",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_OrderLines_Orders_OrderId1",
-                        column: x => x.OrderId1,
-                        principalTable: "Orders",
-                        principalColumn: "OrderId",
-                        onDelete: ReferentialAction.Restrict);
+                        name: "FK_Orders_Users_UserId",
+                        column: x => x.UserId,
+                        principalTable: "Users",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_OrderLines_JewelryID",
-                table: "OrderLines",
+                name: "IX_Orders_JewelryID",
+                table: "Orders",
                 column: "JewelryID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_OrderLines_OrderId1",
-                table: "OrderLines",
-                column: "OrderId1");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Orders_Id1",
+                name: "IX_Orders_UserId",
                 table: "Orders",
-                column: "Id1");
+                column: "UserId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -139,13 +121,10 @@ namespace BP_Webshop.Migrations
                 name: "AdminUsers");
 
             migrationBuilder.DropTable(
-                name: "OrderLines");
+                name: "Orders");
 
             migrationBuilder.DropTable(
                 name: "Jewelries");
-
-            migrationBuilder.DropTable(
-                name: "Orders");
 
             migrationBuilder.DropTable(
                 name: "Users");

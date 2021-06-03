@@ -1,0 +1,55 @@
+﻿@page
+@model BP_Webshop.Pages.Order.MyOrdersModel
+@{
+}
+
+<br />
+<h1>Orders for Jewelleries</h1>
+<br />
+<div class="test">
+<table class="table table-bordered table-hover table-striped" width="60%">
+<thead>
+<tr class="btn-secondary active">
+    <th>Order ID</th>
+    <th>Order Date</th>
+    <th>Jew Id</th>
+    <th>Item Name</th>
+    <th>Item Price</th>
+    <th>Count</th>
+    <th>Total Order Price</th>
+</tr>
+</thead>
+<tbody>
+@if (@Model.MyOrders != null)
+{
+    foreach (var o in Model.MyOrders)
+    {
+        <tr class="btn-secondary">
+            <td>
+                @o.OrderId
+            </td>
+            <td>
+                @o.OrderDate
+            </td>
+
+            <td>
+                @o.JewelryID
+            </td>
+            <td>
+                @o.Jewelry.JewelryTitle
+            </td>
+            <td>
+                @o.Jewelry.Price
+            </td>
+            <td>
+                @o.ProductCount
+            </td>
+            <td>
+                @(o.ProductCount * o.Jewelry.Price)
+            </td>
+        </tr>
+    }
+}
+</tbody>
+</table>
+</div>
