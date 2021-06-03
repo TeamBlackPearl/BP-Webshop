@@ -55,5 +55,9 @@ namespace BP_Webshop.Services
             return allUserTypes;
         }
 
+        public User GetUserByFirstName(string firstName)
+        {
+            return UsersList.Find(user => user.FirstName == firstName);
+        }
     }
 }

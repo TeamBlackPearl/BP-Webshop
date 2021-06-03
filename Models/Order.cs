@@ -17,7 +17,7 @@ namespace BP_Webshop.Models
         public int UserId { get; set; }
         public virtual User User { get; set; }
         public decimal DeliveryPrice { get; set; }
-        public double Tax { get; set; }
+        //public double Tax { get; set; }
         //public decimal TotalPrice { get; set; }
 
         public Order()
@@ -30,8 +30,6 @@ namespace BP_Webshop.Models
             OrderId = orderId;
             OrderDate = DateTime.Now;
             UserId = userId;
-            Tax = 25;
-            DeliveryPrice = 45;
         }
     }
 }
