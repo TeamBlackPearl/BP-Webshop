@@ -37,14 +37,15 @@ namespace BP_Webshop.Services
                         return;
                     }
                 }
+
+                //await DbService.UpdateObjectAsync(orderLine);
             }
             else
             {
                 orderLine.ProductCount = 1;
                 OrderLineList.Add(orderLine);
-                await DbService.AddObjectAsync(orderLine);
             }
-
+                await DbService.AddObjectAsync(orderLine);
         }
 
         public async Task DeleteOrderLine(int id)

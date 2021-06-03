@@ -9,8 +9,7 @@ namespace BP_Webshop.Pages.Order
 {
     public class CartModel : PageModel
     {
-
-
+        
         public void OnGet()
         {
         }

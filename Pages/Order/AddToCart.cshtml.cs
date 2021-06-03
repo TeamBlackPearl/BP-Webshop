@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 using BP_Webshop.Models;
 using BP_Webshop.Services;
@@ -18,7 +19,7 @@ namespace BP_Webshop.Pages.Orders
 
         public Jewelry Jewelry { get; set; }
         public OrderLine OrderLine { get; set; }
-        public Models.Order Order { get; set; }
+        [BindProperty] public Models.Order Order { get; set; }
         public User User { get; set; }
         [BindProperty] public int Count { get; set; }
         [BindProperty] public double Tax { get; set; }
@@ -35,6 +36,7 @@ namespace BP_Webshop.Pages.Orders
         {
             Jewelry = JewelryService.GetJewelry(id);
             Order = OrderService.GetOrder(id);
+            User = UserService.GetUserByFirstName(HttpContext.User.Identity.Name);
             return Page();
         }
 
@@ -46,11 +48,12 @@ namespace BP_Webshop.Pages.Orders
             }
 
             Jewelry = JewelryService.GetJewelry(id);
+            User = UserService.GetUserByFirstName(HttpContext.User.Identity.Name);
             Order.UserId = User.Id;
             OrderLine.JewelryId = Jewelry.JewelryID;
             OrderLine.OrderId = Order.OrderId;
             OrderLine.ProductCount = Count;
-            Order.Tax = Tax;
+            //Order.Tax = Tax;
             await OrderLineService.AddToCart(id);
             return RedirectToPage("/Jewellery/AllJewelries");
         }

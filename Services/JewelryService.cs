@@ -24,6 +24,8 @@ namespace BP_Webshop.Services
             this.earringService = earringService;
             this.headJewService = headJewService;
             this.ringService = ringService;
+            GetAllJewelries();
+
         }
 
         public List<Jewelry> GetAllJewelries()
