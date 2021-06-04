@@ -6,7 +6,6 @@
 
 <div class="row">
     <div class="column left" style="background-color:whitesmoke;" style="color: silver">
-
         @foreach (var jewelry in Model.jewelries)
         {
             if (jewelry.ImageLink == Model.Jewelry.ImageLink)
@@ -16,7 +15,6 @@
                 </div>
             }
         }
-
     </div>
     <div class="column right" style="background-color:whitesmoke;" style="color: silver">
         @foreach (var jewelry in Model.jewelries)
@@ -24,30 +22,24 @@
             if (jewelry.JewelryID == Model.Jewelry.JewelryID)
             {
                 <h2>@jewelry.JewelryTitle</h2>
-
-               
+                <br/>
                 <h5>Details: @jewelry.Description</h5>
-
-                
-                
                 <h5>Color: @jewelry.Color</h5>
-               
-                
+                <br/>
+                <br/>
                 <div>
-
                     <h4>@jewelry.Price DKK</h4>
                 </div>
-
                 <div>
                     <p>Add to cart</p>
                     <a class="btn" asp-page="/Order/AddToCart" asp-route-id="@jewelry.JewelryID" style="background-color: #007bff"><i class="fa fa-shopping-cart"></i></a>
                 </div>
-
                 <h5>AverageRating</h5>
                 <div class="rating">
                     <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
                 </div>
 
+                <a class="btn btn-primary bg-primary" asp-page="/Jewellery/AllJewelries">Back</a>
 
             }
         }
