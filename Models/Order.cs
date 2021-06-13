@@ -14,13 +14,16 @@ namespace BP_Webshop.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int OrderId { get; set; }
         public DateTime OrderDate { get; set; }
+        [Required]
         public int UserId { get; set; }
-        public virtual User User { get; set; }
-        public decimal DeliveryPrice { get; set; }
+        public User User { get; set; }
+       // public decimal DeliveryPrice { get; set; }
 
         //tilføjet: Jew ID
+        [Required]
         public int JewelryID { get; set; }
         //tilføjet: Jew
+        //Navigation Property
         public Jewelry Jewelry { get; set; }
         //tilføjet: ProductCount
         public int ProductCount { get; set; }
@@ -33,12 +36,11 @@ namespace BP_Webshop.Models
             
         }
 
-        public Order(int orderId, int userId, int productCount)
+        public Order(User user, Jewelry jewelry)
         {
-            OrderId = orderId;
             OrderDate = DateTime.Now;
-            UserId = userId;
-            ProductCount = productCount;
+            User = user;
+            Jewelry = jewelry;
         }
     }
 }

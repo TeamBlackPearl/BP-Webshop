@@ -46,7 +46,7 @@ namespace BP_Webshop.Services
             return null;
         }
 
-        public async Task AddOrderAsync(Order order)
+        public async void AddOrder(Order order)
         {
             //if (OrderLineService.OrderLineList.Count > 0)
             //{

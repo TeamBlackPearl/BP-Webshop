@@ -18,9 +18,8 @@ namespace BP_Webshop.Pages.Order
         //To add more than one product:
         //public OrderLineService OrderLineService;
 
-        [BindProperty] public Jewelry Jewelry { get; set; }
+        public Jewelry Jewelry { get; set; }
         public User User { get; set; }
-        //??
         public Models.Order Order { get; set; } = new Models.Order();
         [BindProperty] public int Count { get; set; }
 
@@ -38,22 +37,22 @@ namespace BP_Webshop.Pages.Order
             User = UserService.GetUserByFirstName(HttpContext.User.Identity.Name);
         }
 
-        public async Task<IActionResult> OnPost(int id)
+        public IActionResult OnPost(int id)
         {
-            //if (!ModelState.IsValid)
-            //{
-            //    return Page();
-            //}
+            if (!ModelState.IsValid)
+            {
+                return Page();
+            }
 
             Jewelry = JewelryService.GetJewelry(id);
             User = UserService.GetUserByFirstName(HttpContext.User.Identity.Name);
 
-            Order.User = User;
-            //Order.JewelryID = Jewelry.JewelryID;
-            Order.Jewelry = Jewelry;
+            Order.UserId = User.Id ;
+            Order.JewelryID = Jewelry.JewelryID;
+            //Order.Jewelry = Jewelry;
             Order.OrderDate=DateTime.Now;
             Order.ProductCount = Count;
-            await OrderService.AddOrderAsync(Order);
+            OrderService.AddOrder(Order);
             return RedirectToPage("/Jewellery/AllJewelries");
 
         }
