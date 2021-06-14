@@ -17,7 +17,7 @@ namespace BP_Webshop.Models
 
         [Required(ErrorMessage = "Size is required")]
         public int RingSize { get; set; }
-        //optional
+        
         public double RingWidth { get; set; }
         public RingTypes RingType { get; set; }
 
